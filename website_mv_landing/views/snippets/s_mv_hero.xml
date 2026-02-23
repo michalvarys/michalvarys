@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_mv_hero" name="MV Hero">
+        <section class="mv-hero o_cc o_cc1 o_colored_level" style="color: #fff;" data-snippet="s_mv_hero" data-name="MV Hero">
+            <div class="mv-container">
+                <div class="mv-fade-up">
+                    <span class="mv-badge mv-badge--gradient mv-hero__eyebrow">Limitovaná nabídka 2026</span>
+                    <h1>
+                        Váš web <span class="mv-text-gradient">neprodává?</span><br/>
+                        To změníme.
+                    </h1>
+                    <p class="mv-hero__sub">
+                        Tvořím weby, které přitahují zákazníky a generují tržby. Žádné
+                        šablony. Žádné kompromisy. Pouze výsledky.
+                    </p>
+                    <a href="#mv-kontakt" class="mv-btn mv-btn--primary mv-btn--large">Chci nezávaznou konzultaci</a>
+                </div>
+                <div class="mv-hero__stats mv-fade-up">
+                    <div>
+                        <div class="mv-hero__stat-number">18+</div>
+                        <div class="mv-hero__stat-label">Let v programování</div>
+                    </div>
+                    <div>
+                        <div class="mv-hero__stat-number">7+</div>
+                        <div class="mv-hero__stat-label">Let v designu</div>
+                    </div>
+                    <div>
+                        <div class="mv-hero__stat-number">5+</div>
+                        <div class="mv-hero__stat-label">Let v AI</div>
+                    </div>
+                    <div>
+                        <div class="mv-hero__stat-number">50+</div>
+                        <div class="mv-hero__stat-label">Dokončených projektů</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>

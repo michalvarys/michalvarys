@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="180" viewBox="0 0 300 180">
+  <defs>
+    <linearGradient id="pg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6699FF"/>
+      <stop offset="100%" stop-color="#FF3366"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="180" fill="#000"/>
+  <!-- Badge -->
+  <rect x="120" y="12" width="60" height="14" rx="7" stroke="#933df5" stroke-width="1" fill="none"/>
+  <!-- Title -->
+  <rect x="50" y="38" width="200" height="12" rx="3" fill="#fff"/>
+  <rect x="70" y="54" width="160" height="12" rx="3" fill="url(#pg)"/>
+  <!-- 3 cards -->
+  <rect x="10" y="80" width="86" height="90" rx="8" fill="#111" stroke="#ffffff" stroke-opacity="0.06" stroke-width="1"/>
+  <rect x="107" y="80" width="86" height="90" rx="8" fill="#111" stroke="#ffffff" stroke-opacity="0.06" stroke-width="1"/>
+  <rect x="204" y="80" width="86" height="90" rx="8" fill="#111" stroke="#ffffff" stroke-opacity="0.06" stroke-width="1"/>
+  <!-- Card icons -->
+  <circle cx="32" cy="100" r="8" fill="rgba(147,61,245,0.15)"/>
+  <circle cx="129" cy="100" r="8" fill="rgba(147,61,245,0.15)"/>
+  <circle cx="226" cy="100" r="8" fill="rgba(147,61,245,0.15)"/>
+  <!-- Card text lines -->
+  <rect x="20" y="118" width="66" height="6" rx="2" fill="#fff" opacity="0.7"/>
+  <rect x="20" y="130" width="56" height="4" rx="1" fill="#888"/>
+  <rect x="20" y="138" width="60" height="4" rx="1" fill="#888"/>
+  <rect x="117" y="118" width="66" height="6" rx="2" fill="#fff" opacity="0.7"/>
+  <rect x="117" y="130" width="56" height="4" rx="1" fill="#888"/>
+  <rect x="117" y="138" width="60" height="4" rx="1" fill="#888"/>
+  <rect x="214" y="118" width="66" height="6" rx="2" fill="#fff" opacity="0.7"/>
+  <rect x="214" y="130" width="56" height="4" rx="1" fill="#888"/>
+  <rect x="214" y="138" width="60" height="4" rx="1" fill="#888"/>
+</svg>

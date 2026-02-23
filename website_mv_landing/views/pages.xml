@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="mv_landing_page" name="Michal Varys Landing">
+        <t t-call="website.layout">
+            <!-- SEO: Page title -->
+            <t t-set="additional_title">Webové stránky na míru | Michal Varys</t>
+
+            <!-- SEO: Meta description -->
+            <t t-set="meta_description">Tvořím weby, které přitahují zákazníky a generují tržby. 18+ let zkušeností, 50+ projektů. Převod webu zdarma. Nezávazná konzultace do 24 hodin.</t>
+
+            <!-- SEO: Open Graph -->
+            <t t-set="opengraph_meta" t-value="{
+                'og:title': 'Váš web neprodává? To změníme. | Michal Varys',
+                'og:description': 'Tvořím weby, které přitahují zákazníky a generují tržby. 18+ let zkušeností, 50+ projektů. Převod stávajícího webu zdarma.',
+                'og:type': 'website',
+                'og:site_name': 'Michal Varys',
+                'og:locale': 'cs_CZ',
+            }"/>
+
+            <!-- SEO: Twitter Card -->
+            <t t-set="twitter_meta" t-value="{
+                'twitter:card': 'summary_large_image',
+                'twitter:title': 'Váš web neprodává? To změníme. | Michal Varys',
+                'twitter:description': 'Tvořím weby, které přitahují zákazníky a generují tržby. Převod webu zdarma. Konzultace do 24 hodin.',
+            }"/>
+
+            <!-- SEO: JSON-LD Structured Data -->
+            <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Michal Varys - Tvorba webových stránek",
+    "description": "Tvořím weby, které přitahují zákazníky a generují tržby. Moderní webové stránky na míru, e-shopy, správa a údržba.",
+    "url": "https://michalvarys.eu/landing",
+    "email": "info@michalvarys.eu",
+    "founder": {
+        "@type": "Person",
+        "name": "Michal Varys"
+    },
+    "areaServed": {
+        "@type": "Country",
+        "name": "CZ"
+    },
+    "serviceType": ["Tvorba webových stránek", "E-shop", "SEO", "Správa webů"],
+    "knowsLanguage": ["cs", "en", "sk"],
+    "priceRange": "$$",
+    "offers": {
+        "@type": "Offer",
+        "name": "Převod stávajícího webu zdarma",
+        "price": "0",
+        "priceCurrency": "CZK",
+        "description": "Bezplatný převod vašeho stávajícího webu na moderní platformu."
+    },
+    "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "50"
+    }
+}</script>
+
+            <!-- SEO: FAQ Structured Data -->
+            <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Jak dlouho trvá vytvoření webu?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Standardní web je hotový za 2–4 týdny. Záleží na rozsahu projektu a rychlosti dodání podkladů z vaší strany."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Mohu si web spravovat sám?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Samozřejmě. Všechny weby stavím na intuitivním systému, kde zvládnete úpravy i bez znalosti programování. Navíc vás proškolím."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Co znamená převod webu zdarma?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Pokud máte stávající web, převedu ho na náš moderní systém zcela zdarma. Uvidíte rozdíl ve výkonu, rychlosti a možnostech správy."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Jaké technologie používáte?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Pracuji s moderním tech stackem — fullstack Node.js, React, nebo Python. Každý web je postavený na spolehlivé a škálovatelné platformě."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Potřebuji hosting?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Hosting není potřeba. Rád vám vše zařídím."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Nabízíte i správu a údržbu po spuštění?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ano. Nabízím měsíční balíčky správy, kde se o vše postarám — aktualizace, bezpečnost, obsah a analytiku."
+            }
+        }
+    ]
+}</script>
+
+            <div id="wrap">
+                <!-- Pre-filled landing sections -->
+                <t t-call="website_mv_landing.s_mv_hero"/>
+                <t t-call="website_mv_landing.s_mv_trust_bar"/>
+                <t t-call="website_mv_landing.s_mv_problem"/>
+                <t t-call="website_mv_landing.s_mv_anchor"/>
+                <t t-call="website_mv_landing.s_mv_offer"/>
+                <t t-call="website_mv_landing.s_mv_irresistible"/>
+                <t t-call="website_mv_landing.s_mv_testimonials"/>
+                <t t-call="website_mv_landing.s_mv_process"/>
+                <t t-call="website_mv_landing.s_mv_faq"/>
+                <t t-call="website_mv_landing.s_mv_contact_form"/>
+
+                <!-- Editable drop zone - users can add extra blocks before footer -->
+                <div id="mv_landing_extra" class="oe_structure oe_empty"/>
+
+                <t t-call="website_mv_landing.s_mv_footer"/>
+                <t t-call="website_mv_landing.s_mv_sticky_cta"/>
+            </div>
+        </t>
+    </template>
+
+    <!-- Register the page with SEO fields -->
+    <record id="mv_landing_page_record" model="website.page">
+        <field name="name">Landing Page</field>
+        <field name="url">/landing</field>
+        <field name="view_id" ref="mv_landing_page"/>
+        <field name="is_published" eval="True"/>
+        <field name="website_indexed" eval="True"/>
+        <field name="website_meta_title">Webové stránky na míru | Michal Varys – Tvorba webů, e-shopů a online řešení</field>
+        <field name="website_meta_description">Tvořím weby, které přitahují zákazníky a generují tržby. 18+ let zkušeností v programování, 50+ dokončených projektů. Převod stávajícího webu zdarma. Nezávazná konzultace do 24 hodin.</field>
+        <field name="website_meta_keywords">tvorba webů, webové stránky na míru, e-shop, Michal Varys, SEO, web design, převod webu, moderní web</field>
+    </record>
+
+</odoo>

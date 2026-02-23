@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_mv_trust_bar" name="MV Trust Bar">
+        <section class="mv-trust-bar o_cc o_cc1 o_colored_level" style="color: #fff;" data-snippet="s_mv_trust_bar" data-name="MV Trust Bar">
+            <div class="mv-container mv-text-center">
+                <div class="mv-trust-bar__label">Důvěřují mi značky jako</div>
+                <div class="mv-trust-bar__logos">
+                    <span>GOAT</span>
+                    <span>Garant</span>
+                    <span>Koniv</span>
+                    <span>Gelato!</span>
+                    <span>Hotel Arena</span>
+                    <span>Senti Square</span>
+                    <span>Sidonio</span>
+                    <span>Grand Casino</span>
+                    <span>Royal Hotel</span>
+                    <span>Spendee</span>
+                    <span>S9Y</span>
+                    <span>TechMates</span>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="mv_landing_snippets" name="MV Landing Snippets"
+              inherit_id="website.snippets">
+        <xpath expr="//snippets[@id='snippet_structure']" position="after">
+            <snippets id="mv_landing_snippet_group" string="MV Landing">
+                <t t-snippet="website_mv_landing.s_mv_hero"
+                   t-thumbnail="/website_mv_landing/static/src/img/snippets/s_mv_hero.svg"/>
+                <t t-snippet="website_mv_landing.s_mv_trust_bar"
+                   t-thumbnail="/website_mv_landing/static/src/img/snippets/s_mv_trust_bar.svg"/>
+                <t t-snippet="website_mv_landing.s_mv_problem"
+                   t-thumbnail="/website_mv_landing/static/src/img/snippets/s_mv_problem.svg"/>
+                <t t-snippet="website_mv_landing.s_mv_anchor"
+                   t-thumbnail="/website_mv_landing/static/src/img/snippets/s_mv_anchor.svg"/>
+                <t t-snippet="website_mv_landing.s_mv_offer"
+                   t-thumbnail="/website_mv_landing/static/src/img/snippets/s_mv_offer.svg"/>
+                <t t-snippet="website_mv_landing.s_mv_irresistible"
+                   t-thumbnail="/website_mv_landing/static/src/img/snippets/s_mv_irresistible.svg"/>
+                <t t-snippet="website_mv_landing.s_mv_testimonials"
+                   t-thumbnail="/website_mv_landing/static/src/img/snippets/s_mv_testimonials.svg"/>
+                <t t-snippet="website_mv_landing.s_mv_process"
+                   t-thumbnail="/website_mv_landing/static/src/img/snippets/s_mv_process.svg"/>
+                <t t-snippet="website_mv_landing.s_mv_faq"
+                   t-thumbnail="/website_mv_landing/static/src/img/snippets/s_mv_faq.svg"/>
+                <t t-snippet="website_mv_landing.s_mv_contact_form"
+                   t-thumbnail="/website_mv_landing/static/src/img/snippets/s_mv_contact_form.svg"/>
+                <t t-snippet="website_mv_landing.s_mv_footer"
+                   t-thumbnail="/website_mv_landing/static/src/img/snippets/s_mv_footer.svg"/>
+                <t t-snippet="website_mv_landing.s_mv_sticky_cta"
+                   t-thumbnail="/website_mv_landing/static/src/img/snippets/s_mv_sticky_cta.svg"/>
+            </snippets>
+        </xpath>
+    </template>
+
+</odoo>

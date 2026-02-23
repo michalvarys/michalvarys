@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_mv_process" name="MV Process">
+        <section class="mv-process o_cc o_cc1 o_colored_level" style="color: #fff;" data-snippet="s_mv_process" data-name="MV Process">
+            <div class="mv-container">
+                <div class="mv-text-center mv-fade-up">
+                    <h2>Jak to <span class="mv-text-gradient">funguje</span></h2>
+                </div>
+                <div class="mv-process__steps mv-fade-up">
+                    <div class="mv-process__step">
+                        <div class="mv-process__step-number">1</div>
+                        <h3>Konzultace</h3>
+                        <p>Probereme vaše cíle, cílovou skupinu a co od webu očekáváte.</p>
+                    </div>
+                    <div class="mv-process__step">
+                        <div class="mv-process__step-number">2</div>
+                        <h3>Návrh &amp; Design</h3>
+                        <p>Vytvořím unikátní design, přesně na míru vaší značce.</p>
+                    </div>
+                    <div class="mv-process__step">
+                        <div class="mv-process__step-number">3</div>
+                        <h3>Vývoj</h3>
+                        <p>Moderní technologie, rychlý, bezpečný a optimalizovaný web.</p>
+                    </div>
+                    <div class="mv-process__step">
+                        <div class="mv-process__step-number">4</div>
+                        <h3>Spuštění</h3>
+                        <p>Web jde do světa. Školení, podpora a měření výsledků.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>

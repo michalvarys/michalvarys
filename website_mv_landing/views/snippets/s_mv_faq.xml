@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_mv_faq" name="MV FAQ">
+        <section class="mv-faq o_cc o_cc1 o_colored_level" style="color: #fff;" data-snippet="s_mv_faq" data-name="MV FAQ">
+            <div class="mv-container">
+                <div class="mv-text-center mv-fade-up">
+                    <h2>Často kladené <span class="mv-text-gradient">otázky</span></h2>
+                </div>
+                <div class="mv-faq__list mv-fade-up">
+                    <div class="mv-faq__item">
+                        <button class="mv-faq__question">Jak dlouho trvá vytvoření webu?</button>
+                        <div class="mv-faq__answer">
+                            <p>Standardní web je hotový za 2–4 týdny. Záleží na rozsahu projektu a rychlosti dodání podkladů z vaší strany.</p>
+                        </div>
+                    </div>
+                    <div class="mv-faq__item">
+                        <button class="mv-faq__question">Mohu si web spravovat sám?</button>
+                        <div class="mv-faq__answer">
+                            <p>Samozřejmě. Všechny weby stavím na intuitivním systému, kde zvládnete úpravy i bez znalosti programování. Navíc vás proškolím.</p>
+                        </div>
+                    </div>
+                    <div class="mv-faq__item">
+                        <button class="mv-faq__question">Co znamená převod webu zdarma?</button>
+                        <div class="mv-faq__answer">
+                            <p>Pokud máte stávající web, převedu ho na náš moderní systém zcela zdarma. Uvidíte rozdíl ve výkonu, rychlosti a možnostech správy. Pak se rozhodnete, zda chcete pokračovat.</p>
+                        </div>
+                    </div>
+                    <div class="mv-faq__item">
+                        <button class="mv-faq__question">Jaké technologie používáte?</button>
+                        <div class="mv-faq__answer">
+                            <p>Pracuji s moderním tech stackem &#x2014; fullstack Node.js, React, nebo Python. Každý web je postavený na spolehlivé a škálovatelné platformě Varyshop pro správu velkých společností.</p>
+                        </div>
+                    </div>
+                    <div class="mv-faq__item">
+                        <button class="mv-faq__question">Potřebuji hosting?</button>
+                        <div class="mv-faq__answer">
+                            <p>Hosting není potřeba. Rád vám vše zařídím.</p>
+                        </div>
+                    </div>
+                    <div class="mv-faq__item">
+                        <button class="mv-faq__question">Mohu mít vlastní hosting?</button>
+                        <div class="mv-faq__answer">
+                            <p>Ano. Podmínkou je pouze aby hosting podporoval spuštění docker containeru (VPS hosting). Výkon pak záleží na velikosti projektu.</p>
+                        </div>
+                    </div>
+                    <div class="mv-faq__item">
+                        <button class="mv-faq__question">Nabízíte i správu a údržbu po spuštění?</button>
+                        <div class="mv-faq__answer">
+                            <p>Ano. Nabízím měsíční balíčky správy, kde se o vše postarám &#x2014; aktualizace, bezpečnost, obsah a analytiku.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>

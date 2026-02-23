@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_mv_contact_form" name="MV Contact Form">
+        <section class="mv-cta-form o_cc o_cc1 o_colored_level" id="mv-kontakt" style="color: #fff;" data-snippet="s_mv_contact_form" data-name="MV Contact Form">
+            <div class="mv-container mv-text-center">
+                <div class="mv-fade-up">
+                    <h2>
+                        Pojďme vytvořit web,<br/>který
+                        <span style="text-decoration: underline; text-decoration-color: rgba(255, 255, 255, 0.3);">skutečně prodává</span>.
+                    </h2>
+                    <p class="mv-cta-form__subtitle">
+                        Zanechte kontakt a ozvu se vám do 24 hodin.
+                    </p>
+                    <form id="mv-contact-form" class="mv-form" action="/mv-landing/contact" method="post">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <input type="text" name="name" placeholder="Vaše jméno *" required="required" minlength="2"/>
+                        <input type="email" name="email" placeholder="Váš e-mail *" required="required"/>
+                        <input type="tel" name="phone" placeholder="Telefon"/>
+                        <input type="text" name="company" placeholder="Firma / Web"/>
+                        <select name="interest" required="required">
+                            <option value="" disabled="disabled" selected="selected">Mám zájem o... *</option>
+                            <option value="novy-web">Nový web na míru</option>
+                            <option value="prevod-webu">Převod stávajícího webu</option>
+                            <option value="eshop">E-shop</option>
+                            <option value="sprava-udrzba">Správa a údržba webu</option>
+                            <option value="seo-marketing">SEO / Online marketing</option>
+                            <option value="jine">Jiné</option>
+                        </select>
+                        <textarea name="message" placeholder="Popište váš projekt nebo potřeby..." rows="3"></textarea>
+                        <button type="submit" class="mv-btn">Odeslat nezávaznou poptávku</button>
+                        <div id="mv-form-message" class="mv-form-message"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>

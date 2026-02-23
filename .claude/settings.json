@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//tmp/**)",
+      "Read(//private/tmp/**)",
+      "Read(//Volumes/ext-msi/projects/webhosting/royalhotel/varyshop/royalhotel/**)",
+      "Bash(find:*)",
+      "Read(//Volumes/ext-msi/projects/webhosting/royalhotel/varyshop/**)",
+      "Bash(grep:*)"
+    ],
+    "additionalDirectories": [
+      "/Volumes/ext-msi/projects/my-projects/michalvarys/website_mv_landing/{controllers,models,views,static/src/{js,scss,img},static"
+    ]
+  }
+}

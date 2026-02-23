@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_mv_irresistible" name="MV Irresistible Offer">
+        <section class="mv-irresistible o_cc o_cc1 o_colored_level" style="color: #fff;" data-snippet="s_mv_irresistible" data-name="MV Irresistible Offer">
+            <div class="mv-container">
+                <div class="mv-fade-up">
+                    <span class="mv-badge mv-badge--gradient">Neodolatelná nabídka</span>
+                    <h2 style="margin-top: 24px;">
+                        Máte starý web?<br/>
+                        <span class="mv-text-gradient">Převedeme ho ZDARMA.</span>
+                    </h2>
+                    <p class="mv-irresistible__subtitle">
+                        Žádný risk. Žádné vstupní náklady. Prostě přeneseme váš stávající
+                        web na náš systém a vy uvidíte rozdíl.
+                    </p>
+                    <div class="mv-irresistible__card">
+                        <h3>Převod stávajícího webu</h3>
+                        <div class="mv-irresistible__highlight">
+                            <span style="text-decoration: line-through; color: #555; font-size: 1.5rem;">15 000 Kč</span>
+                            <br/>
+                            <span class="mv-text-gradient">0 Kč</span>
+                        </div>
+                        <p>
+                            Převedu váš stávající web na moderní systém s AI.<br/>
+                            Uvidíte výsledky. Pak se rozhodnete.
+                        </p>
+                        <a href="#mv-kontakt" class="mv-btn mv-btn--primary mv-btn--large">Chci převod zdarma</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>

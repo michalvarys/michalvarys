@@ -1,0 +1,847 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_mv_landing
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-23 15:30+0000\n"
+"PO-Revision-Date: 2026-02-23 15:30+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_anchor
+msgid "150 000 Kč+"
+msgstr "$10,000+"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_hero
+msgid "18+"
+msgstr "18+"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_hero
+msgid "50+"
+msgstr "50+"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_contact_form
+msgid ""
+"<select name=\"interest\" required=\"required\">\n"
+"                            <option value=\"\" disabled=\"disabled\" selected=\"selected\">Mám zájem o... *</option>\n"
+"                            <option value=\"novy-web\">Nový web na míru</option>\n"
+"                            <option value=\"prevod-webu\">Převod stávajícího webu</option>\n"
+"                            <option value=\"eshop\">E-shop</option>\n"
+"                            <option value=\"sprava-udrzba\">Správa a údržba webu</option>\n"
+"                            <option value=\"seo-marketing\">SEO / Online marketing</option>\n"
+"                            <option value=\"jine\">Jiné</option>\n"
+"                        </select>"
+msgstr ""
+"<select name=\"interest\" required=\"required\">\n"
+"                            <option value=\"\" disabled=\"disabled\" selected=\"selected\">I'm interested in... *</option>\n"
+"                            <option value=\"novy-web\">Custom website</option>\n"
+"                            <option value=\"prevod-webu\">Website migration</option>\n"
+"                            <option value=\"eshop\">E-shop</option>\n"
+"                            <option value=\"sprava-udrzba\">Website management &amp; maintenance</option>\n"
+"                            <option value=\"seo-marketing\">SEO / Online marketing</option>\n"
+"                            <option value=\"jine\">Other</option>\n"
+"                        </select>"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_hero
+msgid ""
+"<span class=\"mv-badge mv-badge--gradient mv-hero__eyebrow\">Limitovaná "
+"nabídka 2026</span>"
+msgstr ""
+"<span class=\"mv-badge mv-badge--gradient mv-hero__eyebrow\">Limited "
+"offer 2026</span>"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_offer
+msgid "<span class=\"mv-badge mv-badge--gradient\">Co získáte</span>"
+msgstr "<span class=\"mv-badge mv-badge--gradient\">What you get</span>"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_irresistible
+msgid "<span class=\"mv-badge mv-badge--gradient\">Neodolatelná nabídka</span>"
+msgstr "<span class=\"mv-badge mv-badge--gradient\">Irresistible offer</span>"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_problem
+msgid "<span class=\"mv-badge mv-badge--outline\">Znáte to?</span>"
+msgstr "<span class=\"mv-badge mv-badge--outline\">Sound familiar?</span>"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_offer
+msgid ""
+"<span class=\"mv-offer__feature-icon\">✓</span>\n"
+"                            AI-powered chatbot"
+msgstr ""
+"<span class=\"mv-offer__feature-icon\">✓</span>\n"
+"                            AI-powered chatbot"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_offer
+msgid ""
+"<span class=\"mv-offer__feature-icon\">✓</span>\n"
+"                            Analytika a měření konverzí"
+msgstr ""
+"<span class=\"mv-offer__feature-icon\">✓</span>\n"
+"                            Analytics &amp; conversion tracking"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_offer
+msgid ""
+"<span class=\"mv-offer__feature-icon\">✓</span>\n"
+"                            E-shop integrace"
+msgstr ""
+"<span class=\"mv-offer__feature-icon\">✓</span>\n"
+"                            E-shop integration"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_offer
+msgid ""
+"<span class=\"mv-offer__feature-icon\">✓</span>\n"
+"                            Moderní responzivní design"
+msgstr ""
+"<span class=\"mv-offer__feature-icon\">✓</span>\n"
+"                            Modern responsive design"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_offer
+msgid ""
+"<span class=\"mv-offer__feature-icon\">✓</span>\n"
+"                            Rychlost pod 2 sekundy"
+msgstr ""
+"<span class=\"mv-offer__feature-icon\">✓</span>\n"
+"                            Load time under 2 seconds"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_offer
+msgid ""
+"<span class=\"mv-offer__feature-icon\">✓</span>\n"
+"                            SEO optimalizace"
+msgstr ""
+"<span class=\"mv-offer__feature-icon\">✓</span>\n"
+"                            SEO optimization"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_offer
+msgid ""
+"<span class=\"mv-offer__feature-icon\">✓</span>\n"
+"                            SSL certifikát zdarma"
+msgstr ""
+"<span class=\"mv-offer__feature-icon\">✓</span>\n"
+"                            Free SSL certificate"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_offer
+msgid ""
+"<span class=\"mv-offer__feature-icon\">✓</span>\n"
+"                            Školení na správu webu"
+msgstr ""
+"<span class=\"mv-offer__feature-icon\">✓</span>\n"
+"                            Website management training"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_sticky_cta
+msgid ""
+"<span class=\"mv-sticky-cta__text\">Převod vašeho webu <strong class=\"mv-"
+"text-gradient\">ZDARMA</strong></span>"
+msgstr ""
+"<span class=\"mv-sticky-cta__text\">Migrate your website <strong class=\"mv-"
+"text-gradient\">FOR FREE</strong></span>"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_anchor
+msgid "<span class=\"mv-text-gradient\">Michal Varys</span>"
+msgstr "<span class=\"mv-text-gradient\">Michal Varys</span>"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_irresistible
+msgid ""
+"<span style=\"text-decoration: line-through; color: #555; font-size: 1.5rem;\">15 000 Kč</span>\n"
+"                            <br/>\n"
+"                            <span class=\"mv-text-gradient\">0 Kč</span>"
+msgstr ""
+"<span style=\"text-decoration: line-through; color: #555; font-size: 1.5rem;\">$1,000</span>\n"
+"                            <br/>\n"
+"                            <span class=\"mv-text-gradient\">$0</span>"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_trust_bar
+msgid ""
+"<span>GOAT</span>\n"
+"                    <span>Garant</span>\n"
+"                    <span>Koniv</span>\n"
+"                    <span>Gelato!</span>\n"
+"                    <span>Hotel Arena</span>\n"
+"                    <span>Senti Square</span>\n"
+"                    <span>Sidonio</span>\n"
+"                    <span>Grand Casino</span>\n"
+"                    <span>Royal Hotel</span>\n"
+"                    <span>Spendee</span>\n"
+"                    <span>S9Y</span>\n"
+"                    <span>TechMates</span>"
+msgstr ""
+"<span>GOAT</span>\n"
+"                    <span>Garant</span>\n"
+"                    <span>Koniv</span>\n"
+"                    <span>Gelato!</span>\n"
+"                    <span>Hotel Arena</span>\n"
+"                    <span>Senti Square</span>\n"
+"                    <span>Sidonio</span>\n"
+"                    <span>Grand Casino</span>\n"
+"                    <span>Royal Hotel</span>\n"
+"                    <span>Spendee</span>\n"
+"                    <span>S9Y</span>\n"
+"                    <span>TechMates</span>"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_faq
+msgid ""
+"Ano. Nabízím měsíční balíčky správy, kde se o vše postarám — aktualizace, "
+"bezpečnost, obsah a analytiku."
+msgstr ""
+"Yes. I offer monthly management packages covering updates, "
+"security, content and analytics."
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_faq
+msgid ""
+"Ano. Podmínkou je pouze aby hosting podporoval spuštění docker containeru "
+"(VPS hosting). Výkon pak záleží na velikosti projektu."
+msgstr ""
+"Yes. The only requirement is that the hosting supports Docker containers "
+"(VPS hosting). Performance depends on project size."
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_hero
+msgid "Chci nezávaznou konzultaci"
+msgstr "Get a free consultation"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_irresistible
+msgid "Chci převod zdarma"
+msgstr "Get free migration"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_offer
+msgid "Chci svůj nový web"
+msgstr "I want my new website"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_faq
+msgid "Co znamená převod webu zdarma?"
+msgstr "What does free website migration mean?"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_testimonials
+msgid "Co říkají <span class=\"mv-text-gradient\">klienti</span>"
+msgstr "What our <span class=\"mv-text-gradient\">clients</span> say"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_anchor
+msgid "Dlouhé dodací lhůty (2–6 měsíců)"
+msgstr "Long delivery times (2–6 months)"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_hero
+msgid "Dokončených projektů"
+msgstr "Completed projects"
+
+#. module: website_mv_landing
+#. odoo-python
+#: code:addons/website_mv_landing/controllers/main.py:0
+msgid "Děkujeme! Ozvu se vám do 24 hodin."
+msgstr "Thank you! I'll get back to you within 24 hours."
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_trust_bar
+msgid "Důvěřují mi značky jako"
+msgstr "Trusted by brands like"
+
+#. module: website_mv_landing
+#. odoo-python
+#: code:addons/website_mv_landing/controllers/main.py:0
+msgid "E-shop"
+msgstr "E-shop"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_contact_form
+msgid "Firma / Web"
+msgstr "Company / Website"
+
+#. module: website_mv_landing
+#. odoo-python
+#: code:addons/website_mv_landing/controllers/main.py:0
+msgid "Firma / Web: %s"
+msgstr "Company / Website: %s"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_testimonials
+msgid "GOAT Rental"
+msgstr "GOAT Rental"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_testimonials
+msgid "Garant Transfer"
+msgstr "Garant Transfer"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_faq
+msgid "Hosting není potřeba. Rád vám vše zařídím."
+msgstr "No hosting needed. I'll take care of everything for you."
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_problem
+msgid ""
+"Hosting, domény, údržba... Měsíc co měsíc investujete do něčeho, co "
+"nepřináší zákazníky."
+msgstr ""
+"Hosting, domains, maintenance... Month after month you invest in something "
+"that doesn't bring customers."
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_anchor
+msgid "Hotovo za 2–4 týdny"
+msgstr "Done in 2–4 weeks"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_faq
+msgid "Jak dlouho trvá vytvoření webu?"
+msgstr "How long does it take to build a website?"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_process
+msgid "Jak to <span class=\"mv-text-gradient\">funguje</span>"
+msgstr "How it <span class=\"mv-text-gradient\">works</span>"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_faq
+msgid "Jaké technologie používáte?"
+msgstr "What technologies do you use?"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_anchor
+msgid "Jednoduché úpravy sami zvládnete"
+msgstr "Simple edits you can handle yourself"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_anchor
+msgid "Jednorázově + měsíční poplatky"
+msgstr "One-time + monthly fees"
+
+#. module: website_mv_landing
+#. odoo-python
+#: code:addons/website_mv_landing/controllers/main.py:0
+msgid "Jiné"
+msgstr "Other"
+
+#. module: website_mv_landing
+#. odoo-python
+#: code:addons/website_mv_landing/controllers/main.py:0
+msgid "Jméno musí mít alespoň 2 znaky."
+msgstr "Name must be at least 2 characters."
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_anchor
+msgid "Každá změna = další faktura"
+msgstr "Every change = another invoice"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_problem
+msgid ""
+"Každý měsíc vás web stojí peníze.<br/>\n"
+"                        <span class=\"mv-text-gradient\">Ale nevydělává.</span>"
+msgstr ""
+"Your website costs you money every month.<br/>\n"
+"                        <span class=\"mv-text-gradient\">But it doesn't earn.</span>"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_anchor
+msgid ""
+"Kolik stojí <span class=\"mv-text-gradient\">skutečně fungující</span> web?"
+msgstr ""
+"How much does a <span class=\"mv-text-gradient\">truly effective</span> website cost?"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_offer
+msgid ""
+"Kompletní web na klíč.<br/>\n"
+"                        <span class=\"mv-text-gradient\">Bez starostí.</span>"
+msgstr ""
+"Complete turnkey website.<br/>\n"
+"                        <span class=\"mv-text-gradient\">Worry-free.</span>"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_anchor
+msgid "Kompletní řešení včetně správy"
+msgstr "Complete solution including management"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_process
+msgid "Konzultace"
+msgstr "Consultation"
+
+#. module: website_mv_landing
+#: model:website.menu,name:website_mv_landing.mv_landing_menu
+msgid "Landing"
+msgstr "Landing"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_hero
+msgid "Let v AI"
+msgstr "Years in AI"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_hero
+msgid "Let v designu"
+msgstr "Years in design"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_hero
+msgid "Let v programování"
+msgstr "Years in programming"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.mv_landing_snippets
+msgid "MV Landing"
+msgstr "MV Landing"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_process
+msgid "Moderní technologie, rychlý, bezpečný a optimalizovaný web."
+msgstr "Modern technology, fast, secure and optimized website."
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_faq
+msgid "Mohu mít vlastní hosting?"
+msgstr "Can I use my own hosting?"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_faq
+msgid "Mohu si web spravovat sám?"
+msgstr "Can I manage the website myself?"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_irresistible
+msgid ""
+"Máte starý web?<br/>\n"
+"                        <span class=\"mv-text-gradient\">Převedeme ho ZDARMA.</span>"
+msgstr ""
+"Got an old website?<br/>\n"
+"                        <span class=\"mv-text-gradient\">We'll migrate it FOR FREE.</span>"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_faq
+msgid "Nabízíte i správu a údržbu po spuštění?"
+msgstr "Do you offer management and maintenance after launch?"
+
+#. module: website_mv_landing
+#. odoo-python
+#: code:addons/website_mv_landing/controllers/main.py:0
+msgid "Nový web na míru"
+msgstr "Custom website"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_process
+msgid "Návrh &amp; Design"
+msgstr "Concept &amp; Design"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_anchor
+msgid "Od 35 000 Kč"
+msgstr "From $3,000"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_contact_form
+msgid "Odeslat nezávaznou poptávku"
+msgstr "Send a non-binding inquiry"
+
+#. module: website_mv_landing
+#. odoo-python
+#: code:addons/website_mv_landing/controllers/main.py:0
+msgid "Omlouváme se, došlo k chybě. Zkuste to prosím znovu."
+msgstr "Sorry, an error occurred. Please try again."
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_problem
+msgid "Platíte za web, který nefunguje"
+msgstr "You're paying for a website that doesn't work"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_anchor
+msgid "Plná kontrola nad vaším webem"
+msgstr "Full control over your website"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_anchor
+msgid "Podívejme se na realitu trhu."
+msgstr "Let's look at market reality."
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_contact_form
+msgid ""
+"Pojďme vytvořit web,<br/>který\n"
+"                        <span style=\"text-decoration: underline; text-decoration-color: rgba(255, 255, 255, 0.3);\">skutečně prodává</span>."
+msgstr ""
+"Let's build a website<br/>that\n"
+"                        <span style=\"text-decoration: underline; text-decoration-color: rgba(255, 255, 255, 0.3);\">truly sells</span>."
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_faq
+msgid ""
+"Pokud máte stávající web, převedu ho na náš moderní systém zcela zdarma. "
+"Uvidíte rozdíl ve výkonu, rychlosti a možnostech správy. Pak se rozhodnete, "
+"zda chcete pokračovat."
+msgstr ""
+"If you have an existing website, I'll migrate it to our modern system completely free. "
+"You'll see the difference in performance, speed and management capabilities. Then you decide "
+"whether to continue."
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_contact_form
+msgid "Popište váš projekt nebo potřeby..."
+msgstr "Describe your project or needs..."
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_problem
+msgid ""
+"Potřebujete upravit text? Přidat produkt? S klasickými agenturami čekáte "
+"dny, někdy týdny."
+msgstr ""
+"Need to edit text? Add a product? With traditional agencies you wait "
+"days, sometimes weeks."
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_faq
+msgid "Potřebuji hosting?"
+msgstr "Do I need hosting?"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_faq
+msgid ""
+"Pracuji s moderním tech stackem — fullstack Node.js, React, nebo Python. "
+"Každý web je postavený na spolehlivé a škálovatelné platformě Varyshop pro "
+"správu velkých společností."
+msgstr ""
+"I work with a modern tech stack — fullstack Node.js, React, or Python. "
+"Every website is built on the reliable and scalable Varyshop platform for "
+"managing large companies."
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_process
+msgid "Probereme vaše cíle, cílovou skupinu a co od webu očekáváte."
+msgstr "We'll discuss your goals, target audience and website expectations."
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_testimonials
+msgid "Pronájem vozidel"
+msgstr "Vehicle rental"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_anchor
+msgid "Psychologie prodeje zabudovaná v designu"
+msgstr "Sales psychology built into design"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_testimonials
+msgid "Přepravní služby"
+msgstr "Transport services"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_irresistible
+msgid ""
+"Převedu váš stávající web na moderní systém s AI.<br/>\n"
+"                            Uvidíte výsledky. Pak se rozhodnete."
+msgstr ""
+"I'll migrate your existing website to a modern AI-powered system.<br/>\n"
+"                            See the results. Then decide."
+
+#. module: website_mv_landing
+#. odoo-python
+#: code:addons/website_mv_landing/controllers/main.py:0
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_irresistible
+msgid "Převod stávajícího webu"
+msgstr "Website migration"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_testimonials
+msgid "Přírodní kosmetika"
+msgstr "Natural cosmetics"
+
+#. module: website_mv_landing
+#. odoo-python
+#: code:addons/website_mv_landing/controllers/main.py:0
+msgid "SEO / Online marketing"
+msgstr "SEO / Online marketing"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_faq
+msgid ""
+"Samozřejmě. Všechny weby stavím na intuitivním systému, kde zvládnete úpravy"
+" i bez znalosti programování. Navíc vás proškolím."
+msgstr ""
+"Of course. All websites are built on an intuitive system where you can make "
+"edits without any programming knowledge. Plus, I'll train you."
+
+#. module: website_mv_landing
+#. odoo-python
+#: code:addons/website_mv_landing/controllers/main.py:0
+msgid "Správa a údržba webu"
+msgstr "Website management &amp; maintenance"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_process
+msgid "Spuštění"
+msgstr "Launch"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_faq
+msgid ""
+"Standardní web je hotový za 2–4 týdny. Záleží na rozsahu projektu a "
+"rychlosti dodání podkladů z vaší strany."
+msgstr ""
+"A standard website is ready in 2–4 weeks. It depends on the project scope "
+"and how quickly you provide materials."
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_contact_form
+msgid "Telefon"
+msgstr "Phone"
+
+#. module: website_mv_landing
+#. odoo-python
+#: code:addons/website_mv_landing/controllers/main.py:0
+msgid "Telefon: %s"
+msgstr "Phone: %s"
+
+#. module: website_mv_landing
+#: model:ir.ui.view,website_meta_description:website_mv_landing.mv_landing_page
+msgid ""
+"Tvořím weby, které přitahují zákazníky a generují tržby. 18+ let zkušeností "
+"v programování, 50+ dokončených projektů. Převod stávajícího webu zdarma. "
+"Nezávazná konzultace do 24 hodin."
+msgstr ""
+"I build websites that attract customers and generate revenue. 18+ years of programming "
+"experience, 50+ completed projects. Free website migration. "
+"Non-binding consultation within 24 hours."
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.mv_landing_page
+msgid ""
+"Tvořím weby, které přitahují zákazníky a generují tržby. 18+ let zkušeností,"
+" 50+ projektů. Převod webu zdarma. Nezávazná konzultace do 24 hodin."
+msgstr ""
+"I build websites that attract customers and generate revenue. 18+ years of experience,"
+" 50+ projects. Free website migration. Non-binding consultation within 24 hours."
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_hero
+msgid ""
+"Tvořím weby, které přitahují zákazníky a generují tržby. Žádné\n"
+"                        šablony. Žádné kompromisy. Pouze výsledky."
+msgstr ""
+"I build websites that attract customers and generate revenue. No\n"
+"                        templates. No compromises. Only results."
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_anchor
+msgid "Typická agentura"
+msgstr "Typical agency"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_anchor
+msgid "Unikátní design s AI technologiemi"
+msgstr "Unique design with AI technologies"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_testimonials
+msgid "Valeria Natural"
+msgstr "Valeria Natural"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_contact_form
+msgid "Vaše jméno *"
+msgstr "Your name *"
+
+#. module: website_mv_landing
+#. odoo-python
+#: code:addons/website_mv_landing/controllers/main.py:0
+msgid "Vyberte, o co máte zájem."
+msgstr "Please select what you're interested in."
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_process
+msgid "Vytvořím unikátní design, přesně na míru vaší značce."
+msgstr "I'll create a unique design, tailored exactly to your brand."
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_contact_form
+msgid "Váš e-mail *"
+msgstr "Your email *"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_hero
+msgid ""
+"Váš web <span class=\"mv-text-gradient\">neprodává?</span><br/>\n"
+"                        To změníme."
+msgstr ""
+"Your website <span class=\"mv-text-gradient\">doesn't sell?</span><br/>\n"
+"                        We'll change that."
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_process
+msgid "Vývoj"
+msgstr "Development"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_process
+msgid "Web jde do světa. Školení, podpora a měření výsledků."
+msgstr "Website goes live. Training, support and results tracking."
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_problem
+msgid ""
+"Web vypadá hezky, ale nikdo nenakupuje. Chybí psychologie prodeje a "
+"optimalizace konverzí."
+msgstr ""
+"Website looks nice but nobody buys. Missing sales psychology and "
+"conversion optimization."
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.mv_landing_page
+msgid "Webové stránky na míru | Michal Varys"
+msgstr "Custom websites | Michal Varys"
+
+#. module: website_mv_landing
+#: model:ir.ui.view,website_meta_title:website_mv_landing.mv_landing_page
+msgid ""
+"Webové stránky na míru | Michal Varys – Tvorba webů, e-shopů a online řešení"
+msgstr ""
+"Custom websites | Michal Varys – Web development, e-shops and online solutions"
+
+#. module: website_mv_landing
+#. odoo-python
+#: code:addons/website_mv_landing/controllers/main.py:0
+msgid "Zadejte platný email."
+msgstr "Please enter a valid email."
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_contact_form
+msgid "Zanechte kontakt a ozvu se vám do 24 hodin."
+msgstr "Leave your contact and I'll get back to you within 24 hours."
+
+#. module: website_mv_landing
+#. odoo-python
+#: code:addons/website_mv_landing/controllers/main.py:0
+msgid "Zájem o: %s"
+msgstr "Interested in: %s"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_problem
+msgid "Zákazníci přicházejí, ale nekonvertují"
+msgstr "Visitors come but don't convert"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_anchor
+msgid "Závislost na agentuře"
+msgstr "Agency dependency"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_sticky_cta
+msgid "Získat nabídku"
+msgstr "Get a quote"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_footer
+msgid "info@michalvarys.eu"
+msgstr "info@michalvarys.eu"
+
+#. module: website_mv_landing
+#: model:ir.ui.view,website_meta_keywords:website_mv_landing.mv_landing_page
+msgid ""
+"tvorba webů, webové stránky na míru, e-shop, Michal Varys, SEO, web design, "
+"převod webu, moderní web"
+msgstr ""
+"web development, custom websites, e-shop, Michal Varys, SEO, web design, "
+"website migration, modern web"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_footer
+msgid "© 2026 Michal Varys. Všechna práva vyhrazena. |"
+msgstr "© 2026 Michal Varys. All rights reserved. |"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_faq
+msgid "Často kladené <span class=\"mv-text-gradient\">otázky</span>"
+msgstr "Frequently asked <span class=\"mv-text-gradient\">questions</span>"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_problem
+msgid "Čekáte týdny na každou změnu"
+msgstr "You wait weeks for every change"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_anchor
+msgid "Šablonový design bez AI"
+msgstr "Template design without AI"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_anchor
+msgid "Žádná optimalizace konverzí"
+msgstr "No conversion optimization"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_irresistible
+msgid ""
+"Žádný risk. Žádné vstupní náklady. Prostě přeneseme váš stávající\n"
+"                        web na náš systém a vy uvidíte rozdíl."
+msgstr ""
+"No risk. No upfront costs. We simply migrate your existing\n"
+"                        website to our system and you see the difference."
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_testimonials
+msgid ""
+"„Konečně web, který nejen vypadá skvěle, ale i skutečně prodává.\n"
+"                            Nejlepší investice, kterou jsme letos udělali.""
+msgstr ""
+"\"Finally a website that not only looks great but actually sells.\n"
+"                            Best investment we made this year.\""
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_testimonials
+msgid ""
+"„Michal je profesionál na slovo vzatý. Nový web nám za první měsíc\n"
+"                            přinesl o 20% více poptávek než ten starý za celý rok.""
+msgstr ""
+"\"Michal is a true professional. The new website brought us 20% more\n"
+"                            inquiries in the first month than the old one did in an entire year.\""
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_testimonials
+msgid ""
+"„Rychlost dodání nás překvapila. Design je přesně to, co jsme\n"
+"                            potřebovali — moderní, čistý a fungující.""
+msgstr ""
+"\"The delivery speed surprised us. The design is exactly what we\n"
+"                            needed — modern, clean and functional.\""
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_hero
+msgid "7+"
+msgstr "7+"
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_hero
+msgid "5+"
+msgstr "5+"

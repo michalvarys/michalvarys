@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="180" viewBox="0 0 300 180">
+  <defs>
+    <linearGradient id="og" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6699FF"/>
+      <stop offset="100%" stop-color="#FF3366"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="180" fill="#000"/>
+  <!-- Offer box -->
+  <rect x="20" y="10" width="260" height="160" rx="12" fill="#111" stroke="#933df5" stroke-width="2"/>
+  <rect x="20" y="10" width="260" height="3" rx="1" fill="url(#og)"/>
+  <!-- Badge -->
+  <rect x="110" y="24" width="80" height="14" rx="7" fill="url(#og)"/>
+  <!-- Title -->
+  <rect x="70" y="48" width="160" height="10" rx="3" fill="#fff"/>
+  <rect x="90" y="62" width="120" height="10" rx="3" fill="url(#og)"/>
+  <!-- Feature grid -->
+  <rect x="35" y="84" width="108" height="16" rx="5" fill="rgba(255,255,255,0.03)" stroke="#ffffff" stroke-opacity="0.03"/>
+  <rect x="155" y="84" width="108" height="16" rx="5" fill="rgba(255,255,255,0.03)" stroke="#ffffff" stroke-opacity="0.03"/>
+  <rect x="35" y="106" width="108" height="16" rx="5" fill="rgba(255,255,255,0.03)" stroke="#ffffff" stroke-opacity="0.03"/>
+  <rect x="155" y="106" width="108" height="16" rx="5" fill="rgba(255,255,255,0.03)" stroke="#ffffff" stroke-opacity="0.03"/>
+  <!-- CTA button -->
+  <rect x="85" y="136" width="130" height="24" rx="12" fill="url(#og)"/>
+</svg>

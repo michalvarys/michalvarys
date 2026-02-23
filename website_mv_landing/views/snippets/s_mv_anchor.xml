@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_mv_anchor" name="MV Price Anchor">
+        <section class="mv-anchor o_cc o_cc1 o_colored_level" style="color: #fff;" data-snippet="s_mv_anchor" data-name="MV Price Anchor">
+            <div class="mv-container">
+                <div class="mv-text-center mv-fade-up">
+                    <h2>
+                        Kolik stojí <span class="mv-text-gradient">skutečně fungující</span> web?
+                    </h2>
+                    <p class="mv-text-muted" style="font-size: 1.15rem; max-width: 600px; margin: 0 auto;">
+                        Podívejme se na realitu trhu.
+                    </p>
+                </div>
+                <div class="mv-anchor__comparison mv-fade-up">
+                    <div class="mv-anchor__col mv-anchor__col--old">
+                        <h3>Typická agentura</h3>
+                        <div class="mv-anchor__price mv-anchor__price--old">150 000 Kč+</div>
+                        <div class="mv-anchor__note">Jednorázově + měsíční poplatky</div>
+                        <ul class="mv-anchor__list">
+                            <li>Dlouhé dodací lhůty (2–6 měsíců)</li>
+                            <li>Šablonový design bez AI</li>
+                            <li>Každá změna = další faktura</li>
+                            <li>Žádná optimalizace konverzí</li>
+                            <li>Závislost na agentuře</li>
+                        </ul>
+                    </div>
+                    <div class="mv-anchor__col mv-anchor__col--new">
+                        <h3><span class="mv-text-gradient">Michal Varys</span></h3>
+                        <div class="mv-anchor__price mv-text-gradient">Od 35 000 Kč</div>
+                        <div class="mv-anchor__note">Kompletní řešení včetně správy</div>
+                        <ul class="mv-anchor__list">
+                            <li>Hotovo za 2–4 týdny</li>
+                            <li>Unikátní design s AI technologiemi</li>
+                            <li>Jednoduché úpravy sami zvládnete</li>
+                            <li>Psychologie prodeje zabudovaná v designu</li>
+                            <li>Plná kontrola nad vaším webem</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_mv_footer" name="MV Footer">
+        <section class="mv-footer o_cc o_cc1 o_colored_level" style="color: #fff;" data-snippet="s_mv_footer" data-name="MV Footer">
+            <div class="mv-container">
+                <p>&#169; 2026 Michal Varys. Všechna práva vyhrazena. |
+                    <a href="mailto:info@michalvarys.eu">info@michalvarys.eu</a>
+                </p>
+            </div>
+        </section>
+    </template>
+</odoo>

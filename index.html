@@ -1,0 +1,1494 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Michal Varys | Webové stránky, které prodávají</title>
+    <meta
+      name="description"
+      content="Profesionální tvorba webových stránek s AI. 17+ let zkušeností, 50+ projektů. Získejte web, který skutečně vydělává."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --purple: #933df5;
+        --purple-dark: #634aa5;
+        --pink: #ff3366;
+        --blue: #6699ff;
+        --gradient: linear-gradient(135deg, #6699ff 0%, #ff3366 100%);
+        --gradient-purple: linear-gradient(135deg, #cb5eee 0%, #4be1ec 100%);
+        --bg: #000000;
+        --bg-card: #111111;
+        --bg-card-hover: #1a1a1a;
+        --text: #ffffff;
+        --text-muted: #888888;
+        --text-light: #cccccc;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* ===== UTILITY ===== */
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+      .container--narrow {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+      .text-center {
+        text-align: center;
+      }
+      .text-gradient {
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .text-gradient-purple {
+        background: var(--gradient-purple);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .text-muted {
+        color: var(--text-muted);
+      }
+      .text-pink {
+        color: var(--pink);
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 6px 16px;
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+      }
+      .badge--gradient {
+        background: var(--gradient);
+        color: #fff;
+      }
+      .badge--outline {
+        border: 1px solid var(--purple);
+        color: var(--purple);
+      }
+
+      /* ===== BUTTONS ===== */
+      .btn {
+        display: inline-block;
+        padding: 16px 40px;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .btn--primary {
+        background: var(--gradient);
+        color: #fff;
+        box-shadow: 0 4px 24px rgba(147, 61, 245, 0.3);
+      }
+      .btn--primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 40px rgba(147, 61, 245, 0.5);
+      }
+      .btn--large {
+        padding: 20px 56px;
+        font-size: 1.25rem;
+      }
+      .btn--outline {
+        background: transparent;
+        color: #fff;
+        border: 2px solid var(--purple);
+      }
+      .btn--outline:hover {
+        background: var(--purple);
+        transform: translateY(-2px);
+      }
+      .btn--ghost {
+        background: rgba(255, 255, 255, 0.05);
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+      }
+      .btn--ghost:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+
+      /* ===== SECTION SPACING ===== */
+      section {
+        padding: 100px 0;
+        position: relative;
+      }
+
+      /* ===== HERO ===== */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        padding: 120px 0 100px;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -30%;
+        width: 800px;
+        height: 800px;
+        background: radial-gradient(
+          circle,
+          rgba(147, 61, 245, 0.15) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .hero::after {
+        content: "";
+        position: absolute;
+        bottom: -20%;
+        left: -20%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+          circle,
+          rgba(255, 51, 102, 0.08) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .hero__eyebrow {
+        margin-bottom: 24px;
+      }
+      .hero h1 {
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        font-weight: 900;
+        line-height: 1.1;
+        margin-bottom: 24px;
+        letter-spacing: -1px;
+      }
+      .hero__sub {
+        font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+        color: var(--text-light);
+        max-width: 600px;
+        margin-bottom: 40px;
+        font-weight: 300;
+        line-height: 1.6;
+      }
+      .hero__stats {
+        display: flex;
+        gap: 48px;
+        margin-top: 64px;
+        flex-wrap: wrap;
+      }
+      .hero__stat-number {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #d6a5bd;
+      }
+      .hero__stat-label {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      /* ===== TRUST BAR ===== */
+      .trust-bar {
+        padding: 60px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        background: rgba(255, 255, 255, 0.02);
+      }
+      .trust-bar__label {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--text-muted);
+        margin-bottom: 32px;
+      }
+      .trust-bar__logos {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+        opacity: 0.5;
+      }
+      .trust-bar__logos span {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-muted);
+        white-space: nowrap;
+      }
+
+      /* ===== PROBLEM ===== */
+      .problem {
+        background: var(--bg);
+      }
+      .problem h2 {
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        font-weight: 800;
+        line-height: 1.15;
+        margin-bottom: 48px;
+      }
+      .problem__cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 24px;
+        margin-top: 48px;
+      }
+      .problem__card {
+        background: var(--bg-card);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 16px;
+        padding: 40px 32px;
+        transition: all 0.3s ease;
+      }
+      .problem__card:hover {
+        border-color: rgba(147, 61, 245, 0.3);
+        background: var(--bg-card-hover);
+      }
+      .problem__card-icon {
+        font-size: 2rem;
+        margin-bottom: 16px;
+      }
+      .problem__card h3 {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 12px;
+      }
+      .problem__card p {
+        color: var(--text-muted);
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      /* ===== PRICE ANCHOR ===== */
+      .anchor {
+        background: linear-gradient(180deg, #000 0%, #0a0a0a 100%);
+      }
+      .anchor h2 {
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        font-weight: 800;
+        line-height: 1.15;
+        margin-bottom: 24px;
+      }
+      .anchor__comparison {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        margin-top: 56px;
+      }
+      @media (max-width: 768px) {
+        .anchor__comparison {
+          grid-template-columns: 1fr;
+        }
+      }
+      .anchor__col {
+        background: var(--bg-card);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 20px;
+        padding: 48px 36px;
+      }
+      .anchor__col--old {
+        opacity: 0.6;
+      }
+      .anchor__col--new {
+        border-color: var(--purple);
+        box-shadow: 0 0 60px rgba(147, 61, 245, 0.1);
+        opacity: 1;
+      }
+      .anchor__col h3 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 24px;
+        color: var(--text-muted);
+      }
+      .anchor__price {
+        font-size: 3.5rem;
+        font-weight: 900;
+        margin-bottom: 8px;
+      }
+      .anchor__price--old {
+        text-decoration: line-through;
+        color: #555;
+      }
+      .anchor__note {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        margin-bottom: 24px;
+      }
+      .anchor__list {
+        list-style: none;
+        padding: 0;
+      }
+      .anchor__list li {
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        color: var(--text-light);
+        font-size: 0.95rem;
+      }
+      .anchor__list li::before {
+        content: "✕";
+        margin-right: 12px;
+        color: #ff4444;
+      }
+      .anchor__col--new .anchor__list li::before {
+        content: "✓";
+        color: #44ff88;
+      }
+
+      /* ===== OFFER ===== */
+      .offer {
+        background: radial-gradient(
+          ellipse at center,
+          rgba(147, 61, 245, 0.08) 0%,
+          transparent 70%
+        );
+      }
+      .offer__box {
+        background: var(--bg-card);
+        border: 2px solid var(--purple);
+        border-radius: 24px;
+        padding: 64px 48px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .offer__box::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--gradient);
+      }
+      .offer h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 800;
+        margin-bottom: 16px;
+      }
+      .offer__price-block {
+        margin: 40px 0;
+      }
+      .offer__old-price {
+        font-size: 1.5rem;
+        color: #555;
+        text-decoration: line-through;
+        margin-bottom: 8px;
+      }
+      .offer__new-price {
+        font-size: clamp(3rem, 6vw, 5rem);
+        font-weight: 900;
+      }
+      .offer__per {
+        font-size: 1.1rem;
+        color: var(--text-muted);
+      }
+      .offer__features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 16px;
+        margin: 40px 0;
+        text-align: left;
+      }
+      .offer__feature {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 10px;
+        font-size: 0.95rem;
+      }
+      .offer__feature-icon {
+        color: #44ff88;
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+
+      /* ===== IRRESISTIBLE ===== */
+      .irresistible {
+        background: linear-gradient(180deg, #0a0a0a 0%, #000 100%);
+        text-align: center;
+      }
+      .irresistible h2 {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 900;
+        margin-bottom: 16px;
+        line-height: 1.15;
+      }
+      .irresistible__subtitle {
+        font-size: 1.2rem;
+        color: var(--text-light);
+        max-width: 600px;
+        margin: 0 auto 48px;
+        font-weight: 300;
+      }
+      .irresistible__card {
+        background: linear-gradient(
+          135deg,
+          rgba(147, 61, 245, 0.15) 0%,
+          rgba(255, 51, 102, 0.1) 100%
+        );
+        border: 1px solid rgba(147, 61, 245, 0.3);
+        border-radius: 24px;
+        padding: 56px 48px;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+      .irresistible__card h3 {
+        font-size: 2rem;
+        font-weight: 800;
+        margin-bottom: 16px;
+      }
+      .irresistible__card p {
+        color: var(--text-light);
+        font-size: 1.1rem;
+        margin-bottom: 32px;
+        line-height: 1.7;
+      }
+      .irresistible__highlight {
+        font-size: 3rem;
+        font-weight: 900;
+        margin: 24px 0;
+      }
+
+      /* ===== TESTIMONIALS ===== */
+      .testimonials {
+        background: var(--bg);
+      }
+      .testimonials h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 800;
+        margin-bottom: 56px;
+      }
+      .testimonials__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 24px;
+      }
+      .testimonial-card {
+        background: var(--bg-card);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 16px;
+        padding: 36px 32px;
+      }
+      .testimonial-card__stars {
+        color: #ffd700;
+        font-size: 1.1rem;
+        margin-bottom: 16px;
+      }
+      .testimonial-card__text {
+        color: var(--text-light);
+        font-size: 1rem;
+        line-height: 1.7;
+        margin-bottom: 24px;
+        font-style: italic;
+      }
+      .testimonial-card__author {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .testimonial-card__avatar {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--gradient);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1rem;
+      }
+      .testimonial-card__name {
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+      .testimonial-card__role {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+      }
+
+      /* ===== PROCESS ===== */
+      .process {
+        background: rgba(255, 255, 255, 0.02);
+      }
+      .process h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 800;
+        margin-bottom: 56px;
+      }
+      .process__steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 32px;
+      }
+      .process__step {
+        text-align: center;
+        padding: 32px 24px;
+      }
+      .process__step-number {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: var(--gradient);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        font-size: 1.4rem;
+        font-weight: 800;
+      }
+      .process__step h3 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      .process__step p {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+      }
+
+      /* ===== CTA FORM ===== */
+      .cta-form {
+        background: var(--purple);
+        position: relative;
+        overflow: hidden;
+      }
+      .cta-form::before {
+        content: "";
+        position: absolute;
+        top: -100px;
+        right: -100px;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.1) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .cta-form h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 800;
+        margin-bottom: 12px;
+      }
+      .cta-form__subtitle {
+        font-size: 1.15rem;
+        opacity: 0.85;
+        margin-bottom: 48px;
+        font-weight: 300;
+      }
+      .form {
+        max-width: 500px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .form input,
+      .form textarea,
+      .form select {
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 12px;
+        padding: 16px 20px;
+        color: #fff;
+        font-size: 1rem;
+        font-family: inherit;
+        outline: none;
+        transition: border-color 0.3s;
+      }
+      .form select {
+        appearance: none;
+        -webkit-appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,0.6)' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 16px center;
+        cursor: pointer;
+      }
+      .form select option {
+        background: #1a1a1a;
+        color: #fff;
+      }
+      .form input::placeholder,
+      .form textarea::placeholder,
+      .form select:invalid {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .form input:focus,
+      .form textarea:focus,
+      .form select:focus {
+        border-color: rgba(255, 255, 255, 0.6);
+      }
+      .form textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+      .form .btn {
+        background: #000;
+        color: #fff;
+        text-align: center;
+        font-weight: 700;
+      }
+      .form .btn:hover {
+        background: #111;
+        transform: translateY(-2px);
+      }
+
+      /* ===== FAQ ===== */
+      .faq {
+        background: var(--bg);
+      }
+      .faq h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 800;
+        margin-bottom: 48px;
+      }
+      .faq__list {
+        max-width: 700px;
+        margin: 0 auto;
+      }
+      .faq__item {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .faq__question {
+        width: 100%;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 1.1rem;
+        font-weight: 600;
+        padding: 24px 0;
+        text-align: left;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: inherit;
+      }
+      .faq__question::after {
+        content: "+";
+        font-size: 1.5rem;
+        font-weight: 300;
+        transition: transform 0.3s;
+      }
+      .faq__item.active .faq__question::after {
+        transform: rotate(45deg);
+      }
+      .faq__answer {
+        max-height: 0;
+        overflow: hidden;
+        transition:
+          max-height 0.3s ease,
+          padding 0.3s ease;
+      }
+      .faq__item.active .faq__answer {
+        max-height: 300px;
+        padding-bottom: 24px;
+      }
+      .faq__answer p {
+        color: var(--text-muted);
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+
+      /* ===== FOOTER ===== */
+      .footer {
+        padding: 40px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 0.85rem;
+      }
+      .footer a {
+        color: var(--purple);
+        text-decoration: none;
+      }
+
+      /* ===== STICKY CTA ===== */
+      .sticky-cta {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.9);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(147, 61, 245, 0.3);
+        padding: 16px 24px;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        transform: translateY(100%);
+        transition: transform 0.4s ease;
+      }
+      .sticky-cta.visible {
+        transform: translateY(0);
+      }
+      .sticky-cta__text {
+        font-size: 0.95rem;
+        font-weight: 500;
+      }
+      .sticky-cta .btn {
+        padding: 12px 28px;
+        font-size: 0.95rem;
+      }
+
+      /* ===== ANIMATIONS ===== */
+      .fade-up {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .fade-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ===== RESPONSIVE ===== */
+      @media (max-width: 768px) {
+        section {
+          padding: 72px 0;
+        }
+        .hero {
+          min-height: auto;
+          padding: 100px 0 72px;
+        }
+        .hero__stats {
+          gap: 32px;
+        }
+        .offer__box {
+          padding: 40px 24px;
+        }
+        .irresistible__card {
+          padding: 40px 24px;
+        }
+        .sticky-cta__text {
+          display: none;
+        }
+        .anchor__comparison {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ==================== HERO ==================== -->
+    <section class="hero">
+      <div class="container">
+        <div class="fade-up">
+          <span class="badge badge--gradient hero__eyebrow"
+            >Limitovaná nabídka 2026</span
+          >
+          <h1>
+            Váš web <span class="text-gradient">neprodává?</span><br />
+            To změníme.
+          </h1>
+          <p class="hero__sub">
+            Tvořím weby, které přitahují zákazníky a generují tržby. Žádné
+            šablony. Žádné kompromisy. Pouze výsledky.
+          </p>
+          <a href="#kontakt" class="btn btn--primary btn--large"
+            >Chci nezávaznou konzultaci</a
+          >
+        </div>
+        <div class="hero__stats fade-up">
+          <div>
+            <div class="hero__stat-number">18+</div>
+            <div class="hero__stat-label">Let v programování</div>
+          </div>
+          <div>
+            <div class="hero__stat-number">7+</div>
+            <div class="hero__stat-label">Let v designu</div>
+          </div>
+          <div>
+            <div class="hero__stat-number">5+</div>
+            <div class="hero__stat-label">Let v AI</div>
+          </div>
+          <div>
+            <div class="hero__stat-number">50+</div>
+            <div class="hero__stat-label">Dokončených projektů</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TRUST BAR ==================== -->
+    <div class="trust-bar">
+      <div class="container text-center">
+        <div class="trust-bar__label">Důvěřují mi značky jako</div>
+        <div class="trust-bar__logos">
+          <span>GOAT</span>
+          <span>Garant</span>
+          <span>Koniv</span>
+          <span>Gelato!</span>
+          <span>Hotel Arena</span>
+          <span>Senti Square</span>
+          <span>Sidonio</span>
+          <span>Grand Casino</span>
+          <span>Royal Hotel</span>
+          <span>Spendee</span>
+          <span>S9Y</span>
+          <span>TechMates</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== PROBLEM ==================== -->
+    <section class="problem">
+      <div class="container">
+        <div class="text-center fade-up">
+          <span class="badge badge--outline">Znáte to?</span>
+          <h2 style="margin-top: 24px">
+            Každý měsíc vás web stojí peníze.<br />
+            <span class="text-gradient">Ale nevydělává.</span>
+          </h2>
+        </div>
+        <div class="problem__cards">
+          <div class="problem__card fade-up">
+            <div class="problem__card-icon">
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  width="40"
+                  height="40"
+                  rx="10"
+                  fill="rgba(147,61,245,0.15)"
+                />
+                <path
+                  d="M20 10v20M16 14c0-2.2 1.8-4 4-4s4 1.8 4 4-1.8 4-4 4h-4M24 26c0 2.2-1.8 4-4 4s-4-1.8-4-4 1.8-4 4-4h4"
+                  stroke="url(#g1)"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <defs>
+                  <linearGradient
+                    id="g1"
+                    x1="12"
+                    y1="6"
+                    x2="28"
+                    y2="34"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#6699FF" />
+                    <stop offset="1" stop-color="#FF3366" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <h3>Platíte za web, který nefunguje</h3>
+            <p>
+              Hosting, domény, údržba... Měsíc co měsíc investujete do něčeho,
+              co nepřináší zákazníky.
+            </p>
+          </div>
+          <div class="problem__card fade-up">
+            <div class="problem__card-icon">
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  width="40"
+                  height="40"
+                  rx="10"
+                  fill="rgba(147,61,245,0.15)"
+                />
+                <circle
+                  cx="20"
+                  cy="21"
+                  r="9"
+                  stroke="url(#g2)"
+                  stroke-width="2"
+                />
+                <path
+                  d="M20 16v5l3.5 3.5M17 8h6"
+                  stroke="url(#g2)"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <defs>
+                  <linearGradient
+                    id="g2"
+                    x1="11"
+                    y1="8"
+                    x2="29"
+                    y2="30"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#6699FF" />
+                    <stop offset="1" stop-color="#FF3366" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <h3>Čekáte týdny na každou změnu</h3>
+            <p>
+              Potřebujete upravit text? Přidat produkt? S klasickými agenturami
+              čekáte dny, někdy týdny.
+            </p>
+          </div>
+          <div class="problem__card fade-up">
+            <div class="problem__card-icon">
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  width="40"
+                  height="40"
+                  rx="10"
+                  fill="rgba(147,61,245,0.15)"
+                />
+                <path
+                  d="M10 12v18h20M14 24l5-5 4 4 7-7"
+                  stroke="url(#g3)"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M26 16h4v4"
+                  stroke="url(#g3)"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <defs>
+                  <linearGradient
+                    id="g3"
+                    x1="10"
+                    y1="12"
+                    x2="30"
+                    y2="30"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#6699FF" />
+                    <stop offset="1" stop-color="#FF3366" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <h3>Zákazníci přicházejí, ale nekonvertují</h3>
+            <p>
+              Web vypadá hezky, ale nikdo nenakupuje. Chybí psychologie prodeje
+              a optimalizace konverzí.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PRICE ANCHOR ==================== -->
+    <section class="anchor">
+      <div class="container">
+        <div class="text-center fade-up">
+          <h2>
+            Kolik stojí
+            <span class="text-gradient">skutečně fungující</span> web?
+          </h2>
+          <p
+            class="text-muted"
+            style="font-size: 1.15rem; max-width: 600px; margin: 0 auto"
+          >
+            Podívejme se na realitu trhu.
+          </p>
+        </div>
+        <div class="anchor__comparison fade-up">
+          <div class="anchor__col anchor__col--old">
+            <h3>Typická agentura</h3>
+            <div class="anchor__price anchor__price--old">150 000 Kč+</div>
+            <div class="anchor__note">Jednorázově + měsíční poplatky</div>
+            <ul class="anchor__list">
+              <li>Dlouhé dodací lhůty (2–6 měsíců)</li>
+              <li>Šablonový design bez AI</li>
+              <li>Každá změna = další faktura</li>
+              <li>Žádná optimalizace konverzí</li>
+              <li>Závislost na agentuře</li>
+            </ul>
+          </div>
+          <div class="anchor__col anchor__col--new">
+            <h3>
+              <span class="text-gradient">Michal Varys</span>
+            </h3>
+            <div class="anchor__price text-gradient">Od 35 000 Kč</div>
+            <div class="anchor__note">Kompletní řešení včetně správy</div>
+            <ul class="anchor__list">
+              <li>Hotovo za 2–4 týdny</li>
+              <li>Unikátní design s AI technologiemi</li>
+              <li>Jednoduché úpravy sami zvládnete</li>
+              <li>Psychologie prodeje zabudovaná v designu</li>
+              <li>Plná kontrola nad vaším webem</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== OFFER ==================== -->
+    <section class="offer">
+      <div class="container">
+        <div class="offer__box fade-up">
+          <span class="badge badge--gradient">Co získáte</span>
+          <h2 style="margin-top: 24px">
+            Kompletní web na klíč.<br />
+            <span class="text-gradient">Bez starostí.</span>
+          </h2>
+          <div class="offer__features">
+            <div class="offer__feature">
+              <span class="offer__feature-icon">✓</span>
+              Moderní responzivní design
+            </div>
+            <div class="offer__feature">
+              <span class="offer__feature-icon">✓</span>
+              SEO optimalizace
+            </div>
+            <div class="offer__feature">
+              <span class="offer__feature-icon">✓</span>
+              AI-powered chatbot
+            </div>
+            <div class="offer__feature">
+              <span class="offer__feature-icon">✓</span>
+              Rychlost pod 2 sekundy
+            </div>
+            <div class="offer__feature">
+              <span class="offer__feature-icon">✓</span>
+              E-shop integrace
+            </div>
+            <div class="offer__feature">
+              <span class="offer__feature-icon">✓</span>
+              Analytika a měření konverzí
+            </div>
+            <div class="offer__feature">
+              <span class="offer__feature-icon">✓</span>
+              SSL certifikát zdarma
+            </div>
+            <div class="offer__feature">
+              <span class="offer__feature-icon">✓</span>
+              Školení na správu webu
+            </div>
+          </div>
+          <a href="#kontakt" class="btn btn--primary btn--large"
+            >Chci svůj nový web</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== IRRESISTIBLE OFFER ==================== -->
+    <section class="irresistible">
+      <div class="container">
+        <div class="fade-up">
+          <span class="badge badge--gradient">Neodolatelná nabídka</span>
+          <h2 style="margin-top: 24px">
+            Máte starý web?<br />
+            <span class="text-gradient">Převedeme ho ZDARMA.</span>
+          </h2>
+          <p class="irresistible__subtitle">
+            Žádný risk. Žádné vstupní náklady. Prostě přeneseme váš stávající
+            web na náš systém a vy uvidíte rozdíl.
+          </p>
+          <div class="irresistible__card">
+            <h3>Převod stávajícího webu</h3>
+            <div class="irresistible__highlight">
+              <span
+                style="
+                  text-decoration: line-through;
+                  color: #555;
+                  font-size: 1.5rem;
+                "
+                >15 000 Kč</span
+              >
+              <br />
+              <span class="text-gradient">0 Kč</span>
+            </div>
+            <p>
+              Převedu váš stávající web na moderní systém s AI.<br />
+              Uvidíte výsledky. Pak se rozhodnete.
+            </p>
+            <a href="#kontakt" class="btn btn--primary btn--large"
+              >Chci převod zdarma</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TESTIMONIALS ==================== -->
+    <section class="testimonials">
+      <div class="container">
+        <div class="text-center fade-up">
+          <h2>Co říkají <span class="text-gradient">klienti</span></h2>
+        </div>
+        <div class="testimonials__grid fade-up">
+          <div class="testimonial-card">
+            <div class="testimonial-card__stars">★★★★★</div>
+            <p class="testimonial-card__text">
+              „Michal je profesionál na slovo vzatý. Nový web nám za první měsíc
+              přinesl o 20% více poptávek než ten starý za celý rok."
+            </p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar">G</div>
+              <div>
+                <div class="testimonial-card__name">GOAT Rental</div>
+                <div class="testimonial-card__role">Pronájem vozidel</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-card__stars">★★★★★</div>
+            <p class="testimonial-card__text">
+              „Rychlost dodání nás překvapila. Design je přesně to, co jsme
+              potřebovali — moderní, čistý a fungující."
+            </p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar">V</div>
+              <div>
+                <div class="testimonial-card__name">Valeria Natural</div>
+                <div class="testimonial-card__role">Přírodní kosmetika</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-card__stars">★★★★★</div>
+            <p class="testimonial-card__text">
+              „Konečně web, který nejen vypadá skvěle, ale i skutečně prodává.
+              Nejlepší investice, kterou jsme letos udělali."
+            </p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar">G</div>
+              <div>
+                <div class="testimonial-card__name">Garant Transfer</div>
+                <div class="testimonial-card__role">Přepravní služby</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PROCESS ==================== -->
+    <section class="process">
+      <div class="container">
+        <div class="text-center fade-up">
+          <h2>Jak to <span class="text-gradient">funguje</span></h2>
+        </div>
+        <div class="process__steps fade-up">
+          <div class="process__step">
+            <div class="process__step-number">1</div>
+            <h3>Konzultace</h3>
+            <p>Probereme vaše cíle, cílovou skupinu a co od webu očekáváte.</p>
+          </div>
+          <div class="process__step">
+            <div class="process__step-number">2</div>
+            <h3>Návrh & Design</h3>
+            <p>Vytvořím unikátní design, přesně na míru vaší značce.</p>
+          </div>
+          <div class="process__step">
+            <div class="process__step-number">3</div>
+            <h3>Vývoj</h3>
+            <p>Moderní technologie, rychlý, bezpečný a optimalizovaný web.</p>
+          </div>
+          <div class="process__step">
+            <div class="process__step-number">4</div>
+            <h3>Spuštění</h3>
+            <p>Web jde do světa. Školení, podpora a měření výsledků.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FAQ ==================== -->
+    <section class="faq">
+      <div class="container">
+        <div class="text-center fade-up">
+          <h2>Často kladené <span class="text-gradient">otázky</span></h2>
+        </div>
+        <div class="faq__list fade-up">
+          <div class="faq__item">
+            <button class="faq__question">
+              Jak dlouho trvá vytvoření webu?
+            </button>
+            <div class="faq__answer">
+              <p>
+                Standardní web je hotový za 2–4 týdny. Záleží na rozsahu
+                projektu a rychlosti dodání podkladů z vaší strany.
+              </p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__question">Mohu si web spravovat sám?</button>
+            <div class="faq__answer">
+              <p>
+                Samozřejmě. Všechny weby stavím na intuitivním systému, kde
+                zvládnete úpravy i bez znalosti programování. Navíc vás
+                proškolím.
+              </p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__question">
+              Co znamená převod webu zdarma?
+            </button>
+            <div class="faq__answer">
+              <p>
+                Pokud máte stávající web, převedu ho na náš moderní systém zcela
+                zdarma. Uvidíte rozdíl ve výkonu, rychlosti a možnostech správy.
+                Pak se rozhodnete, zda chcete pokračovat.
+              </p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__question">Jaké technologie používáte?</button>
+            <div class="faq__answer">
+              <p>
+                Pracuji s moderním tech stackem — fullstack Node.js, React, nebo
+                Python. Každý web je postavený na spolehlivé a škálovatelné
+                platformě Varyshop pro správu velkých společností.
+              </p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__question">Potřebuji hosting?</button>
+            <div class="faq__answer">
+              <p>Hosting není potřeba. Rád vám vše zařídím.</p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__question">Mohu mít vlastní hosting?</button>
+            <div class="faq__answer">
+              <p>
+                Ano. Podmínkou je pouze aby hosting podporoval spuštění docker
+                containeru (VPS hosting). Výkon pak záleží na velikosti
+                projektu.
+              </p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__question">
+              Nabízíte i správu a údržbu po spuštění?
+            </button>
+            <div class="faq__answer">
+              <p>
+                Ano. Nabízím měsíční balíčky správy, kde se o vše postarám —
+                aktualizace, bezpečnost, obsah a analytiku.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CTA FORM ==================== -->
+    <section class="cta-form" id="kontakt">
+      <div class="container text-center">
+        <div class="fade-up">
+          <h2>
+            Pojďme vytvořit web,<br />který
+            <span
+              style="
+                text-decoration: underline;
+                text-decoration-color: rgba(255, 255, 255, 0.3);
+              "
+              >skutečně prodává</span
+            >.
+          </h2>
+          <p class="cta-form__subtitle">
+            Zanechte kontakt a ozvu se vám do 24 hodin.
+          </p>
+          <form
+            class="form"
+            action="#"
+            method="POST"
+            onsubmit="return handleSubmit(event);"
+          >
+            <input
+              type="text"
+              name="name"
+              placeholder="Vaše jméno *"
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Váš e-mail *"
+              required
+            />
+            <input type="tel" name="phone" placeholder="Telefon" />
+            <input type="text" name="company" placeholder="Firma / Web" />
+            <select name="interest" required>
+              <option value="" disabled selected>Mám zájem o... *</option>
+              <option value="novy-web">Nový web na míru</option>
+              <option value="prevod-webu">Převod stávajícího webu</option>
+              <option value="eshop">E-shop</option>
+              <option value="sprava-udrzba">Správa a údržba webu</option>
+              <option value="seo-marketing">SEO / Online marketing</option>
+              <option value="jine">Jiné</option>
+            </select>
+            <textarea
+              name="message"
+              placeholder="Popište váš projekt nebo potřeby..."
+              rows="3"
+            ></textarea>
+            <button type="submit" class="btn">
+              Odeslat nezávaznou poptávku
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+      <div class="container">
+        <p>
+          &copy; 2026 Michal Varys. Všechna práva vyhrazena. |
+          <a href="mailto:info@michalvarys.eu">info@michalvarys.eu</a>
+        </p>
+      </div>
+    </footer>
+
+    <!-- ==================== STICKY CTA ==================== -->
+    <div class="sticky-cta" id="stickyCta">
+      <span class="sticky-cta__text"
+        >Převod vašeho webu <strong class="text-gradient">ZDARMA</strong></span
+      >
+      <a href="#kontakt" class="btn btn--primary">Získat nabídku</a>
+    </div>
+
+    <script>
+      // Intersection Observer for fade-up animations
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+
+      document
+        .querySelectorAll(".fade-up")
+        .forEach((el) => observer.observe(el));
+
+      // Sticky CTA visibility
+      const stickyCta = document.getElementById("stickyCta");
+      const ctaObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+              stickyCta.classList.add("visible");
+            } else {
+              stickyCta.classList.remove("visible");
+            }
+          });
+        },
+        { threshold: 0 },
+      );
+
+      const heroSection = document.querySelector(".hero");
+      if (heroSection) ctaObserver.observe(heroSection);
+
+      // FAQ toggle
+      document.querySelectorAll(".faq__question").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const item = btn.closest(".faq__item");
+          const wasActive = item.classList.contains("active");
+          document
+            .querySelectorAll(".faq__item.active")
+            .forEach((i) => i.classList.remove("active"));
+          if (!wasActive) item.classList.add("active");
+        });
+      });
+
+      // Form handling
+      function handleSubmit(e) {
+        e.preventDefault();
+        const form = e.target;
+        const btn = form.querySelector('button[type="submit"]');
+        btn.textContent = "Odesláno! Ozvu se vám.";
+        btn.style.background = "#22c55e";
+        btn.disabled = true;
+        setTimeout(() => {
+          btn.textContent = "Odeslat nezávaznou poptávku";
+          btn.style.background = "#000";
+          btn.disabled = false;
+          form.reset();
+        }, 3000);
+        return false;
+      }
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", (e) => {
+          e.preventDefault();
+          const target = document.querySelector(a.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

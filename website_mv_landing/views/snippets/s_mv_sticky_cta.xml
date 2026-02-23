@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_mv_sticky_cta" name="MV Sticky CTA">
+        <div class="mv-sticky-cta o_cc o_cc1 o_colored_level" id="mvStickyCta" style="color: #fff;" data-snippet="s_mv_sticky_cta" data-name="MV Sticky CTA">
+            <span class="mv-sticky-cta__text">Převod vašeho webu <strong class="mv-text-gradient">ZDARMA</strong></span>
+            <a href="#mv-kontakt" class="mv-btn mv-btn--primary">Získat nabídku</a>
+        </div>
+    </template>
+</odoo>

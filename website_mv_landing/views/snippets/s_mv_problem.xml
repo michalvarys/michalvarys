@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_mv_problem" name="MV Problem">
+        <section class="mv-problem o_cc o_cc1 o_colored_level" style="color: #fff;" data-snippet="s_mv_problem" data-name="MV Problem">
+            <div class="mv-container">
+                <div class="mv-text-center mv-fade-up">
+                    <span class="mv-badge mv-badge--outline">Znáte to?</span>
+                    <h2 style="margin-top: 24px;">
+                        Každý měsíc vás web stojí peníze.<br/>
+                        <span class="mv-text-gradient">Ale nevydělává.</span>
+                    </h2>
+                </div>
+                <div class="mv-problem__cards">
+                    <div class="mv-problem__card mv-fade-up">
+                        <div class="mv-problem__card-icon">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="40" height="40" rx="10" fill="rgba(147,61,245,0.15)"/>
+                                <path d="M20 10v20M16 14c0-2.2 1.8-4 4-4s4 1.8 4 4-1.8 4-4 4h-4M24 26c0 2.2-1.8 4-4 4s-4-1.8-4-4 1.8-4 4-4h4" stroke="url(#mvg1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <defs><linearGradient id="mvg1" x1="12" y1="6" x2="28" y2="34" gradientUnits="userSpaceOnUse"><stop stop-color="#6699FF"/><stop offset="1" stop-color="#FF3366"/></linearGradient></defs>
+                            </svg>
+                        </div>
+                        <h3>Platíte za web, který nefunguje</h3>
+                        <p>Hosting, domény, údržba... Měsíc co měsíc investujete do něčeho, co nepřináší zákazníky.</p>
+                    </div>
+                    <div class="mv-problem__card mv-fade-up">
+                        <div class="mv-problem__card-icon">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="40" height="40" rx="10" fill="rgba(147,61,245,0.15)"/>
+                                <circle cx="20" cy="21" r="9" stroke="url(#mvg2)" stroke-width="2"/>
+                                <path d="M20 16v5l3.5 3.5M17 8h6" stroke="url(#mvg2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <defs><linearGradient id="mvg2" x1="11" y1="8" x2="29" y2="30" gradientUnits="userSpaceOnUse"><stop stop-color="#6699FF"/><stop offset="1" stop-color="#FF3366"/></linearGradient></defs>
+                            </svg>
+                        </div>
+                        <h3>Čekáte týdny na každou změnu</h3>
+                        <p>Potřebujete upravit text? Přidat produkt? S klasickými agenturami čekáte dny, někdy týdny.</p>
+                    </div>
+                    <div class="mv-problem__card mv-fade-up">
+                        <div class="mv-problem__card-icon">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="40" height="40" rx="10" fill="rgba(147,61,245,0.15)"/>
+                                <path d="M10 12v18h20M14 24l5-5 4 4 7-7" stroke="url(#mvg3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M26 16h4v4" stroke="url(#mvg3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <defs><linearGradient id="mvg3" x1="10" y1="12" x2="30" y2="30" gradientUnits="userSpaceOnUse"><stop stop-color="#6699FF"/><stop offset="1" stop-color="#FF3366"/></linearGradient></defs>
+                            </svg>
+                        </div>
+                        <h3>Zákazníci přicházejí, ale nekonvertují</h3>
+                        <p>Web vypadá hezky, ale nikdo nenakupuje. Chybí psychologie prodeje a optimalizace konverzí.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="180" viewBox="0 0 300 180">
+  <rect width="300" height="180" fill="#933df5"/>
+  <!-- Decorative glow -->
+  <circle cx="270" cy="20" r="80" fill="rgba(255,255,255,0.05)"/>
+  <!-- Title -->
+  <rect x="60" y="16" width="180" height="12" rx="3" fill="#fff"/>
+  <rect x="80" y="34" width="140" height="8" rx="2" fill="#fff" opacity="0.6"/>
+  <!-- Form fields -->
+  <rect x="75" y="54" width="150" height="16" rx="6" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+  <rect x="75" y="76" width="150" height="16" rx="6" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+  <rect x="75" y="98" width="150" height="16" rx="6" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+  <rect x="75" y="120" width="150" height="16" rx="6" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+  <!-- Submit button -->
+  <rect x="85" y="148" width="130" height="22" rx="11" fill="#000"/>
+  <rect x="105" y="155" width="90" height="6" rx="2" fill="#fff" opacity="0.8"/>
+</svg>

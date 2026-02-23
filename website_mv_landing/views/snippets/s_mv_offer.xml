@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_mv_offer" name="MV Offer">
+        <section class="mv-offer o_cc o_cc1 o_colored_level" style="color: #fff;" data-snippet="s_mv_offer" data-name="MV Offer">
+            <div class="mv-container">
+                <div class="mv-offer__box mv-fade-up">
+                    <span class="mv-badge mv-badge--gradient">Co získáte</span>
+                    <h2 style="margin-top: 24px;">
+                        Kompletní web na klíč.<br/>
+                        <span class="mv-text-gradient">Bez starostí.</span>
+                    </h2>
+                    <div class="mv-offer__features">
+                        <div class="mv-offer__feature">
+                            <span class="mv-offer__feature-icon">&#10003;</span>
+                            Moderní responzivní design
+                        </div>
+                        <div class="mv-offer__feature">
+                            <span class="mv-offer__feature-icon">&#10003;</span>
+                            SEO optimalizace
+                        </div>
+                        <div class="mv-offer__feature">
+                            <span class="mv-offer__feature-icon">&#10003;</span>
+                            AI-powered chatbot
+                        </div>
+                        <div class="mv-offer__feature">
+                            <span class="mv-offer__feature-icon">&#10003;</span>
+                            Rychlost pod 2 sekundy
+                        </div>
+                        <div class="mv-offer__feature">
+                            <span class="mv-offer__feature-icon">&#10003;</span>
+                            E-shop integrace
+                        </div>
+                        <div class="mv-offer__feature">
+                            <span class="mv-offer__feature-icon">&#10003;</span>
+                            Analytika a měření konverzí
+                        </div>
+                        <div class="mv-offer__feature">
+                            <span class="mv-offer__feature-icon">&#10003;</span>
+                            SSL certifikát zdarma
+                        </div>
+                        <div class="mv-offer__feature">
+                            <span class="mv-offer__feature-icon">&#10003;</span>
+                            Školení na správu webu
+                        </div>
+                    </div>
+                    <a href="#mv-kontakt" class="mv-btn mv-btn--primary mv-btn--large">Chci svůj nový web</a>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_mv_testimonials" name="MV Testimonials">
+        <section class="mv-testimonials o_cc o_cc1 o_colored_level" style="color: #fff;" data-snippet="s_mv_testimonials" data-name="MV Testimonials">
+            <div class="mv-container">
+                <div class="mv-text-center mv-fade-up">
+                    <h2>Co říkají <span class="mv-text-gradient">klienti</span></h2>
+                </div>
+                <div class="mv-testimonials__grid mv-fade-up">
+                    <div class="mv-testimonial-card">
+                        <div class="mv-testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="mv-testimonial-card__text">
+                            &#x201E;Michal je profesionál na slovo vzatý. Nový web nám za první měsíc
+                            přinesl o 20% více poptávek než ten starý za celý rok.&#x201C;
+                        </p>
+                        <div class="mv-testimonial-card__author">
+                            <div class="mv-testimonial-card__avatar">G</div>
+                            <div>
+                                <div class="mv-testimonial-card__name">GOAT Rental</div>
+                                <div class="mv-testimonial-card__role">Pronájem vozidel</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mv-testimonial-card">
+                        <div class="mv-testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="mv-testimonial-card__text">
+                            &#x201E;Rychlost dodání nás překvapila. Design je přesně to, co jsme
+                            potřebovali &#x2014; moderní, čistý a fungující.&#x201C;
+                        </p>
+                        <div class="mv-testimonial-card__author">
+                            <div class="mv-testimonial-card__avatar">V</div>
+                            <div>
+                                <div class="mv-testimonial-card__name">Valeria Natural</div>
+                                <div class="mv-testimonial-card__role">Přírodní kosmetika</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mv-testimonial-card">
+                        <div class="mv-testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="mv-testimonial-card__text">
+                            &#x201E;Konečně web, který nejen vypadá skvěle, ale i skutečně prodává.
+                            Nejlepší investice, kterou jsme letos udělali.&#x201C;
+                        </p>
+                        <div class="mv-testimonial-card__author">
+                            <div class="mv-testimonial-card__avatar">G</div>
+                            <div>
+                                <div class="mv-testimonial-card__name">Garant Transfer</div>
+                                <div class="mv-testimonial-card__role">Přepravní služby</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>
