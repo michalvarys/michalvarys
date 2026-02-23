@@ -226,6 +226,8 @@ msgid "E-shop"
 msgstr ""
 
 #. module: website_mv_landing
+#. odoo-python
+#: code:addons/website_mv_landing/controllers/main.py:0
 #: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_contact_form
 msgid "Firma / Web"
 msgstr ""
@@ -540,6 +542,8 @@ msgid ""
 msgstr ""
 
 #. module: website_mv_landing
+#. odoo-python
+#: code:addons/website_mv_landing/controllers/main.py:0
 #: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_contact_form
 msgid "Telefon"
 msgstr ""
@@ -735,7 +739,41 @@ msgstr ""
 
 #. module: website_mv_landing
 #: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_testimonials
-msgid ""
-"„Rychlost dodání nás překvapila. Design je přesně to, co jsme\n"
-"                            potřebovali — moderní, čistý a fungující.“"
-msgstr ""
+msgid “”
+“„Rychlost dodání nás překvapila. Design je přesně to, co jsme\n”
+“                            potřebovali — moderní, čistý a fungující.””
+msgstr “”
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_hero
+msgid “7+”
+msgstr “”
+
+#. module: website_mv_landing
+#: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_hero
+msgid “5+”
+msgstr “”
+
+#. module: website_mv_landing
+#. odoo-python
+#: code:addons/website_mv_landing/controllers/main.py:0
+msgid “Jméno”
+msgstr “”
+
+#. module: website_mv_landing
+#. odoo-python
+#: code:addons/website_mv_landing/controllers/main.py:0
+msgid “Zájem o”
+msgstr “”
+
+#. module: website_mv_landing
+#. odoo-python
+#: code:addons/website_mv_landing/controllers/main.py:0
+msgid “Zpráva”
+msgstr “”
+
+#. module: website_mv_landing
+#. odoo-python
+#: code:addons/website_mv_landing/controllers/main.py:0
+msgid “Zobrazit v CRM”
+msgstr “”

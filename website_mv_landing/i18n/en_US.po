@@ -275,6 +275,8 @@ msgid "E-shop"
 msgstr "E-shop"
 
 #. module: website_mv_landing
+#. odoo-python
+#: code:addons/website_mv_landing/controllers/main.py:0
 #: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_contact_form
 msgid "Firma / Web"
 msgstr "Company / Website"
@@ -614,6 +616,8 @@ msgstr ""
 "and how quickly you provide materials."
 
 #. module: website_mv_landing
+#. odoo-python
+#: code:addons/website_mv_landing/controllers/main.py:0
 #: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_contact_form
 msgid "Telefon"
 msgstr "Phone"
@@ -845,3 +849,28 @@ msgstr "7+"
 #: model_terms:ir.ui.view,arch_db:website_mv_landing.s_mv_hero
 msgid "5+"
 msgstr "5+"
+
+#. module: website_mv_landing
+#. odoo-python
+#: code:addons/website_mv_landing/controllers/main.py:0
+msgid "Jméno"
+msgstr "Name"
+
+#. module: website_mv_landing
+#. odoo-python
+#: code:addons/website_mv_landing/controllers/main.py:0
+msgid "Zájem o"
+msgstr "Interested in"
+
+#. module: website_mv_landing
+#. odoo-python
+#: code:addons/website_mv_landing/controllers/main.py:0
+msgid "Zpráva"
+msgstr "Message"
+
+#. module: website_mv_landing
+#. odoo-python
+#: code:addons/website_mv_landing/controllers/main.py:0
+msgid "Zobrazit v CRM"
+msgstr "View in CRM"
+

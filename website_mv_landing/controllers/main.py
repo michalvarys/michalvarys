@@ -83,8 +83,11 @@ class MVLandingController(http.Controller):
                     {'name': 'Landing Page'})
             lead_vals['tag_ids'] = [(4, tag.id)]
 
-            request.env['crm.lead'].sudo().create(lead_vals)
+            lead = request.env['crm.lead'].sudo().create(lead_vals)
             _logger.info('MV Landing: CRM opportunity created for %s <%s>', name, email)
+
+            # Send email notification to admin
+            self._send_notification_email(lead, name, email, phone, company, interest_label, message)
 
             return request.make_json_response({
                 'success': True,
@@ -97,3 +100,82 @@ class MVLandingController(http.Controller):
                 'success': False,
                 'message': _('Omlouváme se, došlo k chybě. Zkuste to prosím znovu.'),
             }, status=500)
+
+    def _send_notification_email(self, lead, name, email, phone, company, interest_label, message):
+        """Send notification email about new landing page inquiry."""
+        try:
+            # Get the website/company email as recipient
+            website = request.env['website'].sudo().get_current_website()
+            company_email = (
+                website.company_id.email
+                or request.env.company.sudo().email
+                or 'info@michalvarys.eu'
+            )
+
+            body_html = f'''
+            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+                <div style="background: linear-gradient(135deg, #6699ff, #ff3366); padding: 20px 30px; border-radius: 12px 12px 0 0;">
+                    <h2 style="color: #fff; margin: 0;">Nová poptávka z Landing Page</h2>
+                </div>
+                <div style="background: #1a1a1a; color: #fff; padding: 30px; border-radius: 0 0 12px 12px;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <tr>
+                            <td style="padding: 8px 0; color: #888; width: 140px;">{_("Jméno")}</td>
+                            <td style="padding: 8px 0; color: #fff; font-weight: 600;">{name}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px 0; color: #888;">E-mail</td>
+                            <td style="padding: 8px 0;"><a href="mailto:{email}" style="color: #6699ff;">{email}</a></td>
+                        </tr>'''
+
+            if phone:
+                body_html += f'''
+                        <tr>
+                            <td style="padding: 8px 0; color: #888;">{_("Telefon")}</td>
+                            <td style="padding: 8px 0; color: #fff;">{phone}</td>
+                        </tr>'''
+
+            if company:
+                body_html += f'''
+                        <tr>
+                            <td style="padding: 8px 0; color: #888;">{_("Firma / Web")}</td>
+                            <td style="padding: 8px 0; color: #fff;">{company}</td>
+                        </tr>'''
+
+            body_html += f'''
+                        <tr>
+                            <td style="padding: 8px 0; color: #888;">{_("Zájem o")}</td>
+                            <td style="padding: 8px 0; color: #ff3366; font-weight: 600;">{interest_label}</td>
+                        </tr>
+                    </table>'''
+
+            if message:
+                body_html += f'''
+                    <div style="margin-top: 20px; padding: 16px; background: rgba(255,255,255,0.05); border-radius: 8px; border-left: 3px solid #933df5;">
+                        <p style="color: #888; margin: 0 0 8px; font-size: 13px;">{_("Zpráva")}</p>
+                        <p style="color: #fff; margin: 0; line-height: 1.6;">{message}</p>
+                    </div>'''
+
+            body_html += f'''
+                    <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.1);">
+                        <a href="{lead.get_base_url()}/odoo/crm/{lead.id}"
+                           style="display: inline-block; padding: 10px 24px; background: linear-gradient(135deg, #6699ff, #ff3366); color: #fff; text-decoration: none; border-radius: 6px; font-weight: 600;">
+                            {_("Zobrazit v CRM")}
+                        </a>
+                    </div>
+                </div>
+            </div>'''
+
+            mail_values = {
+                'subject': f'[Landing] {interest_label} - {name}',
+                'body_html': body_html,
+                'email_from': email,
+                'email_to': company_email,
+                'auto_delete': True,
+            }
+            request.env['mail.mail'].sudo().create(mail_values).send()
+            _logger.info('MV Landing: notification email sent to %s', company_email)
+
+        except Exception as e:
+            # Don't fail the form submission if email fails
+            _logger.warning('MV Landing: failed to send notification email: %s', e)

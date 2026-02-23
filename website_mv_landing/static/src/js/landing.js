@@ -51,6 +51,10 @@ publicWidget.registry.MVContactForm = publicWidget.Widget.extend({
                 messageEl.className = 'mv-form-message mv-success';
                 messageEl.textContent = data.message;
                 form.reset();
+                // Facebook Pixel: Lead conversion event
+                if (typeof fbq === 'function') {
+                    fbq('track', 'Lead');
+                }
             } else {
                 messageEl.className = 'mv-form-message mv-error';
                 messageEl.textContent = data.message;
