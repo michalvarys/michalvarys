@@ -1,0 +1,1039 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video – Restaurant Showcase</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Noto+Serif+JP:wght@300;400;600;700&family=Montserrat:wght@300;400;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Inter:wght@200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { height: 100%; width: 100%; overflow: hidden; }
+      body { background: #000; }
+
+      .canvas {
+        width: 100vw;
+        height: 100vh;
+        position: relative;
+        overflow: hidden;
+        background: #000;
+      }
+
+      /* Each website scene */
+      .scene {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        opacity: 0;
+        padding: 6% 8%;
+      }
+
+      /* ============================================================
+         TIMING SYSTEM - 30s total
+         Each scene: ~5s visible + 0.5s transition
+         Scene 1: 0.0s – 5.5s
+         Scene 2: 5.0s – 10.5s
+         Scene 3: 10.0s – 15.5s
+         Scene 4: 15.0s – 20.5s
+         Scene 5: 20.0s – 25.5s
+         Outro:   25.0s – 30.0s
+         ============================================================ */
+
+      /* SCENE VISIBILITY (fade in/out) */
+      .scene-1 { animation: sceneVis 5.5s ease forwards; animation-delay: 0s; }
+      .scene-2 { animation: sceneVis 5.5s ease forwards; animation-delay: 5s; }
+      .scene-3 { animation: sceneVis 5.5s ease forwards; animation-delay: 10s; }
+      .scene-4 { animation: sceneVis 5.5s ease forwards; animation-delay: 15s; }
+      .scene-5 { animation: sceneVis 5.5s ease forwards; animation-delay: 20s; }
+      .scene-outro { animation: sceneVis 5s ease forwards; animation-delay: 25s; }
+
+      @keyframes sceneVis {
+        0%   { opacity: 0; }
+        7%   { opacity: 1; }
+        85%  { opacity: 1; }
+        100% { opacity: 0; }
+      }
+
+      /* ============================================================
+         ELEMENT ANIMATIONS – reusable
+         ============================================================ */
+      @keyframes fadeSlideUp {
+        0%   { opacity: 0; transform: translateY(50px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes fadeSlideDown {
+        0%   { opacity: 0; transform: translateY(-40px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes scaleReveal {
+        0%   { opacity: 0; transform: scale(0.7); }
+        100% { opacity: 1; transform: scale(1); }
+      }
+      @keyframes lineGrow {
+        0%   { width: 0; opacity: 0; }
+        100% { width: 100%; opacity: 1; }
+      }
+      @keyframes letterSpaceIn {
+        0%   { opacity: 0; letter-spacing: 0.5em; }
+        100% { opacity: 1; letter-spacing: 0.15em; }
+      }
+      @keyframes shimmer {
+        0%   { background-position: -200% center; }
+        100% { background-position: 200% center; }
+      }
+      @keyframes glowPulse {
+        0%, 100% { opacity: 0.15; transform: scale(1); }
+        50%      { opacity: 0.35; transform: scale(1.15); }
+      }
+      @keyframes floatSlow {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        25%      { transform: translateY(-15px) rotate(2deg); }
+        50%      { transform: translateY(5px) rotate(-1deg); }
+        75%      { transform: translateY(-8px) rotate(1deg); }
+      }
+      @keyframes rotateGlow {
+        0%   { transform: translate(-50%, -50%) rotate(0deg); }
+        100% { transform: translate(-50%, -50%) rotate(360deg); }
+      }
+      @keyframes menuItemIn {
+        0%   { opacity: 0; transform: translateX(-30px); }
+        100% { opacity: 1; transform: translateX(0); }
+      }
+      @keyframes priceIn {
+        0%   { opacity: 0; transform: translateX(30px); }
+        100% { opacity: 1; transform: translateX(0); }
+      }
+      @keyframes borderDraw {
+        0%   { clip-path: polygon(0 0, 0 0, 0 0, 0 0); }
+        25%  { clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); }
+        50%  { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0); }
+        75%  { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+        100% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+      }
+      @keyframes textGlow {
+        0%, 100% { text-shadow: 0 0 20px currentColor; }
+        50%      { text-shadow: 0 0 40px currentColor, 0 0 80px currentColor; }
+      }
+      @keyframes splitRevealLeft {
+        0%   { opacity: 0; transform: translateX(-100px) skewX(5deg); }
+        100% { opacity: 1; transform: translateX(0) skewX(0deg); }
+      }
+      @keyframes splitRevealRight {
+        0%   { opacity: 0; transform: translateX(100px) skewX(-5deg); }
+        100% { opacity: 1; transform: translateX(0) skewX(0deg); }
+      }
+      @keyframes typeIn {
+        0%   { width: 0; }
+        100% { width: 100%; }
+      }
+
+      /* ============================================================
+         GLOW ORBS – reusable ambient lights
+         ============================================================ */
+      .glow-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(100px);
+        pointer-events: none;
+        opacity: 0;
+      }
+
+      /* ============================================================
+         SCENE 1: LA MAISON – Classic French (Gold + Black)
+         ============================================================ */
+      .scene-1 { background: #000; }
+
+      .scene-1 .glow-orb-1 {
+        width: 50%; aspect-ratio: 1;
+        background: radial-gradient(circle, rgba(201,169,110,0.4) 0%, transparent 70%);
+        top: 20%; left: -15%;
+        animation: glowPulse 4s ease-in-out infinite, sceneVis 5.5s ease forwards;
+        animation-delay: 0.3s, 0s;
+      }
+      .scene-1 .glow-orb-2 {
+        width: 40%; aspect-ratio: 1;
+        background: radial-gradient(circle, rgba(201,169,110,0.2) 0%, transparent 70%);
+        bottom: 10%; right: -10%;
+        animation: glowPulse 5s ease-in-out infinite, sceneVis 5.5s ease forwards;
+        animation-delay: 1s, 0s;
+      }
+
+      /* Corner frame */
+      .lm-frame {
+        position: absolute;
+        top: 5%; left: 5%; right: 5%; bottom: 5%;
+        border: 1px solid rgba(201,169,110,0.2);
+        pointer-events: none;
+        opacity: 0;
+        animation: borderDraw 1.5s ease forwards;
+        animation-delay: 0.3s;
+      }
+
+      .lm-tag {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(0.45rem, 0.9vh, 0.85rem);
+        font-weight: 400;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: #C9A96E;
+        opacity: 0;
+        animation: letterSpaceIn 0.8s ease forwards;
+        animation-delay: 0.5s;
+      }
+
+      .lm-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(3rem, 10vh, 11rem);
+        font-weight: 900;
+        color: #fff;
+        line-height: 1;
+        opacity: 0;
+        animation: scaleReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        animation-delay: 0.8s;
+      }
+
+      .lm-line {
+        height: 1px;
+        width: 0;
+        max-width: 80px;
+        background: #C9A96E;
+        margin: 2.5vh auto;
+        animation: lineGrow 0.6s ease forwards;
+        animation-delay: 1.2s;
+      }
+
+      .lm-subtitle {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(0.6rem, 1.3vh, 1.3rem);
+        font-weight: 300;
+        color: rgba(255,255,255,0.6);
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        opacity: 0;
+        animation: fadeSlideUp 0.6s ease forwards;
+        animation-delay: 1.5s;
+      }
+
+      /* Menu items appear */
+      .lm-menu {
+        margin-top: 4vh;
+        width: 80%;
+        max-width: 550px;
+      }
+
+      .lm-menu-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 1.2vh 0;
+        border-bottom: 1px solid rgba(201,169,110,0.12);
+        opacity: 0;
+      }
+      .lm-menu-item:nth-child(1) { animation: menuItemIn 0.5s ease forwards; animation-delay: 2s; }
+      .lm-menu-item:nth-child(2) { animation: menuItemIn 0.5s ease forwards; animation-delay: 2.2s; }
+      .lm-menu-item:nth-child(3) { animation: menuItemIn 0.5s ease forwards; animation-delay: 2.4s; }
+
+      .lm-menu-name {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(0.75rem, 1.6vh, 1.6rem);
+        color: #fff;
+        font-weight: 500;
+      }
+      .lm-menu-price {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(0.7rem, 1.4vh, 1.4rem);
+        color: #C9A96E;
+        font-weight: 400;
+        opacity: 0;
+      }
+      .lm-menu-item:nth-child(1) .lm-menu-price { animation: priceIn 0.4s ease forwards; animation-delay: 2.3s; }
+      .lm-menu-item:nth-child(2) .lm-menu-price { animation: priceIn 0.4s ease forwards; animation-delay: 2.5s; }
+      .lm-menu-item:nth-child(3) .lm-menu-price { animation: priceIn 0.4s ease forwards; animation-delay: 2.7s; }
+
+      .lm-cta {
+        margin-top: 3vh;
+        padding: 1.5vh 3.5vw;
+        border: 1px solid #C9A96E;
+        color: #C9A96E;
+        background: transparent;
+        font-family: "Inter", sans-serif;
+        font-size: clamp(0.55rem, 1.1vh, 1rem);
+        font-weight: 500;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        cursor: pointer;
+        opacity: 0;
+        animation: fadeSlideUp 0.5s ease forwards, textGlow 2s ease-in-out infinite;
+        animation-delay: 3s, 4s;
+      }
+
+      /* ============================================================
+         SCENE 2: SAKURA – Japanese Fine Dining (Dark + Pink)
+         ============================================================ */
+      .scene-2 { background: #0a0a0a; }
+
+      .scene-2 .glow-orb-1 {
+        width: 45%; aspect-ratio: 1;
+        background: radial-gradient(circle, rgba(232,160,191,0.3) 0%, transparent 70%);
+        top: 15%; right: -15%;
+        animation: glowPulse 4.5s ease-in-out infinite;
+        animation-delay: 5.5s;
+      }
+      .scene-2 .glow-orb-2 {
+        width: 35%; aspect-ratio: 1;
+        background: radial-gradient(circle, rgba(232,160,191,0.15) 0%, transparent 70%);
+        bottom: 20%; left: -10%;
+        animation: glowPulse 5.5s ease-in-out infinite;
+        animation-delay: 6s;
+      }
+
+      /* Petal shapes */
+      .sakura-petal {
+        position: absolute;
+        width: 60px; height: 60px;
+        border-radius: 50% 0 50% 0;
+        background: rgba(232,160,191,0.06);
+        transform: rotate(45deg);
+        opacity: 0;
+      }
+      .sakura-petal-1 {
+        top: 12%; right: 10%;
+        animation: floatSlow 6s ease-in-out infinite, fadeSlideDown 0.8s ease forwards;
+        animation-delay: 5.5s, 5.3s;
+      }
+      .sakura-petal-2 {
+        bottom: 18%; left: 8%; width: 40px; height: 40px;
+        animation: floatSlow 7s ease-in-out infinite, fadeSlideUp 0.8s ease forwards;
+        animation-delay: 6s, 5.6s;
+      }
+      .sakura-petal-3 {
+        top: 40%; right: 6%; width: 30px; height: 30px;
+        animation: floatSlow 5s ease-in-out infinite, fadeSlideDown 0.8s ease forwards;
+        animation-delay: 5.8s, 5.9s;
+      }
+
+      .sk-tag {
+        font-family: "Noto Serif JP", serif;
+        font-size: clamp(0.55rem, 1.1vh, 1rem);
+        color: #E8A0BF;
+        letter-spacing: 0.4em;
+        opacity: 0;
+        animation: letterSpaceIn 1s ease forwards;
+        animation-delay: 5.4s;
+      }
+
+      .sk-title {
+        font-family: "Noto Serif JP", serif;
+        font-size: clamp(3rem, 9vh, 10rem);
+        font-weight: 600;
+        color: #f5f5f5;
+        line-height: 1.05;
+        opacity: 0;
+        animation: scaleReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        animation-delay: 5.8s;
+      }
+
+      .sk-line {
+        height: 1px;
+        width: 0;
+        max-width: 50px;
+        background: #E8A0BF;
+        margin: 3vh auto;
+        animation: lineGrow 0.5s ease forwards;
+        animation-delay: 6.3s;
+      }
+
+      .sk-subtitle {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(0.5rem, 1.1vh, 1.1rem);
+        font-weight: 200;
+        color: rgba(245,245,245,0.45);
+        letter-spacing: 0.35em;
+        text-transform: uppercase;
+        opacity: 0;
+        animation: fadeSlideUp 0.6s ease forwards;
+        animation-delay: 6.6s;
+      }
+
+      .sk-menu {
+        margin-top: 4vh;
+        width: 80%;
+        max-width: 550px;
+      }
+      .sk-menu-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 1.2vh 0;
+        border-bottom: 1px solid rgba(232,160,191,0.08);
+        opacity: 0;
+      }
+      .sk-menu-item:nth-child(1) { animation: menuItemIn 0.5s ease forwards; animation-delay: 7.2s; }
+      .sk-menu-item:nth-child(2) { animation: menuItemIn 0.5s ease forwards; animation-delay: 7.4s; }
+      .sk-menu-item:nth-child(3) { animation: menuItemIn 0.5s ease forwards; animation-delay: 7.6s; }
+
+      .sk-menu-name {
+        font-family: "Noto Serif JP", serif;
+        font-size: clamp(0.75rem, 1.6vh, 1.6rem);
+        color: #f5f5f5;
+        font-weight: 400;
+      }
+      .sk-menu-price {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(0.65rem, 1.3vh, 1.3rem);
+        color: #E8A0BF;
+        font-weight: 300;
+        opacity: 0;
+      }
+      .sk-menu-item:nth-child(1) .sk-menu-price { animation: priceIn 0.4s ease forwards; animation-delay: 7.5s; }
+      .sk-menu-item:nth-child(2) .sk-menu-price { animation: priceIn 0.4s ease forwards; animation-delay: 7.7s; }
+      .sk-menu-item:nth-child(3) .sk-menu-price { animation: priceIn 0.4s ease forwards; animation-delay: 7.9s; }
+
+      .sk-quote {
+        margin-top: 3vh;
+        font-family: "Noto Serif JP", serif;
+        font-size: clamp(0.7rem, 1.5vh, 1.5rem);
+        font-weight: 300;
+        color: rgba(245,245,245,0.5);
+        font-style: italic;
+        max-width: 80%;
+        line-height: 1.7;
+        opacity: 0;
+        animation: fadeSlideUp 0.6s ease forwards;
+        animation-delay: 8.5s;
+      }
+
+      /* ============================================================
+         SCENE 3: EMBER – Modern Steakhouse (Dark + Orange/Red)
+         ============================================================ */
+      .scene-3 { background: #111; }
+
+      .scene-3 .glow-orb-1 {
+        width: 55%; aspect-ratio: 1;
+        background: radial-gradient(circle, rgba(232,93,38,0.3) 0%, transparent 70%);
+        top: -10%; left: 30%;
+        animation: glowPulse 3.5s ease-in-out infinite;
+        animation-delay: 10.5s;
+      }
+      .scene-3 .glow-orb-2 {
+        width: 30%; aspect-ratio: 1;
+        background: radial-gradient(circle, rgba(255,50,20,0.2) 0%, transparent 70%);
+        bottom: 5%; left: -5%;
+        animation: glowPulse 4s ease-in-out infinite;
+        animation-delay: 11s;
+      }
+
+      /* Geometric shapes */
+      .ember-geo {
+        position: absolute;
+        border: 2px solid rgba(232,93,38,0.12);
+        opacity: 0;
+      }
+      .ember-geo-1 {
+        width: 120px; height: 120px;
+        top: 8%; right: 6%;
+        transform: rotate(45deg);
+        animation: floatSlow 5s ease-in-out infinite, scaleReveal 0.6s ease forwards;
+        animation-delay: 10.5s, 10.3s;
+      }
+      .ember-geo-2 {
+        width: 60px; height: 60px;
+        bottom: 15%; left: 5%;
+        transform: rotate(20deg);
+        animation: floatSlow 7s ease-in-out infinite, scaleReveal 0.6s ease forwards;
+        animation-delay: 11s, 10.6s;
+      }
+
+      .em-tag {
+        font-family: "Montserrat", sans-serif;
+        font-size: clamp(0.5rem, 1vh, 0.9rem);
+        font-weight: 700;
+        letter-spacing: 0.35em;
+        text-transform: uppercase;
+        color: #E85D26;
+        opacity: 0;
+        animation: splitRevealLeft 0.7s ease forwards;
+        animation-delay: 10.4s;
+      }
+
+      .em-title {
+        font-family: "Montserrat", sans-serif;
+        font-size: clamp(3.5rem, 12vh, 13rem);
+        font-weight: 900;
+        color: #fff;
+        line-height: 0.9;
+        text-transform: uppercase;
+        opacity: 0;
+        animation: scaleReveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        animation-delay: 10.8s;
+      }
+
+      .em-line {
+        height: 4px;
+        width: 0;
+        max-width: 90px;
+        background: #E85D26;
+        margin: 2vh auto;
+        animation: lineGrow 0.4s ease forwards;
+        animation-delay: 11.3s;
+      }
+
+      .em-subtitle {
+        font-family: "Montserrat", sans-serif;
+        font-size: clamp(0.55rem, 1.2vh, 1.2rem);
+        font-weight: 400;
+        color: rgba(255,255,255,0.5);
+        letter-spacing: 0.4em;
+        text-transform: uppercase;
+        opacity: 0;
+        animation: splitRevealRight 0.6s ease forwards;
+        animation-delay: 11.5s;
+      }
+
+      .em-menu {
+        margin-top: 3.5vh;
+        width: 80%;
+        max-width: 550px;
+      }
+      .em-menu-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 1.2vh 0;
+        border-bottom: 1px solid rgba(232,93,38,0.12);
+        opacity: 0;
+      }
+      .em-menu-item:nth-child(1) { animation: menuItemIn 0.5s ease forwards; animation-delay: 12s; }
+      .em-menu-item:nth-child(2) { animation: menuItemIn 0.5s ease forwards; animation-delay: 12.2s; }
+      .em-menu-item:nth-child(3) { animation: menuItemIn 0.5s ease forwards; animation-delay: 12.4s; }
+
+      .em-menu-name {
+        font-family: "Montserrat", sans-serif;
+        font-size: clamp(0.7rem, 1.5vh, 1.5rem);
+        color: #fff;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      .em-menu-price {
+        font-family: "Montserrat", sans-serif;
+        font-size: clamp(0.65rem, 1.3vh, 1.3rem);
+        color: #E85D26;
+        font-weight: 700;
+        opacity: 0;
+      }
+      .em-menu-item:nth-child(1) .em-menu-price { animation: priceIn 0.4s ease forwards; animation-delay: 12.3s; }
+      .em-menu-item:nth-child(2) .em-menu-price { animation: priceIn 0.4s ease forwards; animation-delay: 12.5s; }
+      .em-menu-item:nth-child(3) .em-menu-price { animation: priceIn 0.4s ease forwards; animation-delay: 12.7s; }
+
+      .em-cta {
+        margin-top: 3vh;
+        padding: 1.5vh 4vw;
+        background: #E85D26;
+        color: #fff;
+        border: none;
+        font-family: "Montserrat", sans-serif;
+        font-size: clamp(0.6rem, 1.2vh, 1.1rem);
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        cursor: pointer;
+        opacity: 0;
+        animation: fadeSlideUp 0.5s ease forwards;
+        animation-delay: 13.2s;
+        box-shadow: 0 0 30px rgba(232,93,38,0.4);
+      }
+
+      /* ============================================================
+         SCENE 4: VERDE – Mediterranean (Green + Gold)
+         ============================================================ */
+      .scene-4 { background: #1a2e1a; }
+
+      .scene-4 .glow-orb-1 {
+        width: 50%; aspect-ratio: 1;
+        background: radial-gradient(circle, rgba(212,168,83,0.25) 0%, transparent 70%);
+        top: 10%; left: -15%;
+        animation: glowPulse 5s ease-in-out infinite;
+        animation-delay: 15.5s;
+      }
+      .scene-4 .glow-orb-2 {
+        width: 40%; aspect-ratio: 1;
+        background: radial-gradient(circle, rgba(100,160,80,0.15) 0%, transparent 70%);
+        bottom: 5%; right: -10%;
+        animation: glowPulse 4.5s ease-in-out infinite;
+        animation-delay: 16s;
+      }
+
+      /* Organic shapes */
+      .verde-org {
+        position: absolute;
+        border-radius: 60% 40% 55% 45%;
+        background: rgba(212,168,83,0.04);
+        opacity: 0;
+      }
+      .verde-org-1 {
+        width: 150px; height: 130px;
+        top: 10%; right: 5%;
+        transform: rotate(-15deg);
+        animation: floatSlow 7s ease-in-out infinite, scaleReveal 0.8s ease forwards;
+        animation-delay: 15.5s, 15.3s;
+      }
+      .verde-org-2 {
+        width: 90px; height: 80px;
+        bottom: 12%; left: 5%;
+        transform: rotate(25deg);
+        animation: floatSlow 6s ease-in-out infinite, scaleReveal 0.8s ease forwards;
+        animation-delay: 16s, 15.6s;
+      }
+
+      .vd-tag {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(0.5rem, 1vh, 0.95rem);
+        font-weight: 400;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: #D4A853;
+        opacity: 0;
+        animation: letterSpaceIn 0.9s ease forwards;
+        animation-delay: 15.4s;
+      }
+
+      .vd-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(3rem, 10vh, 11rem);
+        font-weight: 600;
+        color: #f0ebe3;
+        line-height: 1;
+        font-style: italic;
+        opacity: 0;
+        animation: scaleReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        animation-delay: 15.8s;
+      }
+
+      .vd-line {
+        height: 1px;
+        width: 0;
+        max-width: 60px;
+        background: #D4A853;
+        margin: 2.5vh auto;
+        animation: lineGrow 0.5s ease forwards;
+        animation-delay: 16.3s;
+      }
+
+      .vd-subtitle {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(0.55rem, 1.2vh, 1.2rem);
+        font-weight: 300;
+        color: rgba(240,235,227,0.5);
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        opacity: 0;
+        animation: fadeSlideUp 0.6s ease forwards;
+        animation-delay: 16.6s;
+      }
+
+      .vd-menu {
+        margin-top: 4vh;
+        width: 80%;
+        max-width: 550px;
+      }
+      .vd-menu-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 1.2vh 0;
+        border-bottom: 1px solid rgba(212,168,83,0.12);
+        opacity: 0;
+      }
+      .vd-menu-item:nth-child(1) { animation: menuItemIn 0.5s ease forwards; animation-delay: 17.2s; }
+      .vd-menu-item:nth-child(2) { animation: menuItemIn 0.5s ease forwards; animation-delay: 17.4s; }
+      .vd-menu-item:nth-child(3) { animation: menuItemIn 0.5s ease forwards; animation-delay: 17.6s; }
+
+      .vd-menu-name {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(0.8rem, 1.7vh, 1.7rem);
+        color: #f0ebe3;
+        font-weight: 500;
+      }
+      .vd-menu-price {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(0.65rem, 1.3vh, 1.3rem);
+        color: #D4A853;
+        font-weight: 400;
+        opacity: 0;
+      }
+      .vd-menu-item:nth-child(1) .vd-menu-price { animation: priceIn 0.4s ease forwards; animation-delay: 17.5s; }
+      .vd-menu-item:nth-child(2) .vd-menu-price { animation: priceIn 0.4s ease forwards; animation-delay: 17.7s; }
+      .vd-menu-item:nth-child(3) .vd-menu-price { animation: priceIn 0.4s ease forwards; animation-delay: 17.9s; }
+
+      .vd-cta {
+        margin-top: 3vh;
+        padding: 1.5vh 3.5vw;
+        border: 1px solid #D4A853;
+        background: transparent;
+        color: #D4A853;
+        border-radius: 50px;
+        font-family: "Inter", sans-serif;
+        font-size: clamp(0.55rem, 1.1vh, 1rem);
+        font-weight: 400;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        cursor: pointer;
+        opacity: 0;
+        animation: fadeSlideUp 0.5s ease forwards;
+        animation-delay: 18.2s;
+      }
+
+      /* ============================================================
+         SCENE 5: NOIR – Ultra-Minimalist (Black + White)
+         ============================================================ */
+      .scene-5 { background: #000; }
+
+      .scene-5 .glow-orb-1 {
+        width: 50%; aspect-ratio: 1;
+        background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+        top: 30%; left: 25%;
+        animation: glowPulse 5s ease-in-out infinite;
+        animation-delay: 20.5s;
+      }
+
+      /* Rotating ring */
+      .noir-ring {
+        position: absolute;
+        top: 50%; left: 50%;
+        width: 60vh; height: 60vh;
+        border: 1px solid rgba(255,255,255,0.04);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        animation: rotateGlow 20s linear infinite, scaleReveal 1s ease forwards;
+        animation-delay: 20.5s, 20.3s;
+      }
+
+      .nr-tag {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(0.4rem, 0.8vh, 0.75rem);
+        font-weight: 300;
+        letter-spacing: 0.5em;
+        text-transform: uppercase;
+        color: #888;
+        opacity: 0;
+        animation: letterSpaceIn 1s ease forwards;
+        animation-delay: 20.4s;
+      }
+
+      .nr-title {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(3.5rem, 12vh, 13rem);
+        font-weight: 200;
+        color: #fff;
+        line-height: 0.95;
+        text-transform: uppercase;
+        letter-spacing: -0.03em;
+        opacity: 0;
+        animation: scaleReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        animation-delay: 20.8s;
+      }
+
+      .nr-line {
+        height: 1px;
+        width: 0;
+        max-width: 35px;
+        background: #fff;
+        margin: 3.5vh auto;
+        animation: lineGrow 0.5s ease forwards;
+        animation-delay: 21.4s;
+      }
+
+      .nr-subtitle {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(0.45rem, 1vh, 1rem);
+        font-weight: 300;
+        color: #888;
+        letter-spacing: 0.4em;
+        text-transform: uppercase;
+        opacity: 0;
+        animation: fadeSlideUp 0.6s ease forwards;
+        animation-delay: 21.7s;
+      }
+
+      .nr-menu {
+        margin-top: 4vh;
+        width: 80%;
+        max-width: 550px;
+      }
+      .nr-menu-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 1.2vh 0;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        opacity: 0;
+      }
+      .nr-menu-item:nth-child(1) { animation: menuItemIn 0.5s ease forwards; animation-delay: 22.2s; }
+      .nr-menu-item:nth-child(2) { animation: menuItemIn 0.5s ease forwards; animation-delay: 22.4s; }
+      .nr-menu-item:nth-child(3) { animation: menuItemIn 0.5s ease forwards; animation-delay: 22.6s; }
+
+      .nr-menu-name {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(0.7rem, 1.5vh, 1.5rem);
+        color: #fff;
+        font-weight: 400;
+      }
+      .nr-menu-price {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(0.6rem, 1.2vh, 1.2rem);
+        color: #888;
+        font-weight: 300;
+        opacity: 0;
+      }
+      .nr-menu-item:nth-child(1) .nr-menu-price { animation: priceIn 0.4s ease forwards; animation-delay: 22.5s; }
+      .nr-menu-item:nth-child(2) .nr-menu-price { animation: priceIn 0.4s ease forwards; animation-delay: 22.7s; }
+      .nr-menu-item:nth-child(3) .nr-menu-price { animation: priceIn 0.4s ease forwards; animation-delay: 22.9s; }
+
+      .nr-cta {
+        margin-top: 3vh;
+        padding: 1.5vh 4vw;
+        background: #fff;
+        color: #000;
+        border: none;
+        font-family: "Inter", sans-serif;
+        font-size: clamp(0.5rem, 1vh, 0.95rem);
+        font-weight: 500;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        cursor: pointer;
+        opacity: 0;
+        animation: fadeSlideUp 0.5s ease forwards;
+        animation-delay: 23.2s;
+      }
+
+      /* ============================================================
+         OUTRO – VARYSHOP
+         ============================================================ */
+      .scene-outro {
+        background: #000;
+        z-index: 10;
+      }
+
+      .outro-glow {
+        position: absolute;
+        width: 60%; aspect-ratio: 1;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(102,153,255,0.2) 0%, rgba(255,51,102,0.1) 40%, transparent 70%);
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        filter: blur(80px);
+        opacity: 0;
+        animation: glowPulse 3s ease-in-out infinite;
+        animation-delay: 25.5s;
+      }
+
+      .outro-logo {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(3rem, 8vh, 9rem);
+        font-weight: 900;
+        background: linear-gradient(135deg, #6699ff 0%, #ff3366 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        opacity: 0;
+        animation: scaleReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        animation-delay: 25.5s;
+      }
+
+      .outro-line {
+        height: 2px;
+        width: 0;
+        max-width: 60px;
+        background: linear-gradient(135deg, #6699ff 0%, #ff3366 100%);
+        margin: 2vh auto;
+        animation: lineGrow 0.5s ease forwards;
+        animation-delay: 26s;
+      }
+
+      .outro-sub {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(0.65rem, 1.4vh, 1.4rem);
+        font-weight: 300;
+        color: rgba(255,255,255,0.6);
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        opacity: 0;
+        animation: fadeSlideUp 0.6s ease forwards;
+        animation-delay: 26.3s;
+      }
+
+      .hint {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        color: #333;
+        font-size: 0.7rem;
+        z-index: 999;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="canvas">
+
+      <!-- ====== SCENE 1: LA MAISON ====== -->
+      <div class="scene scene-1">
+        <div class="glow-orb glow-orb-1"></div>
+        <div class="glow-orb glow-orb-2"></div>
+        <div class="lm-frame"></div>
+        <span class="lm-tag">Est. 1987 &middot; Paris</span>
+        <h1 class="lm-title">La Maison</h1>
+        <div class="lm-line"></div>
+        <p class="lm-subtitle">Fine French Cuisine</p>
+        <div class="lm-menu">
+          <div class="lm-menu-item">
+            <span class="lm-menu-name">Foie Gras Torchon</span>
+            <span class="lm-menu-price">&euro;38</span>
+          </div>
+          <div class="lm-menu-item">
+            <span class="lm-menu-name">Homard Thermidor</span>
+            <span class="lm-menu-price">&euro;62</span>
+          </div>
+          <div class="lm-menu-item">
+            <span class="lm-menu-name">Filet de Boeuf Rossini</span>
+            <span class="lm-menu-price">&euro;75</span>
+          </div>
+        </div>
+        <button class="lm-cta">Reserve a Table</button>
+      </div>
+
+      <!-- ====== SCENE 2: SAKURA ====== -->
+      <div class="scene scene-2">
+        <div class="glow-orb glow-orb-1"></div>
+        <div class="glow-orb glow-orb-2"></div>
+        <div class="sakura-petal sakura-petal-1"></div>
+        <div class="sakura-petal sakura-petal-2"></div>
+        <div class="sakura-petal sakura-petal-3"></div>
+        <span class="sk-tag">東京 &middot; Tokyo</span>
+        <h1 class="sk-title">Sakura</h1>
+        <div class="sk-line"></div>
+        <p class="sk-subtitle">Omakase &middot; Fine Dining</p>
+        <div class="sk-menu">
+          <div class="sk-menu-item">
+            <span class="sk-menu-name">Otoro Sashimi</span>
+            <span class="sk-menu-price">¥4,800</span>
+          </div>
+          <div class="sk-menu-item">
+            <span class="sk-menu-name">A5 Wagyu Tataki</span>
+            <span class="sk-menu-price">¥6,200</span>
+          </div>
+          <div class="sk-menu-item">
+            <span class="sk-menu-name">Uni Tempura</span>
+            <span class="sk-menu-price">¥3,600</span>
+          </div>
+        </div>
+        <p class="sk-quote">"In every grain of rice — the poetry of simplicity."</p>
+      </div>
+
+      <!-- ====== SCENE 3: EMBER ====== -->
+      <div class="scene scene-3">
+        <div class="glow-orb glow-orb-1"></div>
+        <div class="glow-orb glow-orb-2"></div>
+        <div class="ember-geo ember-geo-1"></div>
+        <div class="ember-geo ember-geo-2"></div>
+        <span class="em-tag">New York &middot; Est. 2019</span>
+        <h1 class="em-title">Ember</h1>
+        <div class="em-line"></div>
+        <p class="em-subtitle">Prime Steakhouse</p>
+        <div class="em-menu">
+          <div class="em-menu-item">
+            <span class="em-menu-name">Dry-Aged Ribeye</span>
+            <span class="em-menu-price">$78</span>
+          </div>
+          <div class="em-menu-item">
+            <span class="em-menu-name">Wagyu Tomahawk</span>
+            <span class="em-menu-price">$185</span>
+          </div>
+          <div class="em-menu-item">
+            <span class="em-menu-name">Porterhouse for Two</span>
+            <span class="em-menu-price">$145</span>
+          </div>
+        </div>
+        <button class="em-cta">Book Now</button>
+      </div>
+
+      <!-- ====== SCENE 4: VERDE ====== -->
+      <div class="scene scene-4">
+        <div class="glow-orb glow-orb-1"></div>
+        <div class="glow-orb glow-orb-2"></div>
+        <div class="verde-org verde-org-1"></div>
+        <div class="verde-org verde-org-2"></div>
+        <span class="vd-tag">Amalfi Coast &middot; Italy</span>
+        <h1 class="vd-title">Verde</h1>
+        <div class="vd-line"></div>
+        <p class="vd-subtitle">Mediterranean Kitchen</p>
+        <div class="vd-menu">
+          <div class="vd-menu-item">
+            <span class="vd-menu-name">Burrata di Puglia</span>
+            <span class="vd-menu-price">&euro;24</span>
+          </div>
+          <div class="vd-menu-item">
+            <span class="vd-menu-name">Risotto al Tartufo</span>
+            <span class="vd-menu-price">&euro;38</span>
+          </div>
+          <div class="vd-menu-item">
+            <span class="vd-menu-name">Branzino al Forno</span>
+            <span class="vd-menu-price">&euro;42</span>
+          </div>
+        </div>
+        <button class="vd-cta">Reserve Your Evening</button>
+      </div>
+
+      <!-- ====== SCENE 5: NOIR ====== -->
+      <div class="scene scene-5">
+        <div class="glow-orb glow-orb-1"></div>
+        <div class="noir-ring"></div>
+        <span class="nr-tag">London &middot; Michelin Starred</span>
+        <h1 class="nr-title">Noir</h1>
+        <div class="nr-line"></div>
+        <p class="nr-subtitle">Tasting Menu Experience</p>
+        <div class="nr-menu">
+          <div class="nr-menu-item">
+            <span class="nr-menu-name">Scallop Ceviche</span>
+            <span class="nr-menu-price">&mdash;</span>
+          </div>
+          <div class="nr-menu-item">
+            <span class="nr-menu-name">Aged Duck</span>
+            <span class="nr-menu-price">&mdash;</span>
+          </div>
+          <div class="nr-menu-item">
+            <span class="nr-menu-name">12-Course Experience</span>
+            <span class="nr-menu-price">&pound;245</span>
+          </div>
+        </div>
+        <button class="nr-cta">Book</button>
+      </div>
+
+      <!-- ====== OUTRO ====== -->
+      <div class="scene scene-outro">
+        <div class="outro-glow"></div>
+        <div class="outro-logo">VARYSHOP</div>
+        <div class="outro-line"></div>
+        <p class="outro-sub">Websites that sell</p>
+      </div>
+
+    </div>
+
+    <span class="hint">Press R for replay</span>
+    <script>
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "r" || e.key === "R") location.reload();
+      });
+    </script>
+  </body>
+</html>

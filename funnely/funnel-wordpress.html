@@ -1,0 +1,1420 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ditch WordPress — Get a Reliable System | VARYSHOP</title>
+    <meta
+      name="description"
+      content="Tired of WordPress breaking? We'll migrate your site to a fast, reliable all-in-one platform with CMS, CRM & marketing tools. Free migration for 5 businesses."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --red: #dc3232;
+        --orange: #ff6b35;
+        --cyan: #00d4ff;
+        --purple: #933df5;
+        --pink: #ff3366;
+        --green: #44ff88;
+        --bg: #000000;
+        --bg-card: #111111;
+        --bg-card-hover: #1a1a1a;
+        --text: #ffffff;
+        --text-muted: #888888;
+        --text-light: #cccccc;
+        --gradient-danger: linear-gradient(135deg, #dc3232 0%, #ff6b35 100%);
+        --gradient-solution: linear-gradient(135deg, #00d4ff 0%, #6c63ff 100%);
+        --gradient-cta: linear-gradient(135deg, #933df5 0%, #ff3366 100%);
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+      .container--narrow {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+      .text-center {
+        text-align: center;
+      }
+      .text-gradient-danger {
+        background: var(--gradient-danger);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .text-gradient-solution {
+        background: var(--gradient-solution);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .text-gradient-cta {
+        background: var(--gradient-cta);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 6px 16px;
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+      }
+      .badge--danger {
+        background: rgba(220, 50, 50, 0.15);
+        color: var(--red);
+        border: 1px solid rgba(220, 50, 50, 0.3);
+      }
+      .badge--solution {
+        background: rgba(0, 212, 255, 0.1);
+        color: var(--cyan);
+        border: 1px solid rgba(0, 212, 255, 0.3);
+      }
+      .badge--cta {
+        background: var(--gradient-cta);
+        color: #fff;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 16px 40px;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: inherit;
+      }
+      .btn--cta {
+        background: var(--gradient-cta);
+        color: #fff;
+        box-shadow: 0 4px 24px rgba(147, 61, 245, 0.3);
+      }
+      .btn--cta:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 40px rgba(147, 61, 245, 0.5);
+      }
+      .btn--large {
+        padding: 20px 56px;
+        font-size: 1.25rem;
+      }
+      .btn--outline {
+        background: transparent;
+        color: #fff;
+        border: 2px solid var(--cyan);
+      }
+      .btn--outline:hover {
+        background: rgba(0, 212, 255, 0.1);
+        transform: translateY(-2px);
+      }
+
+      section {
+        padding: 100px 0;
+        position: relative;
+      }
+
+      /* ===== HERO ===== */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        padding: 120px 0 100px;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -30%;
+        width: 800px;
+        height: 800px;
+        background: radial-gradient(
+          circle,
+          rgba(220, 50, 50, 0.12) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .hero::after {
+        content: "";
+        position: absolute;
+        bottom: -20%;
+        left: -20%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+          circle,
+          rgba(255, 107, 53, 0.06) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .hero__eyebrow {
+        margin-bottom: 24px;
+      }
+      .hero h1 {
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        font-weight: 900;
+        line-height: 1.1;
+        margin-bottom: 24px;
+        letter-spacing: -1px;
+      }
+      .hero__sub {
+        font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+        color: var(--text-light);
+        max-width: 620px;
+        margin-bottom: 40px;
+        font-weight: 300;
+        line-height: 1.6;
+      }
+      .hero__urgency {
+        margin-top: 24px;
+        font-size: 0.95rem;
+        color: var(--pink);
+        font-weight: 600;
+      }
+
+      /* ===== PAIN POINTS ===== */
+      .pain {
+        background: linear-gradient(180deg, #0a0000 0%, #000 100%);
+      }
+      .pain h2 {
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        font-weight: 800;
+        line-height: 1.15;
+        margin-bottom: 48px;
+      }
+      .pain__cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 24px;
+        margin-top: 48px;
+      }
+      .pain__card {
+        background: var(--bg-card);
+        border: 1px solid rgba(220, 50, 50, 0.15);
+        border-radius: 16px;
+        padding: 36px 28px;
+        transition: all 0.3s ease;
+      }
+      .pain__card:hover {
+        border-color: rgba(220, 50, 50, 0.4);
+        background: var(--bg-card-hover);
+      }
+      .pain__card-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: rgba(220, 50, 50, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
+        font-size: 1.4rem;
+        color: var(--red);
+        font-weight: 800;
+      }
+      .pain__card h3 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      .pain__card p {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      /* ===== COMPARISON ===== */
+      .comparison {
+        background: var(--bg);
+      }
+      .comparison h2 {
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        font-weight: 800;
+        line-height: 1.15;
+        margin-bottom: 24px;
+      }
+      .comparison__grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        margin-top: 56px;
+      }
+      @media (max-width: 768px) {
+        .comparison__grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .comparison__col {
+        background: var(--bg-card);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 20px;
+        padding: 48px 36px;
+      }
+      .comparison__col--old {
+        opacity: 0.7;
+        border-color: rgba(220, 50, 50, 0.2);
+      }
+      .comparison__col--new {
+        border-color: var(--cyan);
+        box-shadow: 0 0 60px rgba(0, 212, 255, 0.08);
+      }
+      .comparison__col h3 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 24px;
+        color: var(--text-muted);
+      }
+      .comparison__list {
+        list-style: none;
+        padding: 0;
+      }
+      .comparison__list li {
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        color: var(--text-light);
+        font-size: 0.95rem;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .comparison__list li .icon {
+        flex-shrink: 0;
+        font-weight: 700;
+        font-size: 1.1rem;
+      }
+      .comparison__col--old .icon {
+        color: #ff4444;
+      }
+      .comparison__col--new .icon {
+        color: var(--green);
+      }
+
+      /* ===== SOLUTION ===== */
+      .solution {
+        background: linear-gradient(180deg, #000 0%, #0a0a1a 100%);
+      }
+      .solution h2 {
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        font-weight: 800;
+        line-height: 1.15;
+        margin-bottom: 16px;
+      }
+      .solution__subtitle {
+        font-size: 1.15rem;
+        color: var(--text-light);
+        max-width: 600px;
+        margin: 0 auto 48px;
+        font-weight: 300;
+      }
+      .solution__features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 24px;
+      }
+      .solution__feature {
+        background: var(--bg-card);
+        border: 1px solid rgba(0, 212, 255, 0.12);
+        border-radius: 16px;
+        padding: 36px 28px;
+        transition: all 0.3s ease;
+      }
+      .solution__feature:hover {
+        border-color: rgba(0, 212, 255, 0.3);
+        background: var(--bg-card-hover);
+      }
+      .solution__feature-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: rgba(0, 212, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
+        font-size: 1.3rem;
+      }
+      .solution__feature h3 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      .solution__feature p {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      /* ===== PROCESS ===== */
+      .process {
+        background: rgba(255, 255, 255, 0.02);
+      }
+      .process h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 800;
+        margin-bottom: 56px;
+      }
+      .process__steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 32px;
+      }
+      .process__step {
+        text-align: center;
+        padding: 32px 24px;
+      }
+      .process__step-number {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: var(--gradient-solution);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        font-size: 1.4rem;
+        font-weight: 800;
+      }
+      .process__step h3 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      .process__step p {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+      }
+
+      /* ===== TESTIMONIAL ===== */
+      .testimonial {
+        background: var(--bg);
+      }
+      .testimonial h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 800;
+        margin-bottom: 48px;
+      }
+      .testimonial__card {
+        background: var(--bg-card);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 20px;
+        padding: 48px 40px;
+        max-width: 700px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .testimonial__quote {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        color: var(--text-light);
+        font-style: italic;
+        margin-bottom: 24px;
+      }
+      .testimonial__author {
+        font-weight: 600;
+        font-size: 1rem;
+      }
+      .testimonial__role {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        margin-top: 4px;
+      }
+
+      /* ===== CTA OFFER ===== */
+      .cta-offer {
+        background: radial-gradient(
+          ellipse at center,
+          rgba(147, 61, 245, 0.08) 0%,
+          transparent 70%
+        );
+      }
+      .cta-offer__box {
+        background: var(--bg-card);
+        border: 2px solid var(--purple);
+        border-radius: 24px;
+        padding: 64px 48px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .cta-offer__box::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--gradient-cta);
+      }
+      .cta-offer h2 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 900;
+        margin-bottom: 16px;
+        line-height: 1.15;
+      }
+      .cta-offer__sub {
+        font-size: 1.15rem;
+        color: var(--text-light);
+        max-width: 550px;
+        margin: 0 auto 32px;
+        font-weight: 300;
+        line-height: 1.7;
+      }
+      .cta-offer__price {
+        margin: 32px 0;
+      }
+      .cta-offer__old-price {
+        font-size: 1.5rem;
+        color: #555;
+        text-decoration: line-through;
+      }
+      .cta-offer__new-price {
+        font-size: clamp(3rem, 6vw, 5rem);
+        font-weight: 900;
+      }
+      .cta-offer__trust {
+        display: flex;
+        justify-content: center;
+        gap: 32px;
+        margin-top: 24px;
+        flex-wrap: wrap;
+      }
+      .cta-offer__trust span {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        font-weight: 500;
+      }
+      .cta-offer__trust .icon {
+        color: var(--green);
+        margin-right: 6px;
+      }
+
+      /* ===== FORM ===== */
+      .form-section {
+        background: var(--purple);
+        position: relative;
+        overflow: hidden;
+      }
+      .form-section::before {
+        content: "";
+        position: absolute;
+        top: -100px;
+        right: -100px;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.1) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .form-section h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 800;
+        margin-bottom: 12px;
+      }
+      .form-section__subtitle {
+        font-size: 1.15rem;
+        opacity: 0.85;
+        margin-bottom: 48px;
+        font-weight: 300;
+      }
+      .form {
+        max-width: 500px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .form input,
+      .form textarea {
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 12px;
+        padding: 16px 20px;
+        color: #fff;
+        font-size: 1rem;
+        font-family: inherit;
+        outline: none;
+        transition: border-color 0.3s;
+      }
+      .form input::placeholder,
+      .form textarea::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .form input:focus,
+      .form textarea:focus {
+        border-color: rgba(255, 255, 255, 0.6);
+      }
+      .form textarea {
+        resize: vertical;
+        min-height: 80px;
+      }
+      .form .btn {
+        background: #000;
+        color: #fff;
+        text-align: center;
+        font-weight: 700;
+      }
+      .form .btn:hover {
+        background: #111;
+        transform: translateY(-2px);
+      }
+
+      /* ===== FAQ ===== */
+      .faq {
+        background: var(--bg);
+      }
+      .faq h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 800;
+        margin-bottom: 48px;
+      }
+      .faq__list {
+        max-width: 700px;
+        margin: 0 auto;
+      }
+      .faq__item {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .faq__question {
+        width: 100%;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 1.1rem;
+        font-weight: 600;
+        padding: 24px 0;
+        text-align: left;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: inherit;
+      }
+      .faq__question::after {
+        content: "+";
+        font-size: 1.5rem;
+        font-weight: 300;
+        transition: transform 0.3s;
+      }
+      .faq__item.active .faq__question::after {
+        transform: rotate(45deg);
+      }
+      .faq__answer {
+        max-height: 0;
+        overflow: hidden;
+        transition:
+          max-height 0.3s ease,
+          padding 0.3s ease;
+      }
+      .faq__item.active .faq__answer {
+        max-height: 300px;
+        padding-bottom: 24px;
+      }
+      .faq__answer p {
+        color: var(--text-muted);
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+
+      /* ===== FOOTER ===== */
+      .footer {
+        padding: 40px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 0.85rem;
+      }
+      .footer a {
+        color: var(--purple);
+        text-decoration: none;
+      }
+
+      /* ===== STICKY CTA ===== */
+      .sticky-cta {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.9);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(147, 61, 245, 0.3);
+        padding: 16px 24px;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        transform: translateY(100%);
+        transition: transform 0.4s ease;
+      }
+      .sticky-cta.visible {
+        transform: translateY(0);
+      }
+      .sticky-cta__text {
+        font-size: 0.95rem;
+        font-weight: 500;
+      }
+      .sticky-cta .btn {
+        padding: 12px 28px;
+        font-size: 0.95rem;
+      }
+
+      /* ===== ANIMATIONS ===== */
+      .fade-up {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .fade-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ===== RESPONSIVE ===== */
+      @media (max-width: 768px) {
+        section {
+          padding: 72px 0;
+        }
+        .hero {
+          min-height: auto;
+          padding: 100px 0 72px;
+        }
+        .cta-offer__box {
+          padding: 40px 24px;
+        }
+        .sticky-cta__text {
+          display: none;
+        }
+        .comparison__grid {
+          grid-template-columns: 1fr;
+        }
+        .testimonial__card {
+          padding: 36px 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ==================== HERO ==================== -->
+    <section class="hero">
+      <div class="container">
+        <div class="fade-up">
+          <span class="badge badge--danger hero__eyebrow">Business Owner?</span>
+          <h1>
+            WordPress Is
+            <span class="text-gradient-danger">Killing Your Sales</span>
+          </h1>
+          <p class="hero__sub">
+            Your website takes 5 seconds to load. Plugins break after every
+            update. Customers leave before they even see your offer. There's a
+            better way.
+          </p>
+          <a href="#migrate" class="btn btn--cta btn--large"
+            >Get Free Migration</a
+          >
+          <p class="hero__urgency">Only 5 spots left</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PAIN POINTS ==================== -->
+    <section class="pain">
+      <div class="container">
+        <div class="text-center fade-up">
+          <span class="badge badge--danger">The WordPress Trap</span>
+          <h2 style="margin-top: 24px">
+            Sound <span class="text-gradient-danger">Familiar?</span>
+          </h2>
+        </div>
+        <div class="pain__cards">
+          <div class="pain__card fade-up">
+            <div class="pain__card-icon">!</div>
+            <h3>Constant Errors</h3>
+            <p>
+              Plugins break after every update. You fix one thing, another
+              breaks. Your site is a house of cards.
+            </p>
+          </div>
+          <div class="pain__card fade-up">
+            <div class="pain__card-icon">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  cx="10"
+                  cy="10"
+                  r="8"
+                  stroke="#dc3232"
+                  stroke-width="2.5"
+                  stroke-dasharray="12 38"
+                />
+              </svg>
+            </div>
+            <h3>Painfully Slow</h3>
+            <p>
+              3+ second load times are killing your conversions. Every second of
+              delay costs you 7% in sales.
+            </p>
+          </div>
+          <div class="pain__card fade-up">
+            <div class="pain__card-icon">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  x="2"
+                  y="2"
+                  width="10"
+                  height="10"
+                  rx="2"
+                  stroke="#dc3232"
+                  stroke-width="2"
+                />
+                <rect
+                  x="8"
+                  y="8"
+                  width="10"
+                  height="10"
+                  rx="2"
+                  stroke="#dc3232"
+                  stroke-width="2"
+                />
+              </svg>
+            </div>
+            <h3>Plugin Chaos</h3>
+            <p>
+              30+ plugins just to function. Each one a potential security hole,
+              a performance drain, and another thing to update.
+            </p>
+          </div>
+          <div class="pain__card fade-up">
+            <div class="pain__card-icon">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10 2L3 7v6c0 4 3.5 6 7 7 3.5-1 7-3 7-7V7l-7-5z"
+                  stroke="#dc3232"
+                  stroke-width="2"
+                  fill="none"
+                />
+                <path
+                  d="M7.5 10l2.5 2.5L12.5 8"
+                  stroke="#dc3232"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <h3>Security Risks</h3>
+            <p>
+              WordPress is the #1 target for hackers. Constant brute force
+              attempts, SQL injections, and malware.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== COMPARISON ==================== -->
+    <section class="comparison">
+      <div class="container">
+        <div class="text-center fade-up">
+          <h2>
+            WordPress vs.
+            <span class="text-gradient-solution">VARYSHOP</span>
+          </h2>
+          <p
+            class="text-muted"
+            style="font-size: 1.15rem; max-width: 600px; margin: 0 auto"
+          >
+            See why businesses are switching.
+          </p>
+        </div>
+        <div class="comparison__grid fade-up">
+          <div class="comparison__col comparison__col--old">
+            <h3>WordPress</h3>
+            <ul class="comparison__list">
+              <li><span class="icon">&#10005;</span> 3+ second load times</li>
+              <li><span class="icon">&#10005;</span> 30+ plugins required</li>
+              <li>
+                <span class="icon">&#10005;</span> Constant updates & breakage
+              </li>
+              <li>
+                <span class="icon">&#10005;</span> No built-in CRM or marketing
+              </li>
+              <li>
+                <span class="icon">&#10005;</span> Security vulnerabilities
+              </li>
+              <li>
+                <span class="icon">&#10005;</span> Need a developer for changes
+              </li>
+            </ul>
+          </div>
+          <div class="comparison__col comparison__col--new">
+            <h3>
+              <span class="text-gradient-solution">VARYSHOP</span>
+            </h3>
+            <ul class="comparison__list">
+              <li>
+                <span class="icon">&#10003;</span> Under 1 second load time
+              </li>
+              <li>
+                <span class="icon">&#10003;</span> All-in-one platform, zero
+                plugins
+              </li>
+              <li>
+                <span class="icon">&#10003;</span> Zero maintenance, always
+                works
+              </li>
+              <li>
+                <span class="icon">&#10003;</span> Built-in CRM & marketing
+                tools
+              </li>
+              <li>
+                <span class="icon">&#10003;</span> Enterprise-grade security
+              </li>
+              <li>
+                <span class="icon">&#10003;</span> Edit content yourself, no
+                code
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SOLUTION FEATURES ==================== -->
+    <section class="solution">
+      <div class="container">
+        <div class="text-center fade-up">
+          <span class="badge badge--solution">One Platform. Everything.</span>
+          <h2 style="margin-top: 24px">
+            Meet <span class="text-gradient-solution">VARYSHOP</span>
+          </h2>
+          <p class="solution__subtitle">
+            A reliable all-in-one system that replaces WordPress and all its
+            plugins.
+          </p>
+        </div>
+        <div class="solution__features fade-up">
+          <div class="solution__feature">
+            <div class="solution__feature-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"
+                  stroke="url(#sol1)"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <defs>
+                  <linearGradient
+                    id="sol1"
+                    x1="3"
+                    y1="2"
+                    x2="22"
+                    y2="22"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#00d4ff" />
+                    <stop offset="1" stop-color="#6c63ff" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <h3>Blazing Fast</h3>
+            <p>
+              Under 1 second load time, always. No bloat, no slowdowns. Your
+              visitors get instant pages.
+            </p>
+          </div>
+          <div class="solution__feature">
+            <div class="solution__feature-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 20h9M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4L16.5 3.5z"
+                  stroke="url(#sol2)"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <defs>
+                  <linearGradient
+                    id="sol2"
+                    x1="3"
+                    y1="3"
+                    x2="21"
+                    y2="20"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#00d4ff" />
+                    <stop offset="1" stop-color="#6c63ff" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <h3>Simple CMS</h3>
+            <p>
+              Edit your content without writing a single line of code. Intuitive
+              drag-and-drop interface.
+            </p>
+          </div>
+          <div class="solution__feature">
+            <div class="solution__feature-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"
+                  stroke="url(#sol3)"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <defs>
+                  <linearGradient
+                    id="sol3"
+                    x1="1"
+                    y1="3"
+                    x2="23"
+                    y2="21"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#00d4ff" />
+                    <stop offset="1" stop-color="#6c63ff" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <h3>Built-in CRM</h3>
+            <p>
+              Manage your leads, customers, and deals in one place. No
+              third-party integrations needed.
+            </p>
+          </div>
+          <div class="solution__feature">
+            <div class="solution__feature-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M22 12h-4l-3 9L9 3l-3 9H2"
+                  stroke="url(#sol4)"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <defs>
+                  <linearGradient
+                    id="sol4"
+                    x1="2"
+                    y1="3"
+                    x2="22"
+                    y2="21"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#00d4ff" />
+                    <stop offset="1" stop-color="#6c63ff" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <h3>Marketing Tools</h3>
+            <p>
+              Email campaigns, forms, analytics, and automation. Everything you
+              need to grow, built right in.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PROCESS ==================== -->
+    <section class="process">
+      <div class="container">
+        <div class="text-center fade-up">
+          <h2>How It <span class="text-gradient-solution">Works</span></h2>
+        </div>
+        <div class="process__steps fade-up">
+          <div class="process__step">
+            <div class="process__step-number">1</div>
+            <h3>Free Consultation</h3>
+            <p>
+              We review your WordPress site, identify pain points, and plan the
+              migration.
+            </p>
+          </div>
+          <div class="process__step">
+            <div class="process__step-number">2</div>
+            <h3>We Migrate</h3>
+            <p>
+              Your content, design, and SEO are moved to VARYSHOP. No downtime.
+            </p>
+          </div>
+          <div class="process__step">
+            <div class="process__step-number">3</div>
+            <h3>You See Results</h3>
+            <p>
+              Faster load times, zero errors, happier customers. You decide if
+              you want to stay.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TESTIMONIAL ==================== -->
+    <section class="testimonial">
+      <div class="container">
+        <div class="text-center fade-up">
+          <h2>What Clients <span class="text-gradient-cta">Say</span></h2>
+        </div>
+        <div class="testimonial__card fade-up">
+          <p class="testimonial__quote">
+            "I was spending more time fixing WordPress than running my business.
+            After switching to VARYSHOP, everything just works. My site loads
+            instantly, I can edit content myself, and I haven't had a single
+            error in months."
+          </p>
+          <div class="testimonial__author">Former WordPress User</div>
+          <div class="testimonial__role">E-commerce Business Owner</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CTA OFFER ==================== -->
+    <section class="cta-offer" id="migrate">
+      <div class="container">
+        <div class="cta-offer__box fade-up">
+          <span class="badge badge--cta">Limited Spots</span>
+          <h2 style="margin-top: 24px">
+            Ditch WordPress.<br />
+            <span class="text-gradient-cta">Get VARYSHOP.</span>
+          </h2>
+          <p class="cta-offer__sub">
+            We'll migrate your WordPress site to a fast, reliable system with
+            CMS, CRM & marketing tools — all in one. No risk.
+          </p>
+          <div class="cta-offer__price">
+            <div class="cta-offer__old-price">$2,000 migration fee</div>
+            <div class="cta-offer__new-price text-gradient-cta">$0</div>
+          </div>
+          <a href="#contact" class="btn btn--cta btn--large"
+            >Get Free Migration</a
+          >
+          <div class="cta-offer__trust">
+            <span><span class="icon">&#10003;</span> $0 upfront</span>
+            <span><span class="icon">&#10003;</span> Zero risk</span>
+            <span><span class="icon">&#10003;</span> Free migration</span>
+            <span
+              ><span class="icon">&#10003;</span> Only 5 spots available</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FAQ ==================== -->
+    <section class="faq">
+      <div class="container">
+        <div class="text-center fade-up">
+          <h2>
+            Frequently Asked
+            <span class="text-gradient-cta">Questions</span>
+          </h2>
+        </div>
+        <div class="faq__list fade-up">
+          <div class="faq__item">
+            <button class="faq__question">
+              Will I lose my SEO rankings during migration?
+            </button>
+            <div class="faq__answer">
+              <p>
+                No. We carefully preserve all your URLs, meta tags, and content
+                structure. Your SEO rankings will be maintained or improved
+                thanks to faster load times.
+              </p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__question">
+              How long does the migration take?
+            </button>
+            <div class="faq__answer">
+              <p>
+                Most WordPress sites are migrated within 1-2 weeks, depending on
+                the complexity. We handle everything — you don't have to lift a
+                finger.
+              </p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__question">
+              What if I don't like VARYSHOP?
+            </button>
+            <div class="faq__answer">
+              <p>
+                No risk at all. The migration is free and you keep your original
+                WordPress site as a backup. If you're not satisfied, you can
+                switch back at any time.
+              </p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__question">
+              Can I still edit my content myself?
+            </button>
+            <div class="faq__answer">
+              <p>
+                Absolutely. VARYSHOP has an intuitive content editor that's even
+                easier to use than WordPress. No coding required. We'll train
+                you on everything.
+              </p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__question">
+              Do I need to buy hosting separately?
+            </button>
+            <div class="faq__answer">
+              <p>
+                No. VARYSHOP includes hosting, SSL, security, and maintenance —
+                all in one. No separate hosting fees or management needed.
+              </p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__question">
+              What about my WordPress plugins and custom features?
+            </button>
+            <div class="faq__answer">
+              <p>
+                Most WordPress plugin functionality is built into VARYSHOP
+                natively — forms, analytics, CRM, email marketing. For custom
+                features, we'll build equivalent or better solutions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CONTACT FORM ==================== -->
+    <section class="form-section" id="contact">
+      <div class="container text-center">
+        <div class="fade-up">
+          <h2>Ready to Ditch WordPress?</h2>
+          <p class="form-section__subtitle">
+            Fill in the form below and we'll get back to you within 24 hours.
+          </p>
+          <form
+            class="form"
+            action="#"
+            method="POST"
+            onsubmit="return handleSubmit(event);"
+          >
+            <input type="text" name="name" placeholder="Your name *" required />
+            <input
+              type="email"
+              name="email"
+              placeholder="Your email *"
+              required
+            />
+            <input
+              type="url"
+              name="website"
+              placeholder="Your WordPress site URL *"
+              required
+            />
+            <input type="tel" name="phone" placeholder="Phone (optional)" />
+            <textarea
+              name="message"
+              placeholder="Tell us about your WordPress problems..."
+              rows="3"
+            ></textarea>
+            <button type="submit" class="btn">Get My Free Migration</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+      <div class="container">
+        <p>
+          &copy; 2026 VARYSHOP. All rights reserved. |
+          <a href="mailto:info@varyshop.com">info@varyshop.com</a>
+        </p>
+      </div>
+    </footer>
+
+    <!-- ==================== STICKY CTA ==================== -->
+    <div class="sticky-cta" id="stickyCta">
+      <span class="sticky-cta__text"
+        >Free WordPress Migration —
+        <strong class="text-gradient-cta">Only 5 Spots left</strong></span
+      >
+      <a href="#migrate" class="btn btn--cta">Get Started</a>
+    </div>
+
+    <script>
+      // Intersection Observer for fade-up animations
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+
+      document
+        .querySelectorAll(".fade-up")
+        .forEach((el) => observer.observe(el));
+
+      // Sticky CTA visibility
+      const stickyCta = document.getElementById("stickyCta");
+      const ctaObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+              stickyCta.classList.add("visible");
+            } else {
+              stickyCta.classList.remove("visible");
+            }
+          });
+        },
+        { threshold: 0 },
+      );
+
+      const heroSection = document.querySelector(".hero");
+      if (heroSection) ctaObserver.observe(heroSection);
+
+      // FAQ toggle
+      document.querySelectorAll(".faq__question").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const item = btn.closest(".faq__item");
+          const wasActive = item.classList.contains("active");
+          document
+            .querySelectorAll(".faq__item.active")
+            .forEach((i) => i.classList.remove("active"));
+          if (!wasActive) item.classList.add("active");
+        });
+      });
+
+      // Form handling
+      function handleSubmit(e) {
+        e.preventDefault();
+        const form = e.target;
+        const btn = form.querySelector('button[type="submit"]');
+        btn.textContent = "Sent! We'll be in touch.";
+        btn.style.background = "#22c55e";
+        btn.disabled = true;
+        setTimeout(() => {
+          btn.textContent = "Get My Free Migration";
+          btn.style.background = "#000";
+          btn.disabled = false;
+          form.reset();
+        }, 3000);
+        return false;
+      }
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", (e) => {
+          e.preventDefault();
+          const target = document.querySelector(a.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

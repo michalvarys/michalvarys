@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "render": "node render-video"
+  },
+  "dependencies": {
+    "puppeteer": "^24.37.5"
+  }
+}

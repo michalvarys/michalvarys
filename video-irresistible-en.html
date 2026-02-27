@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video – Irresistible Offer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --purple: #933df5;
+        --pink: #ff3366;
+        --blue: #6699ff;
+        --gradient: linear-gradient(135deg, #6699ff 0%, #ff3366 100%);
+        --bg: #000000;
+        --text: #ffffff;
+        --text-light: #cccccc;
+      }
+
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+      }
+
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        background: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .canvas {
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(180deg, #0a0a0a 0%, #000 100%);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 5% 6%;
+      }
+
+      .text-gradient {
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* ====== BADGE ====== */
+      .badge {
+        display: inline-block;
+        padding: 0.6em 1.5em;
+        border-radius: 50px;
+        font-size: clamp(0.65rem, 1.3vh, 1.2rem);
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        background: var(--gradient);
+        color: #fff;
+        opacity: 0;
+        transform: translateY(30px) scale(0.8);
+        animation: popIn 0.5s ease forwards;
+        animation-delay: 0.2s;
+      }
+
+      /* ====== HEADLINE ====== */
+      .headline {
+        text-align: center;
+        margin-top: 3vh;
+        font-size: clamp(1.5rem, 4.5vh, 4.5rem);
+        font-weight: 900;
+        line-height: 1.15;
+        color: var(--text);
+      }
+
+      .headline-line1 {
+        display: block;
+        opacity: 0;
+        transform: translateY(40px);
+        animation: slideUp 0.5s ease forwards;
+        animation-delay: 0.5s;
+      }
+
+      .headline-line2 {
+        display: block;
+        opacity: 0;
+        transform: translateY(40px);
+        animation: slideUp 0.5s ease forwards;
+        animation-delay: 0.8s;
+      }
+
+      /* ====== SUBTITLE ====== */
+      .subtitle {
+        text-align: center;
+        font-size: clamp(0.8rem, 1.8vh, 2rem);
+        color: var(--text-light);
+        max-width: 90%;
+        margin: 2vh auto 0;
+        font-weight: 300;
+        line-height: 1.6;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: slideUp 0.5s ease forwards;
+        animation-delay: 1.2s;
+      }
+
+      /* ====== CARD ====== */
+      .card {
+        background: linear-gradient(
+          135deg,
+          rgba(147, 61, 245, 0.15) 0%,
+          rgba(255, 51, 102, 0.1) 100%
+        );
+        border: 2px solid rgba(147, 61, 245, 0.3);
+        border-radius: clamp(16px, 3vh, 40px);
+        padding: 4vh 5vw;
+        width: 90%;
+        max-width: 700px;
+        margin-top: 3vh;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(50px) scale(0.95);
+        animation: cardIn 0.6s ease forwards;
+        animation-delay: 1.6s;
+      }
+
+      .card h3 {
+        font-size: clamp(1.1rem, 2.8vh, 3rem);
+        font-weight: 800;
+        color: var(--text);
+        margin-bottom: 1.5vh;
+        opacity: 0;
+        animation: fadeIn 0.4s ease forwards;
+        animation-delay: 2s;
+      }
+
+      /* ====== PRICE SECTION ====== */
+      .price-section {
+        margin: 2vh 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .price-old {
+        font-size: clamp(1rem, 2.5vh, 3rem);
+        font-weight: 700;
+        color: #666;
+        position: relative;
+        display: inline-block;
+        opacity: 0;
+        animation: priceOldIn 0.6s ease forwards;
+        animation-delay: 2.4s;
+      }
+
+      .price-old::after {
+        content: "";
+        position: absolute;
+        left: -5%;
+        top: 50%;
+        width: 0;
+        height: 3px;
+        background: #ff3366;
+        transform: translateY(-50%);
+        animation: strikethrough 0.4s ease forwards;
+        animation-delay: 3.2s;
+      }
+
+      .price-new {
+        font-size: clamp(2.5rem, 7vh, 7rem);
+        font-weight: 900;
+        margin-top: 0.5vh;
+        opacity: 0;
+        transform: scale(0.5);
+        animation: pricePop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        animation-delay: 3.6s;
+      }
+
+      /* ====== DESCRIPTION ====== */
+      .card-desc {
+        color: var(--text-light);
+        font-size: clamp(0.7rem, 1.6vh, 1.8rem);
+        margin-top: 2vh;
+        line-height: 1.7;
+        font-weight: 300;
+        opacity: 0;
+        animation: fadeIn 0.4s ease forwards;
+        animation-delay: 4.2s;
+      }
+
+      /* ====== CTA BUTTON ====== */
+      .cta-btn {
+        display: inline-block;
+        padding: 1.5vh 4vw;
+        border-radius: 50px;
+        font-size: clamp(0.9rem, 1.8vh, 2rem);
+        font-weight: 700;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        background: var(--gradient);
+        color: #fff;
+        box-shadow: 0 8px 40px rgba(147, 61, 245, 0.4);
+        margin-top: 3vh;
+        opacity: 0;
+        transform: translateY(20px);
+        animation:
+          slideUp 0.5s ease forwards,
+          ctaFloat 2.5s ease-in-out infinite;
+        animation-delay: 4.6s, 5.1s;
+      }
+
+      /* ====== GLOW EFFECTS – drift during last 5s ====== */
+      .glow {
+        position: absolute;
+        width: 50%;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        filter: blur(120px);
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .glow--purple {
+        background: rgba(147, 61, 245, 0.3);
+        top: 15%;
+        left: -10%;
+        animation:
+          glowIn 1s ease forwards,
+          glowDrift1 8s ease-in-out infinite;
+        animation-delay: 1.5s, 5s;
+      }
+
+      .glow--pink {
+        background: rgba(255, 51, 102, 0.2);
+        bottom: 10%;
+        right: -10%;
+        animation:
+          glowIn 1s ease forwards,
+          glowDrift2 7s ease-in-out infinite;
+        animation-delay: 2s, 5s;
+      }
+
+      /* ====== BOTTOM BAR ====== */
+      .bottom-bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        padding: 2vh 3vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2vw;
+        opacity: 0;
+        transform: translateY(100%);
+        animation: barSlideUp 0.5s ease forwards;
+        animation-delay: 4.6s;
+      }
+
+      .bottom-bar__text {
+        font-size: clamp(0.6rem, 1.3vh, 1.4rem);
+        font-weight: 500;
+        color: var(--text);
+      }
+
+      .bottom-bar__text strong {
+        font-weight: 800;
+      }
+
+      .bottom-bar__btn {
+        display: inline-block;
+        padding: 0.8vh 2vw;
+        border-radius: 50px;
+        font-size: clamp(0.55rem, 1.1vh, 1.2rem);
+        font-weight: 700;
+        text-decoration: none;
+        background: var(--gradient);
+        color: #fff;
+        white-space: nowrap;
+      }
+
+      /* ====== KEYFRAMES ====== */
+      @keyframes popIn {
+        0% {
+          opacity: 0;
+          transform: translateY(30px) scale(0.8);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+      @keyframes slideUp {
+        0% {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @keyframes cardIn {
+        0% {
+          opacity: 0;
+          transform: translateY(50px) scale(0.95);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+      @keyframes priceOldIn {
+        0% {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.05);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      @keyframes strikethrough {
+        0% {
+          width: 0;
+        }
+        100% {
+          width: 110%;
+        }
+      }
+      @keyframes pricePop {
+        0% {
+          opacity: 0;
+          transform: scale(0.5);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      /* CTA floating bounce for last 5s */
+      @keyframes ctaFloat {
+        0%,
+        100% {
+          transform: translateY(0) scale(1);
+          box-shadow: 0 8px 40px rgba(147, 61, 245, 0.4);
+        }
+        50% {
+          transform: translateY(-8px) scale(1.04);
+          box-shadow: 0 16px 60px rgba(147, 61, 245, 0.65);
+        }
+      }
+
+      /* Glow drifting animations */
+      @keyframes glowIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @keyframes glowDrift1 {
+        0%,
+        100% {
+          transform: translate(0, 0);
+        }
+        25% {
+          transform: translate(15%, 8%);
+        }
+        50% {
+          transform: translate(5%, -10%);
+        }
+        75% {
+          transform: translate(-10%, 5%);
+        }
+      }
+      @keyframes glowDrift2 {
+        0%,
+        100% {
+          transform: translate(0, 0);
+        }
+        25% {
+          transform: translate(-12%, -6%);
+        }
+        50% {
+          transform: translate(8%, 12%);
+        }
+        75% {
+          transform: translate(15%, -8%);
+        }
+      }
+
+      @keyframes barSlideUp {
+        0% {
+          opacity: 0;
+          transform: translateY(100%);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ====== SPARKLES ====== */
+      .sparkle-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+      }
+      .sparkle {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background: #fff;
+        border-radius: 50%;
+        opacity: 0;
+      }
+      .sparkle:nth-child(1) {
+        animation: spark 0.6s ease forwards;
+        animation-delay: 3.6s;
+        top: -40px;
+        left: -60px;
+      }
+      .sparkle:nth-child(2) {
+        animation: spark 0.6s ease forwards;
+        animation-delay: 3.7s;
+        top: -50px;
+        left: 40px;
+      }
+      .sparkle:nth-child(3) {
+        animation: spark 0.6s ease forwards;
+        animation-delay: 3.65s;
+        top: 20px;
+        left: -80px;
+      }
+      .sparkle:nth-child(4) {
+        animation: spark 0.6s ease forwards;
+        animation-delay: 3.75s;
+        top: 30px;
+        left: 70px;
+      }
+      .sparkle:nth-child(5) {
+        animation: spark 0.6s ease forwards;
+        animation-delay: 3.68s;
+        top: -20px;
+        left: -30px;
+      }
+      .sparkle:nth-child(6) {
+        animation: spark 0.6s ease forwards;
+        animation-delay: 3.72s;
+        top: -10px;
+        left: 60px;
+      }
+
+      @keyframes spark {
+        0% {
+          opacity: 0;
+          transform: scale(0);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(2);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(0) translateY(-30px);
+        }
+      }
+
+      .hint {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        color: #333;
+        font-size: 0.7rem;
+        z-index: 999;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="canvas" id="canvas">
+      <div class="glow glow--purple"></div>
+      <div class="glow glow--pink"></div>
+
+      <span class="badge">Irresistible Offer</span>
+
+      <h2 class="headline">
+        <span class="headline-line1">Got an old website?</span>
+        <span class="headline-line2 text-gradient"
+          >We'll upgrade it for FREE!</span
+        >
+      </h2>
+
+      <p class="subtitle">
+        Zero risk. Zero upfront cost. We'll upgrade your old website for you to
+        see the difference.
+      </p>
+
+      <div class="card">
+        <h3>Website Migration</h3>
+        <div class="price-section">
+          <span class="price-old">$2,000</span>
+          <div style="position: relative; display: inline-block">
+            <span class="price-new text-gradient">$0</span>
+            <div class="sparkle-container">
+              <div class="sparkle"></div>
+              <div class="sparkle"></div>
+              <div class="sparkle"></div>
+              <div class="sparkle"></div>
+              <div class="sparkle"></div>
+              <div class="sparkle"></div>
+            </div>
+          </div>
+        </div>
+        <p class="card-desc">
+          We'll upgrade your website to a modern AI system.<br />
+          See the results. Then decide.
+        </p>
+        <a class="cta-btn">Get an Upgrade for free</a>
+      </div>
+
+      <div class="bottom-bar">
+        <span class="bottom-bar__text">
+          Migrate your website to
+          <strong class="text-gradient">VARYSHOP</strong>
+          for <strong>FREE</strong>
+        </span>
+        <span class="bottom-bar__btn">Contact us</span>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "r" || e.key === "R") location.reload();
+      });
+    </script>
+  </body>
+</html>

@@ -6,7 +6,18 @@
       "Read(//Volumes/ext-msi/projects/webhosting/royalhotel/varyshop/royalhotel/**)",
       "Bash(find:*)",
       "Read(//Volumes/ext-msi/projects/webhosting/royalhotel/varyshop/**)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(node --version)",
+      "Bash(npm install puppeteer)",
+      "Bash(node render-video.mjs)",
+      "Bash(node render-video.mjs 4x5)",
+      "Bash(node render-video.mjs 16x9)",
+      "Bash(node render-video.mjs RESTAURANTS 9x16)",
+      "Bash(node render-video.mjs FUNNEL 9x16)",
+      "Bash(node generate-voiceover.mjs)",
+      "Bash(ffprobe -v quiet -show_entries format=duration -of csv=p=0 /Volumes/ext-msi/projects/my-projects/michalvarys/video-wordpress-problems-voiceover.mp3)",
+      "Bash(node render-video.mjs WORDPRESS 9x16)",
+      "WebFetch(domain:www.remotion.dev)"
     ],
     "additionalDirectories": [
       "/Volumes/ext-msi/projects/my-projects/michalvarys/website_mv_landing/{controllers,models,views,static/src/{js,scss,img},static"

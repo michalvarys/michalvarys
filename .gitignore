@@ -58,3 +58,6 @@ prod
 
 translations/*.pot
 translations/*.po
+
+# Chrome Debug project-local data
+.chromedebug/

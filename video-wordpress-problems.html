@@ -1,0 +1,1326 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video – WordPress Problems</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+      }
+      body {
+        background: #000;
+      }
+
+      .canvas {
+        width: 100vw;
+        height: 100vh;
+        position: relative;
+        overflow: hidden;
+        background: #000;
+      }
+
+      /* ============================================================
+         SCENE SYSTEM
+         ============================================================ */
+      .scene {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        opacity: 0;
+        padding: 6% 6%;
+      }
+
+      .scene-1 {
+        animation: sceneVis 8s ease forwards;
+        animation-delay: 0s;
+      }
+      .scene-2 {
+        animation: sceneVis 7s ease forwards;
+        animation-delay: 7.5s;
+      }
+      .scene-3 {
+        animation: sceneVis 7s ease forwards;
+        animation-delay: 14s;
+      }
+      .scene-4 {
+        animation: sceneVis 7s ease forwards;
+        animation-delay: 20.5s;
+      }
+      .scene-5 {
+        animation: sceneVis 11s ease forwards;
+        animation-delay: 27s;
+      }
+      .scene-outro {
+        animation: sceneVis 7.5s ease forwards;
+        animation-delay: 37.5s;
+      }
+
+      @keyframes sceneVis {
+        0% {
+          opacity: 0;
+        }
+        7% {
+          opacity: 1;
+        }
+        85% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+
+      /* ============================================================
+         REUSABLE ANIMATIONS
+         ============================================================ */
+      @keyframes fadeSlideUp {
+        0% {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeSlideDown {
+        0% {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes scaleReveal {
+        0% {
+          opacity: 0;
+          transform: scale(0.7);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      @keyframes scaleRevealBig {
+        0% {
+          opacity: 0;
+          transform: scale(0.5);
+        }
+        60% {
+          opacity: 1;
+          transform: scale(1.05);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      @keyframes lineGrow {
+        0% {
+          width: 0;
+          opacity: 0;
+        }
+        100% {
+          width: 100%;
+          opacity: 1;
+        }
+      }
+      @keyframes letterSpaceIn {
+        0% {
+          opacity: 0;
+          letter-spacing: 0.6em;
+        }
+        100% {
+          opacity: 1;
+          letter-spacing: 0.15em;
+        }
+      }
+      @keyframes glowPulse {
+        0%,
+        100% {
+          opacity: 0.15;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.4;
+          transform: scale(1.2);
+        }
+      }
+      @keyframes floatSlow {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+        25% {
+          transform: translateY(-12px) rotate(2deg);
+        }
+        50% {
+          transform: translateY(6px) rotate(-1deg);
+        }
+        75% {
+          transform: translateY(-7px) rotate(1deg);
+        }
+      }
+      @keyframes shimmer {
+        0% {
+          background-position: -200% center;
+        }
+        100% {
+          background-position: 200% center;
+        }
+      }
+      @keyframes textGlow {
+        0%,
+        100% {
+          text-shadow: 0 0 15px currentColor;
+        }
+        50% {
+          text-shadow:
+            0 0 35px currentColor,
+            0 0 70px currentColor;
+        }
+      }
+      @keyframes slideInLeft {
+        0% {
+          opacity: 0;
+          transform: translateX(-60px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      @keyframes slideInRight {
+        0% {
+          opacity: 0;
+          transform: translateX(60px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      @keyframes featureCardIn {
+        0% {
+          opacity: 0;
+          transform: translateY(30px) scale(0.85);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+      @keyframes ctaBreath {
+        0%,
+        100% {
+          transform: translateY(0) scale(1);
+          box-shadow: 0 8px 40px var(--cta-glow);
+        }
+        50% {
+          transform: translateY(-6px) scale(1.04);
+          box-shadow: 0 16px 60px var(--cta-glow-strong);
+        }
+      }
+      @keyframes rotateShape {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes borderGlow {
+        0%,
+        100% {
+          border-color: rgba(147, 61, 245, 0.3);
+        }
+        50% {
+          border-color: rgba(147, 61, 245, 0.7);
+        }
+      }
+
+      /* WordPress-specific: loading bar stuck */
+      @keyframes wpLoadStuck {
+        0% {
+          width: 0;
+        }
+        25% {
+          width: 45%;
+        }
+        60% {
+          width: 73%;
+        }
+        100% {
+          width: 73%;
+        }
+      }
+
+      /* ============================================================
+         GLOW ORBS
+         ============================================================ */
+      .glow-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(100px);
+        pointer-events: none;
+        opacity: 0;
+      }
+
+      /* ============================================================
+         SCENE 1: THE HOOK – "Your Site Is Broken"
+         ============================================================ */
+      .scene-1 {
+        background: linear-gradient(160deg, #1a0a0a 0%, #200808 100%);
+      }
+
+      .scene-1 .glow-orb-1 {
+        width: 50%;
+        aspect-ratio: 1;
+        background: radial-gradient(
+          circle,
+          rgba(220, 50, 50, 0.3) 0%,
+          transparent 70%
+        );
+        top: 10%;
+        left: -15%;
+        animation: glowPulse 4s ease-in-out infinite;
+        animation-delay: 0.3s;
+      }
+      .scene-1 .glow-orb-2 {
+        width: 40%;
+        aspect-ratio: 1;
+        background: radial-gradient(
+          circle,
+          rgba(255, 107, 53, 0.2) 0%,
+          transparent 70%
+        );
+        bottom: 5%;
+        right: -10%;
+        animation: glowPulse 5s ease-in-out infinite;
+        animation-delay: 0.8s;
+      }
+
+      /* Giant faint W watermark */
+      .wp-watermark {
+        position: absolute;
+        top: 10%;
+        right: 5%;
+        font-family: serif;
+        font-size: clamp(8rem, 25vh, 28rem);
+        font-weight: 900;
+        color: rgba(220, 50, 50, 0.05);
+        line-height: 1;
+        pointer-events: none;
+        opacity: 0;
+        animation:
+          floatSlow 6s ease-in-out infinite,
+          scaleReveal 0.8s ease forwards;
+        animation-delay: 0.3s, 0.2s;
+      }
+
+      /* Floating error fragments */
+      .err-frag {
+        position: absolute;
+        background: rgba(220, 50, 50, 0.06);
+        border: 1px solid rgba(220, 50, 50, 0.12);
+        border-radius: 4px;
+        padding: 0.3em 0.8em;
+        font-family: "Courier New", monospace;
+        font-size: clamp(0.7rem, 1.4vh, 1.1rem);
+        color: rgba(220, 50, 50, 0.35);
+        pointer-events: none;
+        opacity: 0;
+      }
+      .err-frag-1 {
+        top: 18%;
+        left: 8%;
+        animation:
+          floatSlow 7s ease-in-out infinite,
+          scaleReveal 0.5s ease forwards;
+        animation-delay: 0.6s, 0.5s;
+      }
+      .err-frag-2 {
+        bottom: 22%;
+        right: 7%;
+        animation:
+          floatSlow 8s ease-in-out infinite,
+          scaleReveal 0.5s ease forwards;
+        animation-delay: 1s, 0.8s;
+      }
+      .err-frag-3 {
+        top: 50%;
+        left: 5%;
+        animation:
+          floatSlow 6s ease-in-out infinite,
+          scaleReveal 0.5s ease forwards;
+        animation-delay: 1.3s, 1s;
+      }
+
+      .s1-badge {
+        display: inline-block;
+        padding: 0.5em 1.5em;
+        border-radius: 50px;
+        font-family: "Inter", sans-serif;
+        font-size: clamp(0.9rem, 1.8vh, 1.5rem);
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        background: linear-gradient(
+          135deg,
+          rgba(220, 50, 50, 0.15),
+          rgba(255, 107, 53, 0.15)
+        );
+        border: 1px solid rgba(220, 50, 50, 0.25);
+        color: #dc3232;
+        opacity: 0;
+        animation: fadeSlideDown 0.5s ease forwards;
+        animation-delay: 0.4s;
+      }
+
+      .s1-headline {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(2.5rem, 8vh, 9rem);
+        font-weight: 900;
+        line-height: 1;
+        margin-top: 2vh;
+        background: linear-gradient(
+          135deg,
+          #dc3232 0%,
+          #ff6b35 50%,
+          #dc3232 100%
+        );
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        opacity: 0;
+        animation:
+          scaleReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards,
+          shimmer 3s linear infinite;
+        animation-delay: 0.7s, 1.5s;
+      }
+
+      .s1-sub {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(1.1rem, 2.2vh, 2.2rem);
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.65);
+        margin-top: 1.5vh;
+        max-width: 85%;
+        line-height: 1.6;
+        opacity: 0;
+        animation: fadeSlideUp 0.5s ease forwards;
+        animation-delay: 1.2s;
+      }
+
+      /* Fake loading bar */
+      .s1-loadbar {
+        width: 60%;
+        max-width: 300px;
+        height: clamp(4px, 0.8vh, 8px);
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 50px;
+        margin-top: 3vh;
+        overflow: hidden;
+        opacity: 0;
+        animation: fadeSlideUp 0.3s ease forwards;
+        animation-delay: 1.8s;
+      }
+      .s1-loadbar-inner {
+        width: 0;
+        height: 100%;
+        border-radius: 50px;
+        background: linear-gradient(90deg, #dc3232, #ff6b35);
+        animation: wpLoadStuck 2.5s ease-out forwards;
+        animation-delay: 1.8s;
+      }
+      .s1-loadbar-label {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(0.9rem, 1.6vh, 1.4rem);
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.35);
+        margin-top: 1vh;
+        opacity: 0;
+        animation: fadeSlideUp 0.4s ease forwards;
+        animation-delay: 2.8s;
+      }
+
+      /* ============================================================
+         SCENE 2: THE PAIN POINTS – "Sound Familiar?"
+         ============================================================ */
+      .scene-2 {
+        background: #0f0f0f;
+      }
+
+      .scene-2 .glow-orb-1 {
+        width: 45%;
+        aspect-ratio: 1;
+        background: radial-gradient(
+          circle,
+          rgba(255, 68, 68, 0.2) 0%,
+          transparent 70%
+        );
+        top: 20%;
+        left: 30%;
+        animation: glowPulse 4.5s ease-in-out infinite;
+        animation-delay: 8s;
+      }
+
+      .s2-tag {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(0.9rem, 1.8vh, 1.5rem);
+        font-weight: 500;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: #ff4444;
+        opacity: 0;
+        animation: letterSpaceIn 0.7s ease forwards;
+        animation-delay: 7.8s;
+      }
+
+      .s2-title {
+        font-family: "Montserrat", sans-serif;
+        font-size: clamp(1.5rem, 4.5vh, 5rem);
+        font-weight: 800;
+        color: #fff;
+        margin-top: 1.5vh;
+        opacity: 0;
+        animation: scaleReveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        animation-delay: 8.1s;
+      }
+
+      .s2-line {
+        height: 2px;
+        width: 0;
+        max-width: 50px;
+        background: #ff4444;
+        margin: 2vh auto;
+        animation: lineGrow 0.4s ease forwards;
+        animation-delay: 8.5s;
+      }
+
+      .s2-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2vh 3vw;
+        margin-top: 3vh;
+        width: 85%;
+        max-width: 600px;
+      }
+
+      .s2-card {
+        background: rgba(255, 68, 68, 0.03);
+        border: 1px solid rgba(255, 68, 68, 0.12);
+        border-radius: clamp(8px, 1.5vh, 16px);
+        padding: 2.5vh 2vw;
+        text-align: center;
+        opacity: 0;
+      }
+      .s2-card:nth-child(1) {
+        animation: featureCardIn 0.5s ease forwards;
+        animation-delay: 8.8s;
+      }
+      .s2-card:nth-child(2) {
+        animation: featureCardIn 0.5s ease forwards;
+        animation-delay: 9.1s;
+      }
+      .s2-card:nth-child(3) {
+        animation: featureCardIn 0.5s ease forwards;
+        animation-delay: 9.4s;
+      }
+      .s2-card:nth-child(4) {
+        animation: featureCardIn 0.5s ease forwards;
+        animation-delay: 9.7s;
+      }
+
+      /* Error card icons */
+      .s2-icon {
+        width: clamp(24px, 4vh, 44px);
+        height: clamp(24px, 4vh, 44px);
+        margin: 0 auto 1.5vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Icon 1: Exclamation circle */
+      .s2-icon--alert {
+        border: 2px solid #ff4444;
+        border-radius: 50%;
+        font-family: "Inter", sans-serif;
+        font-size: clamp(0.8rem, 1.8vh, 1.6rem);
+        font-weight: 800;
+        color: #ff4444;
+      }
+
+      /* Icon 2: Spinning loader */
+      .s2-icon--spinner {
+        border: 2px solid rgba(255, 68, 68, 0.2);
+        border-top-color: #ff4444;
+        border-radius: 50%;
+        animation: rotateShape 1s linear infinite;
+      }
+
+      /* Icon 3: Overlapping squares (plugin chaos) */
+      .s2-icon--plugins {
+        position: relative;
+        border: 2px solid #ff4444;
+        border-radius: 6px;
+        width: clamp(18px, 3vh, 34px);
+        height: clamp(18px, 3vh, 34px);
+      }
+      .s2-icon--plugins::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: 2px solid rgba(255, 68, 68, 0.4);
+        border-radius: 6px;
+        top: 30%;
+        left: 30%;
+      }
+
+      /* Icon 4: Shield with X */
+      .s2-icon--shield {
+        border: 2px solid #ff4444;
+        border-radius: 50%;
+        position: relative;
+      }
+      .s2-icon--shield::before,
+      .s2-icon--shield::after {
+        content: "";
+        position: absolute;
+        width: 50%;
+        height: 2px;
+        background: #ff4444;
+        top: 50%;
+        left: 25%;
+      }
+      .s2-icon--shield::before {
+        transform: rotate(45deg);
+      }
+      .s2-icon--shield::after {
+        transform: rotate(-45deg);
+      }
+
+      .s2-card-title {
+        font-family: "Montserrat", sans-serif;
+        font-size: clamp(1rem, 2vh, 1.8rem);
+        font-weight: 700;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      .s2-card-desc {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(0.85rem, 1.7vh, 1.5rem);
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.55);
+        margin-top: 0.5vh;
+        line-height: 1.5;
+      }
+
+      /* ============================================================
+         SCENE 3: THE PIVOT – "There's a Better Way"
+         ============================================================ */
+      .scene-3 {
+        background: #111;
+      }
+
+      .scene-3 .glow-orb-1 {
+        width: 50%;
+        aspect-ratio: 1;
+        background: radial-gradient(
+          circle,
+          rgba(33, 117, 155, 0.25) 0%,
+          transparent 70%
+        );
+        top: 15%;
+        right: -15%;
+        animation: glowPulse 5s ease-in-out infinite;
+        animation-delay: 14.5s;
+      }
+      .scene-3 .glow-orb-2 {
+        width: 35%;
+        aspect-ratio: 1;
+        background: radial-gradient(
+          circle,
+          rgba(0, 212, 255, 0.12) 0%,
+          transparent 70%
+        );
+        bottom: 10%;
+        left: -10%;
+        animation: glowPulse 4s ease-in-out infinite;
+        animation-delay: 15s;
+      }
+
+      .s3-quotemark {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(4rem, 12vh, 14rem);
+        color: rgba(33, 117, 155, 0.2);
+        line-height: 1;
+        opacity: 0;
+        animation: scaleReveal 0.8s ease forwards;
+        animation-delay: 14.4s;
+        margin-bottom: -3vh;
+      }
+
+      .s3-quote {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(1.3rem, 2.8vh, 3.2rem);
+        font-weight: 400;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.85);
+        line-height: 1.5;
+        max-width: 85%;
+        opacity: 0;
+        animation: fadeSlideUp 0.8s ease forwards;
+        animation-delay: 14.8s;
+      }
+
+      .s3-line {
+        height: 1px;
+        width: 0;
+        max-width: 40px;
+        background: linear-gradient(90deg, #21759b, #00d4ff);
+        margin: 2.5vh auto;
+        animation: lineGrow 0.4s ease forwards;
+        animation-delay: 15.5s;
+      }
+
+      .s3-pivot-title {
+        font-family: "Montserrat", sans-serif;
+        font-size: clamp(1.3rem, 3.5vh, 4rem);
+        font-weight: 800;
+        color: #fff;
+        opacity: 0;
+        animation: scaleReveal 0.7s ease forwards;
+        animation-delay: 15.8s;
+      }
+
+      /* Before / After comparison */
+      .s3-compare {
+        display: flex;
+        gap: 4vw;
+        align-items: center;
+        margin-top: 2.5vh;
+        width: 85%;
+        max-width: 550px;
+        justify-content: center;
+      }
+
+      .s3-col {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5vh;
+        flex: 1;
+      }
+
+      .s3-col-before .s3-col-item {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(1rem, 2vh, 1.8rem);
+        font-weight: 500;
+        color: rgba(255, 68, 68, 0.45);
+        text-decoration: line-through;
+        text-align: right;
+        opacity: 0;
+      }
+      .s3-col-before .s3-col-item:nth-child(1) {
+        animation: slideInLeft 0.5s ease forwards;
+        animation-delay: 16.2s;
+      }
+      .s3-col-before .s3-col-item:nth-child(2) {
+        animation: slideInLeft 0.5s ease forwards;
+        animation-delay: 16.5s;
+      }
+      .s3-col-before .s3-col-item:nth-child(3) {
+        animation: slideInLeft 0.5s ease forwards;
+        animation-delay: 16.8s;
+      }
+
+      .s3-divider {
+        width: 1px;
+        height: 10vh;
+        background: linear-gradient(to bottom, transparent, #21759b, #00d4ff, transparent);
+        opacity: 0;
+        animation: fadeSlideUp 0.5s ease forwards;
+        animation-delay: 16s;
+      }
+
+      .s3-col-after .s3-col-item {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(1rem, 2vh, 1.8rem);
+        font-weight: 700;
+        color: #00d4ff;
+        text-align: left;
+        opacity: 0;
+      }
+      .s3-col-after .s3-col-item:nth-child(1) {
+        animation: slideInRight 0.5s ease forwards;
+        animation-delay: 16.5s;
+      }
+      .s3-col-after .s3-col-item:nth-child(2) {
+        animation: slideInRight 0.5s ease forwards;
+        animation-delay: 16.8s;
+      }
+      .s3-col-after .s3-col-item:nth-child(3) {
+        animation: slideInRight 0.5s ease forwards;
+        animation-delay: 17.1s;
+      }
+
+      /* ============================================================
+         SCENE 4: THE SOLUTION – "Meet VARYSHOP"
+         ============================================================ */
+      .scene-4 {
+        background: linear-gradient(160deg, #0a0a1a 0%, #0d0b20 100%);
+      }
+
+      .scene-4 .glow-orb-1 {
+        width: 50%;
+        aspect-ratio: 1;
+        background: radial-gradient(
+          circle,
+          rgba(0, 212, 255, 0.3) 0%,
+          transparent 70%
+        );
+        top: 25%;
+        left: -10%;
+        animation: glowPulse 4s ease-in-out infinite;
+        animation-delay: 21s;
+      }
+      .scene-4 .glow-orb-2 {
+        width: 40%;
+        aspect-ratio: 1;
+        background: radial-gradient(
+          circle,
+          rgba(108, 99, 255, 0.2) 0%,
+          transparent 70%
+        );
+        bottom: 10%;
+        right: -15%;
+        animation: glowPulse 5s ease-in-out infinite;
+        animation-delay: 21.5s;
+      }
+
+      .s4-tag {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(0.9rem, 1.8vh, 1.5rem);
+        font-weight: 500;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: #00d4ff;
+        opacity: 0;
+        animation: letterSpaceIn 0.7s ease forwards;
+        animation-delay: 20.8s;
+      }
+
+      .s4-title {
+        font-family: "Montserrat", sans-serif;
+        font-size: clamp(1.5rem, 4.5vh, 5rem);
+        font-weight: 800;
+        color: #fff;
+        margin-top: 1.5vh;
+        opacity: 0;
+        animation: scaleReveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        animation-delay: 21.1s;
+      }
+      .s4-title-vs {
+        background: linear-gradient(
+          135deg,
+          #00d4ff 0%,
+          #6c63ff 50%,
+          #00d4ff 100%
+        );
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: shimmer 3s linear infinite;
+        animation-delay: 22s;
+      }
+
+      .s4-line {
+        height: 3px;
+        width: 0;
+        max-width: 60px;
+        background: #00d4ff;
+        margin: 2vh auto;
+        animation: lineGrow 0.4s ease forwards;
+        animation-delay: 21.5s;
+      }
+
+      .s4-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2vh 3vw;
+        margin-top: 3vh;
+        width: 85%;
+        max-width: 600px;
+      }
+
+      .s4-feature {
+        background: rgba(0, 212, 255, 0.03);
+        border: 1px solid rgba(0, 212, 255, 0.1);
+        border-radius: clamp(8px, 1.5vh, 16px);
+        padding: 2.5vh 2vw;
+        text-align: center;
+        opacity: 0;
+      }
+      .s4-feature:nth-child(1) {
+        animation: featureCardIn 0.5s ease forwards;
+        animation-delay: 21.9s;
+      }
+      .s4-feature:nth-child(2) {
+        animation: featureCardIn 0.5s ease forwards;
+        animation-delay: 22.2s;
+      }
+      .s4-feature:nth-child(3) {
+        animation: featureCardIn 0.5s ease forwards;
+        animation-delay: 22.5s;
+      }
+      .s4-feature:nth-child(4) {
+        animation: featureCardIn 0.5s ease forwards;
+        animation-delay: 22.8s;
+      }
+
+      .s4-icon {
+        width: clamp(24px, 4vh, 44px);
+        height: clamp(24px, 4vh, 44px);
+        margin: 0 auto 1.5vh;
+        border: 2px solid #00d4ff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .s4-icon--circle {
+        border-radius: 50%;
+      }
+      .s4-icon--square {
+        border-radius: 6px;
+      }
+      .s4-icon--diamond {
+        border-radius: 4px;
+        transform: rotate(45deg);
+      }
+      .s4-icon--triangle {
+        border: none;
+        background: none;
+        width: 0;
+        height: 0;
+        border-left: clamp(12px, 2vh, 22px) solid transparent;
+        border-right: clamp(12px, 2vh, 22px) solid transparent;
+        border-bottom: clamp(24px, 4vh, 44px) solid #00d4ff;
+        margin: 0 auto 1.5vh;
+      }
+
+      .s4-feature-title {
+        font-family: "Montserrat", sans-serif;
+        font-size: clamp(1rem, 2vh, 1.8rem);
+        font-weight: 700;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      .s4-feature-desc {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(0.85rem, 1.7vh, 1.5rem);
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.55);
+        margin-top: 0.5vh;
+        line-height: 1.5;
+      }
+
+      /* ============================================================
+         SCENE 5: THE CTA – "Ditch WordPress. Get VARYSHOP."
+         ============================================================ */
+      .scene-5 {
+        background: linear-gradient(160deg, #0a0014 0%, #0d001a 100%);
+      }
+
+      .scene-5 .glow-orb-1 {
+        width: 55%;
+        aspect-ratio: 1;
+        background: radial-gradient(
+          circle,
+          rgba(147, 61, 245, 0.3) 0%,
+          transparent 70%
+        );
+        top: 15%;
+        left: -10%;
+        animation: glowPulse 4s ease-in-out infinite;
+        animation-delay: 27.5s;
+      }
+      .scene-5 .glow-orb-2 {
+        width: 40%;
+        aspect-ratio: 1;
+        background: radial-gradient(
+          circle,
+          rgba(255, 51, 102, 0.2) 0%,
+          transparent 70%
+        );
+        bottom: 10%;
+        right: -15%;
+        animation: glowPulse 5s ease-in-out infinite;
+        animation-delay: 28s;
+      }
+
+      .s5-frame {
+        position: absolute;
+        top: 8%;
+        left: 8%;
+        right: 8%;
+        bottom: 8%;
+        border: 1px solid rgba(147, 61, 245, 0.15);
+        border-radius: clamp(16px, 3vh, 40px);
+        pointer-events: none;
+        opacity: 0;
+        animation:
+          scaleReveal 1s ease forwards,
+          borderGlow 3s ease-in-out infinite;
+        animation-delay: 27.3s, 28.3s;
+      }
+
+      .s5-tag {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(1rem, 2vh, 1.8rem);
+        font-weight: 600;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.55);
+        opacity: 0;
+        animation: fadeSlideDown 0.5s ease forwards;
+        animation-delay: 27.5s;
+      }
+
+      .s5-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(1.8rem, 5vh, 6rem);
+        font-weight: 700;
+        color: #fff;
+        line-height: 1.15;
+        margin-top: 2vh;
+        max-width: 90%;
+        opacity: 0;
+        animation: scaleRevealBig 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        animation-delay: 27.8s;
+      }
+
+      .s5-sub {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(1.1rem, 2.2vh, 2.2rem);
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.65);
+        margin-top: 1.5vh;
+        max-width: 85%;
+        line-height: 1.5;
+        opacity: 0;
+        animation: fadeSlideUp 0.5s ease forwards;
+        animation-delay: 28.4s;
+      }
+
+      .s5-cta {
+        display: inline-block;
+        margin-top: 3.5vh;
+        padding: 2.5vh 6vw;
+        border-radius: 50px;
+        font-family: "Inter", sans-serif;
+        font-size: clamp(1.1rem, 2.2vh, 2.2rem);
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #fff;
+        background: linear-gradient(135deg, #933df5 0%, #ff3366 100%);
+        border: none;
+        cursor: pointer;
+        --cta-glow: rgba(147, 61, 245, 0.4);
+        --cta-glow-strong: rgba(147, 61, 245, 0.7);
+        opacity: 0;
+        animation:
+          scaleRevealBig 0.6s ease forwards,
+          ctaBreath 2.5s ease-in-out infinite;
+        animation-delay: 28.8s, 30s;
+      }
+
+      .s5-urgency {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(1rem, 2vh, 1.8rem);
+        font-weight: 500;
+        color: #ff3366;
+        margin-top: 2vh;
+        opacity: 0;
+        animation:
+          fadeSlideUp 0.4s ease forwards,
+          textGlow 2s ease-in-out infinite;
+        animation-delay: 29.5s, 30.5s;
+      }
+
+      .s5-trust-row {
+        display: flex;
+        gap: 4vw;
+        margin-top: 3vh;
+        opacity: 0;
+        animation: fadeSlideUp 0.5s ease forwards;
+        animation-delay: 30s;
+      }
+      .s5-trust-item {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(1rem, 2vh, 1.8rem);
+        color: rgba(255, 255, 255, 0.55);
+      }
+      .s5-trust-item strong {
+        color: rgba(255, 255, 255, 0.75);
+        font-weight: 700;
+      }
+
+      /* ============================================================
+         OUTRO – VARYSHOP
+         ============================================================ */
+      .scene-outro {
+        background: #000;
+        z-index: 10;
+      }
+
+      .outro-glow {
+        position: absolute;
+        width: 60%;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(102, 153, 255, 0.2) 0%,
+          rgba(255, 51, 102, 0.1) 40%,
+          transparent 70%
+        );
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        filter: blur(80px);
+        opacity: 0;
+        animation: glowPulse 3s ease-in-out infinite;
+        animation-delay: 38s;
+      }
+
+      .outro-logo {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(3rem, 8vh, 9rem);
+        font-weight: 900;
+        background: linear-gradient(135deg, #6699ff 0%, #ff3366 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        opacity: 0;
+        animation: scaleReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        animation-delay: 38s;
+      }
+
+      .outro-line {
+        height: 2px;
+        width: 0;
+        max-width: 60px;
+        background: linear-gradient(135deg, #6699ff 0%, #ff3366 100%);
+        margin: 2vh auto;
+        animation: lineGrow 0.5s ease forwards;
+        animation-delay: 38.5s;
+      }
+
+      .outro-sub {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(1rem, 2vh, 1.8rem);
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.6);
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        opacity: 0;
+        animation: fadeSlideUp 0.6s ease forwards;
+        animation-delay: 38.8s;
+      }
+
+      .hint {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        color: #333;
+        font-size: 0.7rem;
+        z-index: 999;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="canvas">
+      <!-- ====== SCENE 1: THE HOOK ====== -->
+      <div class="scene scene-1">
+        <div class="glow-orb glow-orb-1"></div>
+        <div class="glow-orb glow-orb-2"></div>
+        <div class="wp-watermark">W</div>
+        <div class="err-frag err-frag-1">ERR 500</div>
+        <div class="err-frag err-frag-2">TIMEOUT</div>
+        <div class="err-frag err-frag-3">FATAL</div>
+        <span class="s1-badge">Business Owner?</span>
+        <h1 class="s1-headline">WordPress<br />Is Killing<br />Your Sales</h1>
+        <p class="s1-sub">
+          Your website takes 5 seconds to load. Customers leave before they even see your offer.
+        </p>
+        <div class="s1-loadbar">
+          <div class="s1-loadbar-inner"></div>
+        </div>
+        <span class="s1-loadbar-label">Loading... (still loading...)</span>
+      </div>
+
+      <!-- ====== SCENE 2: THE PAIN POINTS ====== -->
+      <div class="scene scene-2">
+        <div class="glow-orb glow-orb-1"></div>
+        <span class="s2-tag">The WordPress Trap</span>
+        <h2 class="s2-title">Sound Familiar?</h2>
+        <div class="s2-line"></div>
+        <div class="s2-grid">
+          <div class="s2-card">
+            <div class="s2-icon s2-icon--alert">!</div>
+            <div class="s2-card-title">Constant Errors</div>
+            <div class="s2-card-desc">Plugins break after every update</div>
+          </div>
+          <div class="s2-card">
+            <div class="s2-icon s2-icon--spinner"></div>
+            <div class="s2-card-title">Painfully Slow</div>
+            <div class="s2-card-desc">3+ second load times kill sales</div>
+          </div>
+          <div class="s2-card">
+            <div class="s2-icon s2-icon--plugins"></div>
+            <div class="s2-card-title">Plugin Chaos</div>
+            <div class="s2-card-desc">30+ plugins just to function</div>
+          </div>
+          <div class="s2-card">
+            <div class="s2-icon s2-icon--shield"></div>
+            <div class="s2-card-title">Security Risks</div>
+            <div class="s2-card-desc">Constant hack attempts</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====== SCENE 3: THE PIVOT ====== -->
+      <div class="scene scene-3">
+        <div class="glow-orb glow-orb-1"></div>
+        <div class="glow-orb glow-orb-2"></div>
+        <div class="s3-quotemark">&ldquo;</div>
+        <p class="s3-quote">
+          I was spending more time fixing WordPress than running my business.
+        </p>
+        <div class="s3-line"></div>
+        <h2 class="s3-pivot-title">There's a Better Way</h2>
+        <div class="s3-compare">
+          <div class="s3-col s3-col-before">
+            <div class="s3-col-item">30+ Plugins</div>
+            <div class="s3-col-item">3s Load Time</div>
+            <div class="s3-col-item">Constant Updates</div>
+          </div>
+          <div class="s3-divider"></div>
+          <div class="s3-col s3-col-after">
+            <div class="s3-col-item">All-in-One</div>
+            <div class="s3-col-item">&lt;1s Load Time</div>
+            <div class="s3-col-item">Zero Maintenance</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====== SCENE 4: THE SOLUTION ====== -->
+      <div class="scene scene-4">
+        <div class="glow-orb glow-orb-1"></div>
+        <div class="glow-orb glow-orb-2"></div>
+        <span class="s4-tag">One Platform. Everything.</span>
+        <h2 class="s4-title">Meet <span class="s4-title-vs">VARYSHOP</span></h2>
+        <div class="s4-line"></div>
+        <div class="s4-grid">
+          <div class="s4-feature">
+            <div class="s4-icon s4-icon--circle"></div>
+            <div class="s4-feature-title">Blazing Fast</div>
+            <div class="s4-feature-desc">Under 1s load, always</div>
+          </div>
+          <div class="s4-feature">
+            <div class="s4-icon s4-icon--square"></div>
+            <div class="s4-feature-title">Simple CMS</div>
+            <div class="s4-feature-desc">Edit content without code</div>
+          </div>
+          <div class="s4-feature">
+            <div class="s4-icon s4-icon--diamond"></div>
+            <div class="s4-feature-title">Built-in CRM</div>
+            <div class="s4-feature-desc">Manage leads &amp; customers</div>
+          </div>
+          <div class="s4-feature">
+            <div class="s4-icon--triangle"></div>
+            <div class="s4-feature-title">Marketing Tools</div>
+            <div class="s4-feature-desc">Email, forms, analytics</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====== SCENE 5: THE CTA ====== -->
+      <div class="scene scene-5">
+        <div class="glow-orb glow-orb-1"></div>
+        <div class="glow-orb glow-orb-2"></div>
+        <div class="s5-frame"></div>
+        <span class="s5-tag">Limited Spots</span>
+        <h2 class="s5-title">Ditch WordPress.<br />Get VARYSHOP.</h2>
+        <p class="s5-sub">
+          We'll migrate your WordPress site to a reliable system with CMS, CRM
+          &amp; marketing &mdash; all in one.
+        </p>
+        <button class="s5-cta">Get Free Migration</button>
+        <span class="s5-urgency">Only 5 spots available</span>
+        <div class="s5-trust-row">
+          <span class="s5-trust-item"><strong>$0</strong> upfront</span>
+          <span class="s5-trust-item"><strong>Zero</strong> risk</span>
+          <span class="s5-trust-item"><strong>Free</strong> migration</span>
+        </div>
+      </div>
+
+      <!-- ====== OUTRO ====== -->
+      <div class="scene scene-outro">
+        <div class="outro-glow"></div>
+        <div class="outro-logo">VARYSHOP</div>
+        <div class="outro-line"></div>
+        <p class="outro-sub">Websites that work</p>
+      </div>
+    </div>
+
+    <span class="hint">Press R for replay</span>
+    <audio id="voiceover" src="video-wordpress-problems-voiceover.mp3" preload="auto"></audio>
+    <script>
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "r" || e.key === "R") location.reload();
+      });
+      // Auto-play voiceover when page loads
+      window.addEventListener("load", () => {
+        const audio = document.getElementById("voiceover");
+        audio.play().catch(() => {
+          // Autoplay blocked — play on first click
+          document.addEventListener("click", () => audio.play(), { once: true });
+        });
+      });
+    </script>
+  </body>
+</html>
