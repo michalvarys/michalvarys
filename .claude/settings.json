@@ -17,7 +17,10 @@
       "Bash(node generate-voiceover.mjs)",
       "Bash(ffprobe -v quiet -show_entries format=duration -of csv=p=0 /Volumes/ext-msi/projects/my-projects/michalvarys/video-wordpress-problems-voiceover.mp3)",
       "Bash(node render-video.mjs WORDPRESS 9x16)",
-      "WebFetch(domain:www.remotion.dev)"
+      "WebFetch(domain:www.remotion.dev)",
+      "Bash(gh repo view michalvarys/michalvarys)",
+      "Bash(git status -u)",
+      "Bash(git reset HEAD funnel-wordpress.html)"
     ],
     "additionalDirectories": [
       "/Volumes/ext-msi/projects/my-projects/michalvarys/website_mv_landing/{controllers,models,views,static/src/{js,scss,img},static"

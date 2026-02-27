@@ -61,3 +61,5 @@ translations/*.po
 
 # Chrome Debug project-local data
 .chromedebug/
+_frames*
+website_mv_landing

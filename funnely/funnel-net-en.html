@@ -290,6 +290,22 @@
       .scene-3 {
         animation: sceneVisStay 1s ease forwards;
         animation-delay: 8s;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 6vw;
+        text-align: left;
+      }
+      .scene-3 .s3-left {
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .scene-3 .s3-right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
       }
 
       @keyframes sceneVis {
@@ -631,6 +647,44 @@
         animation-delay: 5.8s;
       }
 
+      .s2-you-label {
+        position: absolute;
+        top: -8%;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        opacity: 0;
+        animation: fadeSlideDown 0.6s ease forwards;
+        animation-delay: 5s;
+        z-index: 10;
+      }
+      .s2-you-label span {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(0.9rem, 2vw, 1.4rem);
+        font-weight: 700;
+        color: var(--pink);
+        white-space: nowrap;
+      }
+      .s2-you-label .s2-you-arrow {
+        width: 2px;
+        height: 30px;
+        background: var(--pink);
+        margin-top: 4px;
+        position: relative;
+      }
+      .s2-you-label .s2-you-arrow::after {
+        content: "";
+        position: absolute;
+        bottom: -6px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 6px solid var(--pink);
+      }
+
       .s2-text {
         font-family: "Inter", sans-serif;
         font-size: clamp(1rem, 2.5vw, 2rem);
@@ -658,6 +712,44 @@
         opacity: 0;
         animation: fadeSlideDown 0.5s ease forwards;
         animation-delay: 8.3s;
+      }
+
+      .s3-portrait {
+        width: clamp(140px, 22vw, 260px);
+        height: clamp(140px, 22vw, 260px);
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid transparent;
+        background:
+          linear-gradient(#0a1628, #0a1628) padding-box,
+          linear-gradient(135deg, #933df5, #ff3366, #6699ff) border-box;
+        box-shadow:
+          0 0 40px rgba(147, 61, 245, 0.3),
+          0 0 80px rgba(255, 51, 102, 0.15);
+        opacity: 0;
+        animation: portraitReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        animation-delay: 8.4s;
+      }
+      .s3-name {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(0.8rem, 1.4vw, 1.1rem);
+        font-weight: 600;
+        color: var(--cyan);
+        margin-top: 12px;
+        opacity: 0;
+        animation: fadeSlideUp 0.5s ease forwards;
+        animation-delay: 8.6s;
+      }
+
+      @keyframes portraitReveal {
+        0% {
+          opacity: 0;
+          transform: scale(0.5) translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
       }
 
       .s3-headline {
@@ -1319,6 +1411,18 @@
         .anchor__comparison {
           grid-template-columns: 1fr;
         }
+        .scene-3 {
+          flex-direction: column;
+          text-align: center;
+          gap: 0;
+        }
+        .scene-3 .s3-right {
+          align-items: center;
+        }
+        .s3-portrait {
+          width: 120px;
+          height: 120px;
+        }
         .s3-stats {
           gap: 24px;
           flex-wrap: wrap;
@@ -1558,35 +1662,51 @@
           <div class="fish-bubble fish-bubble--1"></div>
           <div class="fish-bubble fish-bubble--2"></div>
           <div class="fish-bubble fish-bubble--3"></div>
+          <!-- "That's you" label -->
+          <div class="s2-you-label">
+            <span>That's you!</span>
+            <div class="s2-you-arrow"></div>
+          </div>
         </div>
         <p class="s2-text">Looks like you got caught&hellip;</p>
       </div>
 
       <!-- SCENE 3: The Reveal -->
       <div class="scene scene-3">
-        <span class="s3-badge">Gotcha!</span>
-        <h1 class="s3-headline">In the Net of<br />Michal Varys</h1>
-        <p class="s3-sub">
-          And that's the best thing that happened to you today.<br />
-          I build killer websites. Like this one.
-        </p>
-        <a href="#contact" class="s3-cta">Get Free Consultation</a>
-        <div class="s3-stats">
-          <div class="s3-stat">
-            <div class="s3-stat-num">18+</div>
-            <div class="s3-stat-label">Years coding</div>
-          </div>
-          <div class="s3-stat">
-            <div class="s3-stat-num">7+</div>
-            <div class="s3-stat-label">Years design</div>
-          </div>
-          <div class="s3-stat">
-            <div class="s3-stat-num">5+</div>
-            <div class="s3-stat-label">Years in AI</div>
-          </div>
-          <div class="s3-stat">
-            <div class="s3-stat-num">50+</div>
-            <div class="s3-stat-label">Projects</div>
+        <div class="s3-left">
+          <img
+            src="michalvarys-portrait.webp"
+            alt="Michal Varys"
+            class="s3-portrait"
+            width="260"
+            height="260"
+          />
+        </div>
+        <div class="s3-right">
+          <span class="s3-badge">Gotcha!</span>
+          <h1 class="s3-headline">In the Net of<br />Michal Varys</h1>
+          <p class="s3-sub">
+            And that's the best thing that happened to you today.<br />
+            I build killer websites. Like this one.
+          </p>
+          <a href="#contact" class="s3-cta">Get Free Consultation</a>
+          <div class="s3-stats">
+            <div class="s3-stat">
+              <div class="s3-stat-num">18+</div>
+              <div class="s3-stat-label">Years coding</div>
+            </div>
+            <div class="s3-stat">
+              <div class="s3-stat-num">7+</div>
+              <div class="s3-stat-label">Years design</div>
+            </div>
+            <div class="s3-stat">
+              <div class="s3-stat-num">5+</div>
+              <div class="s3-stat-label">Years in AI</div>
+            </div>
+            <div class="s3-stat">
+              <div class="s3-stat-num">50+</div>
+              <div class="s3-stat-label">Projects</div>
+            </div>
           </div>
         </div>
       </div>
@@ -1783,7 +1903,9 @@
               <span class="text-gradient">Michal Varys</span>
             </h3>
             <div class="anchor__price text-gradient">From $1,500</div>
-            <div class="anchor__note">Complete solution including management</div>
+            <div class="anchor__note">
+              Complete solution including management
+            </div>
             <ul class="anchor__list">
               <li>Done in 2-4 weeks</li>
               <li>Unique design with AI technologies</li>
@@ -1893,10 +2015,13 @@
         </div>
         <div class="testimonials__grid fade-up">
           <div class="testimonial-card">
-            <div class="testimonial-card__stars">&starf;&starf;&starf;&starf;&starf;</div>
+            <div class="testimonial-card__stars">
+              &starf;&starf;&starf;&starf;&starf;
+            </div>
             <p class="testimonial-card__text">
               "Michal is a true professional. Our new website brought 20% more
-              inquiries in the first month than the old one did in a whole year."
+              inquiries in the first month than the old one did in a whole
+              year."
             </p>
             <div class="testimonial-card__author">
               <div class="testimonial-card__avatar">G</div>
@@ -1907,7 +2032,9 @@
             </div>
           </div>
           <div class="testimonial-card">
-            <div class="testimonial-card__stars">&starf;&starf;&starf;&starf;&starf;</div>
+            <div class="testimonial-card__stars">
+              &starf;&starf;&starf;&starf;&starf;
+            </div>
             <p class="testimonial-card__text">
               "The speed of delivery surprised us. The design is exactly what we
               needed — modern, clean, and functional."
@@ -1921,15 +2048,17 @@
             </div>
           </div>
           <div class="testimonial-card">
-            <div class="testimonial-card__stars">&starf;&starf;&starf;&starf;&starf;</div>
+            <div class="testimonial-card__stars">
+              &starf;&starf;&starf;&starf;&starf;
+            </div>
             <p class="testimonial-card__text">
               "Finally a website that not only looks great but actually sells.
               The best investment we made this year."
             </p>
             <div class="testimonial-card__author">
-              <div class="testimonial-card__avatar">G</div>
+              <div class="testimonial-card__avatar">T</div>
               <div>
-                <div class="testimonial-card__name">Garant Transfer</div>
+                <div class="testimonial-card__name">Tomáš</div>
                 <div class="testimonial-card__role">Transport Services</div>
               </div>
             </div>
@@ -2014,15 +2143,13 @@
             <div class="faq__answer">
               <p>
                 If you have an existing website, I'll migrate it to our modern
-                system completely free. You'll see the difference in performance,
-                speed, and management options. Then you decide.
+                system completely free. You'll see the difference in
+                performance, speed, and management options. Then you decide.
               </p>
             </div>
           </div>
           <div class="faq__item">
-            <button class="faq__question">
-              What technologies do you use?
-            </button>
+            <button class="faq__question">What technologies do you use?</button>
             <div class="faq__answer">
               <p>
                 I work with a modern tech stack — fullstack Node.js, React, or
@@ -2034,9 +2161,7 @@
           <div class="faq__item">
             <button class="faq__question">Do I need hosting?</button>
             <div class="faq__answer">
-              <p>
-                No hosting needed. I'll handle everything for you.
-              </p>
+              <p>No hosting needed. I'll handle everything for you.</p>
             </div>
           </div>
           <div class="faq__item">
@@ -2077,12 +2202,7 @@
             method="POST"
             onsubmit="return handleSubmit(event);"
           >
-            <input
-              type="text"
-              name="name"
-              placeholder="Your name *"
-              required
-            />
+            <input type="text" name="name" placeholder="Your name *" required />
             <input
               type="email"
               name="email"
@@ -2090,11 +2210,7 @@
               required
             />
             <input type="tel" name="phone" placeholder="Phone" />
-            <input
-              type="text"
-              name="company"
-              placeholder="Company / Website"
-            />
+            <input type="text" name="company" placeholder="Company / Website" />
             <select name="interest" required>
               <option value="" disabled selected>I'm interested in... *</option>
               <option value="new-website">Custom website</option>

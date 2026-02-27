@@ -295,22 +295,6 @@
       .scene-3 {
         animation: sceneVisStay 1s ease forwards;
         animation-delay: 8s;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 6vw;
-        text-align: left;
-      }
-      .scene-3 .s3-left {
-        flex-shrink: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      .scene-3 .s3-right {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
       }
 
       @keyframes sceneVis {
@@ -668,43 +652,6 @@
         animation-delay: 5.8s;
       }
 
-      .s2-you-label {
-        position: absolute;
-        top: 2%;
-        right: -10%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        opacity: 0;
-        animation: fadeSlideDown 0.6s ease forwards;
-        animation-delay: 5s;
-        z-index: 10;
-      }
-      .s2-you-label span {
-        font-family: "Playfair Display", serif;
-        font-size: clamp(0.9rem, 2vw, 1.4rem);
-        font-weight: 700;
-        color: var(--pink);
-        white-space: nowrap;
-      }
-      .s2-you-label .s2-you-arrow {
-        width: 2px;
-        height: 30px;
-        background: var(--pink);
-        margin-top: 4px;
-        position: relative;
-      }
-      .s2-you-label .s2-you-arrow::after {
-        content: "";
-        position: absolute;
-        bottom: -6px;
-        left: 50%;
-        transform: translateX(-50%);
-        border-left: 5px solid transparent;
-        border-right: 5px solid transparent;
-        border-top: 6px solid var(--pink);
-      }
-
       .s2-text {
         font-family: "Inter", sans-serif;
         font-size: clamp(1rem, 2.5vw, 2rem);
@@ -732,38 +679,6 @@
         opacity: 0;
         animation: fadeSlideDown 0.5s ease forwards;
         animation-delay: 8.3s;
-      }
-
-      .s3-portrait {
-        width: clamp(140px, 22vw, 260px);
-        height: clamp(140px, 22vw, 260px);
-        border-radius: 50%;
-        object-fit: cover;
-        opacity: 0;
-        animation: portraitReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        animation-delay: 8.4s;
-        margin-top: 12px;
-      }
-      .s3-name {
-        font-family: "Inter", sans-serif;
-        font-size: clamp(0.8rem, 1.4vw, 1.1rem);
-        font-weight: 600;
-        color: var(--cyan);
-        margin-top: 12px;
-        opacity: 0;
-        animation: fadeSlideUp 0.5s ease forwards;
-        animation-delay: 8.6s;
-      }
-
-      @keyframes portraitReveal {
-        0% {
-          opacity: 0;
-          transform: scale(0.5) translateY(20px);
-        }
-        100% {
-          opacity: 1;
-          transform: scale(1) translateY(0);
-        }
       }
 
       .s3-headline {
@@ -1437,18 +1352,6 @@
         .anchor__comparison {
           grid-template-columns: 1fr;
         }
-        .scene-3 {
-          flex-direction: column;
-          text-align: center;
-          gap: 0;
-        }
-        .scene-3 .s3-right {
-          align-items: center;
-        }
-        .s3-portrait {
-          width: 120px;
-          height: 120px;
-        }
         .s3-stats {
           gap: 24px;
           flex-wrap: wrap;
@@ -1704,51 +1607,35 @@
           <div class="fish-bubble fish-bubble--1"></div>
           <div class="fish-bubble fish-bubble--2"></div>
           <div class="fish-bubble fish-bubble--3"></div>
-          <!-- "To jste vy" label -->
-          <div class="s2-you-label">
-            <span>To jste vy!</span>
-            <div class="s2-you-arrow"></div>
-          </div>
         </div>
-        <p class="s2-text">Vypadá to, že jste se chytl&hellip;</p>
+        <p class="s2-text">Vypadá to, že jste chycený&hellip;</p>
       </div>
 
       <!-- SCENE 3: The Reveal -->
       <div class="scene scene-3">
-        <div class="s3-left">
-          <img
-            src="michalvarys-portrait.webp"
-            alt="Michal Varyš"
-            class="s3-portrait"
-            width="260"
-            height="260"
-          />
-        </div>
-        <div class="s3-right">
-          <span class="s3-badge">Právě jste chycený do sítě</span>
-          <h1 class="s3-headline">Michala Varyše</h1>
-          <p class="s3-sub">
-            A to pravděpodobně ta nejlepší věc, která vás dnes potkala. Dělám
-            bombové weby - přesně jako je tento.
-          </p>
-          <a href="#kontakt" class="s3-cta">Chci nezávaznou konzultaci</a>
-          <div class="s3-stats">
-            <div class="s3-stat">
-              <div class="s3-stat-num">18+</div>
-              <div class="s3-stat-label">Let v kódu</div>
-            </div>
-            <div class="s3-stat">
-              <div class="s3-stat-num">7+</div>
-              <div class="s3-stat-label">Let v designu</div>
-            </div>
-            <div class="s3-stat">
-              <div class="s3-stat-num">5+</div>
-              <div class="s3-stat-label">Let v AI</div>
-            </div>
-            <div class="s3-stat">
-              <div class="s3-stat-num">50+</div>
-              <div class="s3-stat-label">Projektů</div>
-            </div>
+        <span class="s3-badge">Chycený</span>
+        <h1 class="s3-headline">Do sítě<br />Michala Varyše</h1>
+        <p class="s3-sub">
+          A to je ta nejlepší věc, co se vám dnes stala.<br />
+          Dělám bombové weby jako je tento.
+        </p>
+        <a href="#kontakt" class="s3-cta">Chci nezávaznou konzultaci</a>
+        <div class="s3-stats">
+          <div class="s3-stat">
+            <div class="s3-stat-num">18+</div>
+            <div class="s3-stat-label">Let v kódu</div>
+          </div>
+          <div class="s3-stat">
+            <div class="s3-stat-num">7+</div>
+            <div class="s3-stat-label">Let v designu</div>
+          </div>
+          <div class="s3-stat">
+            <div class="s3-stat-num">5+</div>
+            <div class="s3-stat-label">Let v AI</div>
+          </div>
+          <div class="s3-stat">
+            <div class="s3-stat-num">50+</div>
+            <div class="s3-stat-label">Projektů</div>
           </div>
         </div>
       </div>
@@ -2098,9 +1985,9 @@
               prodává. Nejlepší investice, kterou jsme letos udělali.&ldquo;
             </p>
             <div class="testimonial-card__author">
-              <div class="testimonial-card__avatar">T</div>
+              <div class="testimonial-card__avatar">G</div>
               <div>
-                <div class="testimonial-card__name">Tomáš</div>
+                <div class="testimonial-card__name">Garant Transfer</div>
                 <div class="testimonial-card__role">Přepravní služby</div>
               </div>
             </div>
