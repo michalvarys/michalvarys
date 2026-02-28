@@ -27,6 +27,14 @@ class MVLandingController(http.Controller):
         company = kwargs.get('company', '').strip()
         interest = kwargs.get('interest', '').strip()
         message = kwargs.get('message', '').strip()
+        crm_note = kwargs.get('crm_note', '').strip()
+
+        # UTM params
+        utm_source = kwargs.get('utm_source', '').strip()
+        utm_medium = kwargs.get('utm_medium', '').strip()
+        utm_campaign = kwargs.get('utm_campaign', '').strip()
+        utm_term = kwargs.get('utm_term', '').strip()
+        utm_content = kwargs.get('utm_content', '').strip()
 
         # Server-side validation
         errors = []
@@ -48,6 +56,9 @@ class MVLandingController(http.Controller):
         try:
             # Build description from all available info
             desc_parts = []
+            if crm_note:
+                desc_parts.append(crm_note)
+                desc_parts.append('')  # blank line separator
             if company:
                 desc_parts.append(_('Firma / Web: %s') % company)
             desc_parts.append(_('Zájem o: %s') % interest_label)
@@ -55,6 +66,22 @@ class MVLandingController(http.Controller):
                 desc_parts.append(_('Telefon: %s') % phone)
             if message:
                 desc_parts.append(f'\n{message}')
+
+            # Append UTM info to description for easy visibility
+            utm_parts = []
+            if utm_source:
+                utm_parts.append(f'source={utm_source}')
+            if utm_medium:
+                utm_parts.append(f'medium={utm_medium}')
+            if utm_campaign:
+                utm_parts.append(f'campaign={utm_campaign}')
+            if utm_term:
+                utm_parts.append(f'term={utm_term}')
+            if utm_content:
+                utm_parts.append(f'content={utm_content}')
+            if utm_parts:
+                desc_parts.append(f'\nUTM: {", ".join(utm_parts)}')
+
             description = '\n'.join(desc_parts)
 
             # Find default sales team and salesperson
@@ -70,6 +97,18 @@ class MVLandingController(http.Controller):
                 'description': description,
                 'type': 'opportunity',
             }
+
+            # Resolve UTM tracking fields (find-or-create)
+            if utm_source:
+                lead_vals['source_id'] = self._get_or_create_utm(
+                    'utm.source', utm_source).id
+            if utm_medium:
+                lead_vals['medium_id'] = self._get_or_create_utm(
+                    'utm.medium', utm_medium).id
+            if utm_campaign:
+                lead_vals['campaign_id'] = self._get_or_create_utm(
+                    'utm.campaign', utm_campaign).id
+
             if sales_team:
                 lead_vals['team_id'] = sales_team.id
                 if sales_team.user_id:
@@ -86,8 +125,13 @@ class MVLandingController(http.Controller):
             lead = request.env['crm.lead'].sudo().create(lead_vals)
             _logger.info('MV Landing: CRM opportunity created for %s <%s>', name, email)
 
+            # Build UTM summary for email
+            utm_info = ', '.join(utm_parts) if utm_parts else ''
+
             # Send email notification to admin
-            self._send_notification_email(lead, name, email, phone, company, interest_label, message)
+            self._send_notification_email(
+                lead, name, email, phone, company, interest_label, message,
+                crm_note=crm_note, utm_info=utm_info)
 
             return request.make_json_response({
                 'success': True,
@@ -101,7 +145,16 @@ class MVLandingController(http.Controller):
                 'message': _('Omlouváme se, došlo k chybě. Zkuste to prosím znovu.'),
             }, status=500)
 
-    def _send_notification_email(self, lead, name, email, phone, company, interest_label, message):
+    @staticmethod
+    def _get_or_create_utm(model_name, value):
+        """Find or create a UTM record (source/medium/campaign) by name."""
+        Model = request.env[model_name].sudo()
+        record = Model.search([('name', '=ilike', value)], limit=1)
+        if not record:
+            record = Model.create({'name': value})
+        return record
+
+    def _send_notification_email(self, lead, name, email, phone, company, interest_label, message, crm_note='', utm_info=''):
         """Send notification email about new landing page inquiry."""
         try:
             # Get the website/company email as recipient
@@ -149,11 +202,24 @@ class MVLandingController(http.Controller):
                         </tr>
                     </table>'''
 
+            if crm_note:
+                body_html += f'''
+                    <div style="margin-top: 20px; padding: 16px; background: rgba(102,153,255,0.1); border-radius: 8px; border-left: 3px solid #6699ff;">
+                        <p style="color: #888; margin: 0 0 8px; font-size: 13px;">{_("Poznámka")}</p>
+                        <p style="color: #fff; margin: 0; line-height: 1.6;">{crm_note}</p>
+                    </div>'''
+
             if message:
                 body_html += f'''
                     <div style="margin-top: 20px; padding: 16px; background: rgba(255,255,255,0.05); border-radius: 8px; border-left: 3px solid #933df5;">
                         <p style="color: #888; margin: 0 0 8px; font-size: 13px;">{_("Zpráva")}</p>
                         <p style="color: #fff; margin: 0; line-height: 1.6;">{message}</p>
+                    </div>'''
+
+            if utm_info:
+                body_html += f'''
+                    <div style="margin-top: 12px; padding: 8px 16px; background: rgba(255,255,255,0.03); border-radius: 6px;">
+                        <p style="color: #555; margin: 0; font-size: 11px;">UTM: {utm_info}</p>
                     </div>'''
 
             body_html += f'''

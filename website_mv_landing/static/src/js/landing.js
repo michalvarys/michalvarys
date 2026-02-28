@@ -9,6 +9,23 @@ publicWidget.registry.MVContactForm = publicWidget.Widget.extend({
         'submit #mv-contact-form': '_onSubmit',
     },
 
+    start() {
+        this._super(...arguments);
+        this._fillUtmFromUrl();
+    },
+
+    _fillUtmFromUrl() {
+        const params = new URLSearchParams(window.location.search);
+        const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+        for (const key of utmKeys) {
+            const val = params.get(key);
+            if (val) {
+                const input = this.el.querySelector(`input[name="${key}"]`);
+                if (input) input.value = val;
+            }
+        }
+    },
+
     _onSubmit(ev) {
         ev.preventDefault();
         const form = ev.currentTarget;

@@ -425,16 +425,16 @@
       }
 
       .scene-1 {
-        animation: sceneVis 4s ease forwards;
+        animation: sceneVis 1.5s ease forwards;
         animation-delay: 0s;
       }
       .scene-2 {
-        animation: sceneVis 5s ease forwards;
-        animation-delay: 3.5s;
+        animation: sceneVis 3s ease forwards;
+        animation-delay: 1s;
       }
       .scene-3 {
         animation: sceneVisStay 1s ease forwards;
-        animation-delay: 8s;
+        animation-delay: 3.5s;
         flex-direction: row;
         align-items: center;
         justify-content: center;
@@ -860,6 +860,43 @@
       }
 
       /* ===== SCENE 1: Net Falls ===== */
+      .s1-hands {
+        position: absolute;
+        top: -5%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 5;
+        opacity: 0;
+        animation: throwMotion 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+        animation-delay: 0s;
+      }
+      .s1-hands svg {
+        width: clamp(180px, 30vw, 320px);
+        height: auto;
+      }
+      @keyframes throwMotion {
+        0% {
+          opacity: 0;
+          transform: translateX(-50%) translateY(-20%) scale(0.9);
+        }
+        15% {
+          opacity: 1;
+          transform: translateX(-50%) translateY(0%) scale(1);
+        }
+        50% {
+          opacity: 1;
+          transform: translateX(-50%) translateY(10%) scale(1.05) rotate(5deg);
+        }
+        75% {
+          opacity: 0.7;
+          transform: translateX(-50%) translateY(25%) scale(1) rotate(-2deg);
+        }
+        100% {
+          opacity: 0;
+          transform: translateX(-50%) translateY(40%) scale(0.9);
+        }
+      }
+
       .s1-text {
         font-family: "Inter", sans-serif;
         font-size: clamp(1.2rem, 3vw, 2.5rem);
@@ -867,8 +904,8 @@
         color: rgba(0, 212, 255, 0.7);
         letter-spacing: 0.2em;
         opacity: 0;
-        animation: fadeSlideUp 0.8s ease forwards;
-        animation-delay: 0.5s;
+        animation: fadeSlideUp 0.5s ease forwards;
+        animation-delay: 0.1s;
       }
 
       .s1-net {
@@ -877,8 +914,8 @@
         left: 50%;
         transform: translate(-50%, -50%) translateY(-120%) scaleX(0.5);
         opacity: 0;
-        animation: netFall 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-        animation-delay: 0.8s;
+        animation: netFall 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        animation-delay: 0.2s;
       }
       .s1-net svg {
         width: clamp(200px, 40vw, 400px);
@@ -890,8 +927,8 @@
         fill: none;
         stroke-dasharray: 2000;
         stroke-dashoffset: 2000;
-        animation: strokeDraw 2s ease forwards;
-        animation-delay: 1s;
+        animation: strokeDraw 1s ease forwards;
+        animation-delay: 0.3s;
       }
 
       /* ===== SCENE 2: Fish in Net ===== */
@@ -916,7 +953,7 @@
           netSway 4s ease-in-out infinite,
           netTighten 2s ease forwards,
           netGlow 2s ease-in-out 2;
-        animation-delay: 3.8s, 4s, 5.5s, 5.5s;
+        animation-delay: 1.1s, 1.3s, 2.5s, 2.5s;
       }
       .s2-net-wrap svg.net-svg {
         width: 100%;
@@ -939,7 +976,7 @@
           fishAppear 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards,
           fishSwim 3s ease-in-out infinite,
           fishStruggle 0.6s ease-in-out infinite;
-        animation-delay: 4.2s, 5s, 5.8s;
+        animation-delay: 1.3s, 2s, 2.5s;
       }
       .s2-fish svg {
         width: clamp(140px, 28vw, 260px);
@@ -949,17 +986,17 @@
       .fish-tail {
         transform-origin: 65% 50%;
         animation: tailWag 0.8s ease-in-out infinite;
-        animation-delay: 4.5s;
+        animation-delay: 1.5s;
       }
       .fish-dorsal {
         transform-origin: 50% 100%;
         animation: finWave 2.5s ease-in-out infinite;
-        animation-delay: 4.5s;
+        animation-delay: 1.5s;
       }
       .fish-pectoral {
         transform-origin: 70% 30%;
         animation: pectoralFin 1.8s ease-in-out infinite;
-        animation-delay: 4.8s;
+        animation-delay: 1.7s;
       }
 
       /* Fish bubbles */
@@ -980,7 +1017,7 @@
         top: 35%;
         left: 25%;
         animation: fishBubble 2s ease-out infinite;
-        animation-delay: 4.8s;
+        animation-delay: 1.8s;
       }
       .fish-bubble--2 {
         width: 7px;
@@ -988,7 +1025,7 @@
         top: 30%;
         left: 20%;
         animation: fishBubble 2.5s ease-out infinite;
-        animation-delay: 5.3s;
+        animation-delay: 2.2s;
       }
       .fish-bubble--3 {
         width: 5px;
@@ -996,7 +1033,7 @@
         top: 40%;
         left: 22%;
         animation: fishBubble 1.8s ease-out infinite;
-        animation-delay: 5.8s;
+        animation-delay: 2.5s;
       }
 
       .splash-drop {
@@ -1007,7 +1044,7 @@
         background: rgba(0, 212, 255, 0.6);
         opacity: 0;
         animation: splashOut 0.6s ease-out forwards;
-        animation-delay: 4.2s;
+        animation-delay: 1.3s;
       }
       .splash-drop--1 {
         --splash-dir: translate(-30px, -25px);
@@ -1020,7 +1057,7 @@
         left: 60%;
         width: 4px;
         height: 4px;
-        animation-delay: 4.25s;
+        animation-delay: 1.35s;
       }
       .splash-drop--3 {
         --splash-dir: translate(-20px, 20px);
@@ -1028,7 +1065,7 @@
         left: 50%;
         width: 5px;
         height: 5px;
-        animation-delay: 4.3s;
+        animation-delay: 1.4s;
       }
       .splash-drop--4 {
         --splash-dir: translate(35px, 15px);
@@ -1036,7 +1073,7 @@
         left: 65%;
         width: 3px;
         height: 3px;
-        animation-delay: 4.15s;
+        animation-delay: 1.25s;
       }
       .splash-drop--5 {
         --splash-dir: translate(-15px, -40px);
@@ -1044,7 +1081,7 @@
         left: 52%;
         width: 4px;
         height: 4px;
-        animation-delay: 4.35s;
+        animation-delay: 1.45s;
       }
 
       .fish-bubble--4 {
@@ -1053,7 +1090,7 @@
         top: 32%;
         left: 18%;
         animation: fishBubble 1.5s ease-out infinite;
-        animation-delay: 6s;
+        animation-delay: 2.8s;
       }
       .fish-bubble--5 {
         width: 6px;
@@ -1061,7 +1098,7 @@
         top: 38%;
         left: 24%;
         animation: fishBubble 2s ease-out infinite;
-        animation-delay: 6.3s;
+        animation-delay: 3s;
       }
 
       .s2-you-label {
@@ -1075,7 +1112,7 @@
         align-items: center;
         opacity: 0;
         animation: fadeSlideDown 0.6s ease forwards;
-        animation-delay: 5s;
+        animation-delay: 2s;
         z-index: 10;
       }
       .s2-you-label span {
@@ -1111,7 +1148,7 @@
         margin-top: 2vh;
         opacity: 0;
         animation: fadeSlideUp 0.6s ease forwards;
-        animation-delay: 4.8s;
+        animation-delay: 1.8s;
       }
 
       /* ===== SCENE 3: Reveal ===== */
@@ -1129,7 +1166,7 @@
         color: var(--cyan);
         opacity: 0;
         animation: fadeSlideDown 0.5s ease forwards;
-        animation-delay: 8.3s;
+        animation-delay: 3.8s;
       }
 
       .s3-portrait {
@@ -1139,7 +1176,7 @@
         object-fit: cover;
         opacity: 0;
         animation: portraitReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        animation-delay: 8.4s;
+        animation-delay: 3.9s;
         margin-top: 12px;
       }
       .s3-name {
@@ -1150,7 +1187,7 @@
         margin-top: 12px;
         opacity: 0;
         animation: fadeSlideUp 0.5s ease forwards;
-        animation-delay: 8.6s;
+        animation-delay: 4.1s;
       }
 
       @keyframes portraitReveal {
@@ -1184,7 +1221,7 @@
         animation:
           scaleRevealBig 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards,
           shimmer 3s linear infinite;
-        animation-delay: 8.6s, 10s;
+        animation-delay: 4.1s, 5.5s;
       }
 
       .s3-sub {
@@ -1197,7 +1234,7 @@
         line-height: 1.6;
         opacity: 0;
         animation: fadeSlideUp 0.5s ease forwards;
-        animation-delay: 9.2s;
+        animation-delay: 4.7s;
       }
 
       .s3-cta {
@@ -1217,7 +1254,7 @@
         animation:
           fadeSlideUp 0.5s ease forwards,
           ctaBreath 2.5s ease-in-out infinite;
-        animation-delay: 9.6s, 11s;
+        animation-delay: 5.1s, 6.5s;
       }
 
       .s3-urgency {
@@ -1235,7 +1272,7 @@
         border: none;
         opacity: 0;
         animation: fadeSlideUp 0.5s ease forwards;
-        animation-delay: 10s;
+        animation-delay: 5.5s;
       }
       .s3-urgency::before {
         content: "";
@@ -1268,19 +1305,19 @@
       }
       .s3-stat:nth-child(1) {
         animation: countUp 0.5s ease forwards;
-        animation-delay: 10.2s;
+        animation-delay: 5.7s;
       }
       .s3-stat:nth-child(2) {
         animation: countUp 0.5s ease forwards;
-        animation-delay: 10.5s;
+        animation-delay: 6.0s;
       }
       .s3-stat:nth-child(3) {
         animation: countUp 0.5s ease forwards;
-        animation-delay: 10.8s;
+        animation-delay: 6.3s;
       }
       .s3-stat:nth-child(4) {
         animation: countUp 0.5s ease forwards;
-        animation-delay: 11.1s;
+        animation-delay: 6.6s;
       }
       .s3-stat-num {
         font-family: "Inter", sans-serif;
@@ -1307,7 +1344,7 @@
         z-index: 10;
         opacity: 0;
         animation: fadeSlideUp 0.5s ease forwards;
-        animation-delay: 11.5s;
+        animation-delay: 7s;
       }
       .hero__scroll span {
         display: block;
@@ -1334,7 +1371,7 @@
         border-bottom: 2px solid rgba(0, 212, 255, 0.5);
         transform: rotate(45deg);
         animation: scrollBounce 1.5s ease-in-out infinite;
-        animation-delay: 12s;
+        animation-delay: 7.5s;
       }
 
       /* ===== PROBLEM SECTION ===== */
@@ -1923,6 +1960,60 @@
 
       <!-- SCENE 1: Net falls -->
       <div class="scene scene-1">
+        <!-- Hands throwing the net -->
+        <div class="s1-hands">
+          <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- Left arm -->
+            <g opacity="0.85">
+              <!-- Upper arm -->
+              <path d="M80,0 Q75,40 90,70 Q95,80 100,90" stroke="rgba(0,212,255,0.5)" stroke-width="18" stroke-linecap="round" fill="none"/>
+              <!-- Forearm -->
+              <path d="M100,90 Q115,110 130,130" stroke="rgba(0,212,255,0.55)" stroke-width="15" stroke-linecap="round" fill="none"/>
+              <!-- Hand -->
+              <g transform="translate(130,130)">
+                <!-- Palm -->
+                <ellipse cx="0" cy="5" rx="14" ry="10" fill="rgba(0,212,255,0.35)" stroke="rgba(0,212,255,0.5)" stroke-width="1.5"/>
+                <!-- Fingers gripping net -->
+                <path d="M-8,0 Q-12,-12 -8,-18" stroke="rgba(0,212,255,0.5)" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+                <path d="M-3,-2 Q-4,-16 -1,-22" stroke="rgba(0,212,255,0.5)" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+                <path d="M4,-2 Q5,-16 7,-22" stroke="rgba(0,212,255,0.5)" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+                <path d="M10,0 Q14,-10 13,-18" stroke="rgba(0,212,255,0.5)" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+                <!-- Thumb -->
+                <path d="M-12,8 Q-20,2 -18,-5" stroke="rgba(0,212,255,0.5)" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+              </g>
+              <!-- Sleeve cuff -->
+              <rect x="70" y="0" width="25" height="12" rx="4" fill="rgba(0,212,255,0.2)" stroke="rgba(0,212,255,0.3)" stroke-width="1"/>
+            </g>
+            <!-- Right arm -->
+            <g opacity="0.85">
+              <!-- Upper arm -->
+              <path d="M220,0 Q225,40 210,70 Q205,80 200,90" stroke="rgba(0,212,255,0.5)" stroke-width="18" stroke-linecap="round" fill="none"/>
+              <!-- Forearm -->
+              <path d="M200,90 Q185,110 170,130" stroke="rgba(0,212,255,0.55)" stroke-width="15" stroke-linecap="round" fill="none"/>
+              <!-- Hand -->
+              <g transform="translate(170,130)">
+                <!-- Palm -->
+                <ellipse cx="0" cy="5" rx="14" ry="10" fill="rgba(0,212,255,0.35)" stroke="rgba(0,212,255,0.5)" stroke-width="1.5"/>
+                <!-- Fingers gripping net -->
+                <path d="M8,0 Q12,-12 8,-18" stroke="rgba(0,212,255,0.5)" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+                <path d="M3,-2 Q4,-16 1,-22" stroke="rgba(0,212,255,0.5)" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+                <path d="M-4,-2 Q-5,-16 -7,-22" stroke="rgba(0,212,255,0.5)" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+                <path d="M-10,0 Q-14,-10 -13,-18" stroke="rgba(0,212,255,0.5)" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+                <!-- Thumb -->
+                <path d="M12,8 Q20,2 18,-5" stroke="rgba(0,212,255,0.5)" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+              </g>
+              <!-- Sleeve cuff -->
+              <rect x="205" y="0" width="25" height="12" rx="4" fill="rgba(0,212,255,0.2)" stroke="rgba(0,212,255,0.3)" stroke-width="1"/>
+            </g>
+            <!-- Net strands connecting hands to thrown net -->
+            <g stroke="rgba(0,212,255,0.25)" stroke-width="1.2" fill="none" stroke-dasharray="4,4">
+              <path d="M122,115 Q150,155 150,190"/>
+              <path d="M130,120 Q155,155 160,190"/>
+              <path d="M178,115 Q150,155 150,190"/>
+              <path d="M170,120 Q145,155 140,190"/>
+            </g>
+          </svg>
+        </div>
         <p class="s1-text">Moment&hellip;</p>
         <div class="s1-net">
           <svg viewBox="0 0 300 350" xmlns="http://www.w3.org/2000/svg">
@@ -2240,14 +2331,14 @@
                   attributeName="r"
                   values="6;4;3;3"
                   dur="0.5s"
-                  begin="4.5s"
+                  begin="1.5s"
                   fill="freeze"
                 />
                 <animate
                   attributeName="cx"
                   values="47;45;44;44"
                   dur="0.5s"
-                  begin="4.5s"
+                  begin="1.5s"
                   fill="freeze"
                 />
               </circle>
@@ -2267,14 +2358,14 @@
                   attributeName="r"
                   values="8;17;15;14"
                   dur="0.6s"
-                  begin="4.5s"
+                  begin="1.5s"
                   fill="freeze"
                 />
                 <animate
                   attributeName="stroke-opacity"
                   values="0.4;0.8;0.5;0.4"
                   dur="0.6s"
-                  begin="4.5s"
+                  begin="1.5s"
                   fill="freeze"
                 />
               </circle>
@@ -2291,7 +2382,7 @@
                   attributeName="d"
                   values="M40,40 Q48,37 58,40;M38,35 Q48,30 60,35;M38,36 Q48,31 60,36"
                   dur="0.5s"
-                  begin="4.5s"
+                  begin="1.5s"
                   fill="freeze"
                 />
               </path>
@@ -2310,14 +2401,14 @@
                   attributeName="ry"
                   values="4;10;8;8"
                   dur="0.5s"
-                  begin="4.5s"
+                  begin="1.5s"
                   fill="freeze"
                 />
                 <animate
                   attributeName="rx"
                   values="3;7;6;6"
                   dur="0.5s"
-                  begin="4.5s"
+                  begin="1.5s"
                   fill="freeze"
                 />
               </ellipse>

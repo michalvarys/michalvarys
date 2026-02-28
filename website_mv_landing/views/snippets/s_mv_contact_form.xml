@@ -13,6 +13,14 @@
                     </p>
                     <form id="mv-contact-form" class="mv-form" action="/mv-landing/contact" method="post">
                         <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <!-- UTM tracking (auto-filled from URL by JS) -->
+                        <input type="hidden" name="utm_source" value=""/>
+                        <input type="hidden" name="utm_medium" value=""/>
+                        <input type="hidden" name="utm_campaign" value=""/>
+                        <input type="hidden" name="utm_term" value=""/>
+                        <input type="hidden" name="utm_content" value=""/>
+                        <!-- Generic note for CRM (set per-form via hidden input) -->
+                        <input type="hidden" name="crm_note" value=""/>
                         <input type="text" name="name" placeholder="Vaše jméno *" required="required" minlength="2"/>
                         <input type="email" name="email" placeholder="Váš e-mail *" required="required"/>
                         <input type="tel" name="phone" placeholder="Telefon"/>
